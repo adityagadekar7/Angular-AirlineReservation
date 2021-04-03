@@ -1,16 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
+import { EditFlightComponent } from './components/edit-flight/edit-flight.component';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import {  AlertModule } from 'ngx-bootstrap/alert'
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AdminLoginComponent,
+    UserLoginComponent,
+    EditFlightComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    NgbModule,
+    AlertModule.forRoot(), TabsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
