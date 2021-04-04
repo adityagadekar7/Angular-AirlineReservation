@@ -1,0 +1,61 @@
+<div align="center">
+    <tabset #tabset>
+        <tab heading="Flight Select">
+            <div align="center">
+
+         <form #flightselect="ngForm" name="flightselect" (ngSubmit)="FlightSelect(flightselect)" class="center">
+            <h3 class="center">Flight Select</h3>
+         
+            <div>
+                <label class="form-label" for="form-a">Flight Number</label>
+                <input type="number" name="Flight_Number" [(ngModel)]="model.Flight_Number" #Flight_Number="ngModel" class="form-textbox" id="form-a" required>
+                <span *ngIf="Flight_Number.errors?.required">Cannot be Blank</span>
+            </div>
+            <div>
+                <label>Reservation Date</label>
+                <input type="date" name="Reservation_Date" [(ngModel)]="model.Reservation_Date" #Reservation_Date="ngModel" required/>
+                <span *ngIf="Reservation_Date.errors?.required">Cannot be Blank</span>
+    </div>
+    <div>
+        <label>Reservation Time</label>
+        <input type="time" name="Reservation_Time" [(ngModel)]="model.Reservation_Time" #Reservation_Time="ngModel" required/>
+        <span *ngIf="Reservation_Time.errors?.required">Cannot be Blank</span>
+    </div>
+    <div>
+        <label>Number of Seats-</label>
+        <label>Adults(12y+)</label>
+        <input type="number" name="Adult" [(ngModel)]="model.Adult" #Adult="ngModel" required>
+        <span *ngIf="Adult.errors?.required">Cannot be Blank</span>
+        <label>Children(2y-12y)</label>
+        <input type="number" name="Children" [(ngModel)]="model.Children" #Children="ngModel" required>
+        <span *ngIf="Children.errors?.required">Cannot be Blank</span>
+        <label>Infants(0y-2y)</label>
+        <input type="number" name="Infants" [(ngModel)]="model.Infants" #Infants="ngModel" required>
+        <span *ngIf="Infants.errors?.required">Cannot be Blank</span>
+    </div>
+    <div>
+        <label>Class Type</label>
+        <input type = "checkbox" id = "ct"  name = "Economy" [(ngModel)] = "model.class1" #ct = "ngModel" #Economy = "ngModel" value = "EC">Economy
+        <input type = "checkbox" id = "ct"  name = "Business" [(ngModel)] = "model.class2" #ct = "ngModel" #Business = "ngModel" value = "BU">Business
+        <span *ngIf="ct.errors?.required">Cannot be Blank</span>
+    </div>
+    <div>
+        <label>Total Price</label>
+        <input type="number" name="Total_Price" [(ngModel)]="model.Total_Price" #Total_Price="ngModel" required>
+        <span *ngIf="Total_Price.error?.required">Cannot be Blank</span>
+    </div>
+    <div>
+        <label>Flight Status</label>
+        <input type="text" name="Flight_Status" [(ngModel)]="model.Flight_Status" #Flight_Status="ngModel" required>
+        <span *ngIf="Flight_Status.error?.required">Cannot be Blank</span>
+    </div>
+    <div>
+        <button type="submit" [disabled]="flightselect.invalid">Continue</button>
+    </div>
+            </form>
+
+        </div>
+        </tab>
+    </tabset>
+</div>
+
