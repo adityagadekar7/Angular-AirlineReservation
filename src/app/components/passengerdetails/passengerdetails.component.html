@@ -1,0 +1,45 @@
+<h1>Passenger Details</h1>
+<form #passdet="ngForm" name="passdet" (ngSubmit)="PassDet(passdet)">
+    <div>
+        <label>Passport Number</label>
+        <input type="number" name="Passport_Number" [(ngModel)]="model.Passport_Number" #Passport_Number="ngModel" required>
+        <span *ngIf="Passport_Number.errors?.required">Cannot be Blank</span>
+    </div>
+    <div>
+        <label>Passenger First Name</label>
+        <input type="text" name="First_Name" [(ngModel)]="model.First_Name" #First_Name="ngModel" required>
+        <span *ngIf="First_Name.errors?.required">Cannot be Blank</span>
+    </div>
+    <div>
+        <label>Passenger Last Name</label>
+        <input type="text" name="Last_Name" [(ngModel)]="model.Last_Name" #Last_Name="ngModel" required>
+        <span *ngIf="Last_Name.errors?.required">Cannot be Blank</span>
+    </div>
+    <div>
+        <label>Passenger Date of Birth</label>
+        <input type="date" name="DOB" [(ngModel)]="model.DOB" #DOB="ngModel" required>
+        <span *ngIf="DOB.errors?.required">Cannot be Blank</span>
+    </div>
+    <div><label>Select Gender</label>
+        <input type="radio" name="gen" [(ngModel)]="model.gen" #gen="ngModel" value="Male" required>Male
+        <input type="radio" name="gen" [(ngModel)]="model.gen" #gen="ngModel" value="Female" required>Female
+        <span *ngIf="gen.errors?.required">Cannot be Blank</span>
+    </div>
+    <div>
+        <label>Passenger Phone Number</label>
+        <input type="tel" name="Phone_Number" [(ngModel)]="model.Phone_Number" #Phone_Number="ngModel" pattern="^[0-9]{10}$"required>
+        <span *ngIf="Phone_Number.errors?.required">Cannot be Blank</span>
+        <span *ngIf="Phone_Number.errors?.pattern">Phone Number has to be numeric and 10 digits</span>
+    </div>
+    <div>
+        <label>Passenger Covid Certificate</label>
+        <input type="radio" name="cc" [(ngModel)]="model.cc" #cc="ngModel" value="Yes" required>Yes
+        <input type="radio" name="cc" [(ngModel)]="model.cc" #cc="ngModel" value="No" required>No
+        <span *ngIf="cc.errors?.required">Cannot be Blank</span>
+    </div>
+
+    <div>
+        <button type="submit" [disabled]="passdet.invalid">Continue</button>
+    </div>
+</form>
+

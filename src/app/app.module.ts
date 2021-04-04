@@ -12,7 +12,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import {  AlertModule } from 'ngx-bootstrap/alert';
 import { HomeComponent } from './components/home/home.component';
-import { RegistrationComponent } from './components/registration/registration.component'
+import { RegistrationComponent } from './components/registration/registration.component';
+import { FlightselectComponent } from './components/flightselect/flightselect.component';
+import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component'
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { RegistrationComponent } from './components/registration/registration.co
     EditFlightComponent,
     HomeComponent,
     RegistrationComponent,
+    FlightselectComponent,
+    PassengerdetailsComponent,
     
     
   ],
