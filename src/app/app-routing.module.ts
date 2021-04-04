@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RegistrationComponent } from './components/registration/registration.component'
 import { FlightselectComponent } from './components/flightselect/flightselect.component';
 import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component';
+import{PaymentComponent} from './components/payment/payment.component'
 
 const routes: Routes = [
   {path:'AdminLogin',component:AdminLoginComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'homepage', component: HomeComponent },
   { path: 'registration', component: RegistrationComponent },
   {path:'FlightSelect', component:FlightselectComponent},
-  {path:'PassDet', component:PassengerdetailsComponent}
+  {path:'PassDet', component:PassengerdetailsComponent},
+  {path:'PaymentForm',component:PaymentComponent}
 ];
 
 @NgModule({
