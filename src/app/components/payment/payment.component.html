@@ -1,20 +1,20 @@
-<h1>Payment</h1>
+<h1 class="center">Payment</h1>
 <form #paymentform="ngForm" name="paymentform" (ngSubmit)="PaymentForm(paymentform)">
     <div>
         <label>Card Number</label>
-        <input type="number" name="Card_Number" [(ngModel)]="model.Card_Number" #Card_Number="ngModel" required>
+        <input type="text" name="Card_Number" [(ngModel)]="model.Card_Number" #Card_Number="ngModel" required>
         <span *ngIf="Card_Number.errors?.required">Cannot be Blank</span>
     </div>
 
-    <div><label>Card Type</label>
-        <input type="radio" name="cardtype" [(ngModel)]="model.cardtype" #cardtype="ngModel" value="debit" required>Debit Card
+    <div><label>Card Type</label>&nbsp;
+        <input type="radio" name="cardtype" [(ngModel)]="model.cardtype" #cardtype="ngModel" value="debit" required>Debit Card &nbsp;
         <input type="radio" name="cardtype" [(ngModel)]="model.cardtype" #cardtype="ngModel" value="cerdit" required>Credit Card
-        <span *ngIf="gen.errors?.required">Cannot be Blank</span>
+        <span *ngIf="cardtype.errors?.required">Cannot be Blank</span>
     </div>
 
     <div>
-        <label>Expiry Date</label>
-        <input type="month" name="expirydate" [(ngModel)]="model.expirydate" #expirydate="ngModel" required>
+        <label>Expiry Date</label>&nbsp;
+        <input type="date" name="expirydate" [(ngModel)]="model.expirydate" #expirydate="ngModel" required>
         <span *ngIf="expirydate.errors?.required">Cannot be Blank</span>
     </div>
 

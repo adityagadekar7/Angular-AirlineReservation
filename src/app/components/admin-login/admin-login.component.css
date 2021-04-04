@@ -1,63 +1,56 @@
-.center{
-    text-align:center;
-     justify-content:center;
- }
+.center {
+    text-align: center;
+    justify-content: center;
+}
 
- 
- div{
-     padding-top:10px;
-     padding-bottom:10px;
-     padding-left: 30px;
-     padding-right: 50px;
- }
- 
- body{
-     background-color:rgb(207, 207, 207)
- }
- 
- /*INPUT*/
- 
- 
- input[type=text]{
-     width: 100%;
-     padding: 12px 20px;
-     margin: 8px 0;
-     box-sizing: border-box;
-   }
- 
-   input[type=password]{
-     width: 100%;
-     padding: 12px 20px;
-     margin: 8px 0;
-     box-sizing: border-box;
-   }
- 
-   .buttonx {
-    
-     border: none;
-     color: white;
-     padding: 15px 32px;
-     text-align: center;
-     text-decoration: none;
-     display: inline-block;
-     font-size: 12px;
-     width: 60%;
-   }
- 
- label{  
-     float: left;
-     font-size: 16px;
-     font-weight: bolder;
- }
- 
+div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 50px;
+}
 
- 
- form{
-    
-   width:450px;
-   padding: 6px;
-   margin: 0 auto; /*Center align form*/
- }
- 
- 
- 
+body {
+    background-color: rgb(207, 207, 207)
+}
+
+
+/*INPUT*/
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.buttonx {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    width: 60%;
+}
+
+label {
+    float: left;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+form {
+    width: 450px;
+    padding: 6px;
+    margin: 0 auto;
+    /*Center align form*/
+}

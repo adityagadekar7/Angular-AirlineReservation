@@ -1,38 +1,36 @@
+<div class="container">
 
 
-  <div class="container">
+    <!--container-->
 
-   
-        <!--container-->
-
-      <form class="form-group" #book="ngForm" name="book" (ngSubmit)="Bookflight(book)">
+    <form class="form-group" #book="ngForm" name="book" (ngSubmit)="Bookflight(book)">
         <!--form-->
         <h1 class="text-center">Airline Booking Form</h1>
         <div class="row" id="search">
 
-          <div class="form-group col-xs-3">
-            <button type="submit" class="btn btn-block btn-primary">Search</button>
-          </div>
-          </div>
+            <div class="form-group col-xs-3">
+                <button type="submit" class="btn btn-block btn-primary">Search</button>
+            </div>
+        </div>
 
 
-          <div id="form">
+        <div id="form">
             <!--form-->
             <h3 class="text-white">Booking Details</h3>
 
             <div id="input">
-              <!--input-->
-              <input type="text" id="input-group" name="from" [(ngModel)]="model.from" #from="ngModel" placeholder="From">
-              <input type="text" id="input-group" name="to" [(ngModel)]="model.to" #to="ngModel" placeholder="To">
-              <input type="date" id="input-group" name="dd" [(ngModel)]="model.dd" #dd="ngModel" placeholder="Departure Date">
-              <input type="time" id="input-group" name="dt" [(ngModel)]="model.dt" #dt="ngModel" placeholder="Departure Time">
-              <select id="input-group" style="background: black;">
+                <!--input-->
+                <input type="text" id="input-group" name="from" [(ngModel)]="model.from" #from="ngModel" placeholder="From">
+                <input type="text" id="input-group" name="to" [(ngModel)]="model.to" #to="ngModel" placeholder="To">
+                <input type="date" id="input-group" name="dd" [(ngModel)]="model.dd" #dd="ngModel" placeholder="Departure Date">
+                <input type="time" id="input-group" name="dt" [(ngModel)]="model.dt" #dt="ngModel" placeholder="Departure Time">
+                <select id="input-group" style="background: black;">
                 <option value="">Preffered Airline</option>
                 <option value="">IndoGo</option>
                 <option value="">AirIndia</option>
                 <option value="">SpaceJet</option>
               </select>
-              <select id="input-group" style="background: black;">
+                <select id="input-group" style="background: black;">
                 <option value="">Preffered Seating</option>
                 <option value="">Economy Class</option>
                 <option value="">Business Class</option>
@@ -41,36 +39,41 @@
             </div>
 
             <div id="input2">
-              <!--input2-->
-              <input type="number" id="input-group" name="adult" [(ngModel)]="model.adult" #adult="ngModel" placeholder="Adult">
-              <input type="number" id="input-group" name="child" [(ngModel)]="model.child" #child="ngModel" placeholder="Children(2-11years)">
-              <input type="number" id="input-group" name="infant" [(ngModel)]="model.infant" #infant="ngModel" placeholder="infant(under 2years)">
-            </div><!--input2-->
+                <!--input2-->
+                <input type="number" id="input-group" name="adult" [(ngModel)]="model.adult" #adult="ngModel" placeholder="Adult">
+                <input type="number" id="input-group" name="child" [(ngModel)]="model.child" #child="ngModel" placeholder="Children(2-11years)">
+                <input type="number" id="input-group" name="infant" [(ngModel)]="model.infant" #infant="ngModel" placeholder="infant(under 2years)">
+            </div>
+            <!--input2-->
 
             <div id="input3">
-              <!--input3-->
-              <span id="input-group" class="text-primary">Select Your Fare</span>
-              <input type="radio" name="ot" [(ngModel)]="model.ot" #ot="ngModel" id="input-group" name="r">
-              <label class="text-white"  for="input-group">One Way</label>
-              <input type="radio" name="rt" [(ngModel)]="model.rt" #rt="ngModel" id="input-group" name="r">
-              <label class="text-white"  for="input-group">Round Trip</label>
-            </div><!--input3-->
+                <!--input3-->
+                <span id="input-group" class="text-primary">Select Your Fare</span>
+                <input type="radio" name="ot" [(ngModel)]="model.ot" #ot="ngModel" id="input-group" name="r">
+                <label class="text-white" for="input-group">One Way</label>
+                <input type="radio" name="rt" [(ngModel)]="model.rt" #rt="ngModel" id="input-group" name="r">
+                <label class="text-white" for="input-group">Round Trip</label>
+            </div>
+            <!--input3-->
 
             <div id="input4">
-              <!--input4-->
-              <input type="text" id="input-group" name="rdate" [(ngModel)]="model.rdate" #rdate="ngModel" placeholder="Return Date">
-              <input type="text" id="input-group" name="rtime" [(ngModel)]="model.rtime" #rtime="ngModel" placeholder="Return time">
+                <!--input4-->
+                <input type="text" id="input-group" name="rdate" [(ngModel)]="model.rdate" #rdate="ngModel" placeholder="Return Date">
+                <input type="text" id="input-group" name="rtime" [(ngModel)]="model.rtime" #rtime="ngModel" placeholder="Return time">
 
-            </div><!--input4-->
+            </div>
+            <!--input4-->
 
-            
-              <!--input5-->
-             
+
+            <!--input5-->
+
             <button type="submit" class="btn btn-warning text-white">Submit Form</button>
             <button type="reset" class="btn btn-primary">Clear Form</button>
-          </div><!--form-->
+        </div>
+        <!--form-->
 
-      </form><!--form-->
+    </form>
+    <!--form-->
 
-      </div><!--container-->
-
+</div>
+<!--container-->
