@@ -16,6 +16,10 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { FlightselectComponent } from './components/flightselect/flightselect.component';
 import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component'
 
+import{PaymentComponent} from './components/payment/payment.component'
+
+
+
 
 @NgModule({
   declarations: [
@@ -27,6 +31,7 @@ import { PassengerdetailsComponent } from './components/passengerdetails/passeng
     RegistrationComponent,
     FlightselectComponent,
     PassengerdetailsComponent,
+    PaymentComponent
     
     
   ],
