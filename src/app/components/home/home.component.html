@@ -13,7 +13,7 @@
 
         <div id="form">
             <!--form-->
-            <h3 class="text-white">Booking Details</h3>
+            <h3 class="text-black">Booking Details</h3> <!--text-white-->
 
             <div id="input">
                 <!--input-->
@@ -21,17 +21,17 @@
                 <input type="text" id="input-group" name="to" [(ngModel)]="model.to" #to="ngModel" placeholder="To">
                 <input type="date" id="input-group" name="dd" [(ngModel)]="model.dd" #dd="ngModel" placeholder="Departure Date">
                 <input type="time" id="input-group" name="dt" [(ngModel)]="model.dt" #dt="ngModel" placeholder="Departure Time">
-                <select id="input-group" style="background: black;">
+                <!--<select id="input-group" style="background: black;">
             <option value="">Preferred Airline</option>
             <option value="">IndiGo</option>
             <option value="">AirIndia</option>
             <option value="">SpaceJet</option>
-          </select>
-                <select id="input-group" style="background: black;">
+          </select>-->
+                <select id="input-group" style="background: darkcyan; color: aliceblue;">
             <option value="">Preferred Seating</option>
             <option value="">Economy Class</option>
             <option value="">Business Class</option>
-            <option value="">First Class</option>
+            <!--<option value="">First Class</option>-->
           </select>
             </div>
 
@@ -43,14 +43,14 @@
             </div>
             <!--input2-->
 
-            <div id="input3">
-                <!--input3-->
+            <!-- <div id="input3">
+                
                 <span id="input-group" class="text-primary">Select Your Fare</span>
                 <input type="radio" id="input-group" name="r">
                 <label class="text-white" for="input-group">One Way</label>
                 <input type="radio" id="input-group" name="r">
                 <label class="text-white" for="input-group">Round Trip</label>
-            </div>
+            </div> -->
             <!--input3-->
 
             <div id="input4">
