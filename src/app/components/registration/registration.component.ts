@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormsModule, NgForm, FormGroup, NgModel } from '@angular/forms';
 
 
 @Component({
@@ -14,6 +14,12 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     
+  }
+  model: any = [];
+
+
+  Register(register: NgForm): void {
+    console.log(register.value);
   }
 
 }
