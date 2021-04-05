@@ -1,0 +1,95 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+
+*:focus {
+  outline: none;
+}
+.center {
+    text-align: center;
+    justify-content: center;
+}
+
+div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    
+}
+
+body {
+    background-color: rgb(207, 207, 207)
+}
+
+.passenger-details {
+    position: relative;
+    margin: 5% 30%;
+    width: auto;
+    height: Auto;
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+/*INPUT*/
+
+input[type="text"],
+input[type="password"], input[type="date"], input[type="number"],input [type="tel"],.title {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 4px;
+  width: 220px;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;
+  align-content: center;
+}
+
+  input[type="text"]:focus,
+  input[type="password"]:focus, input[type="date"]:focus, input[type="number"]:focus, input [type="tel"]:focus {
+    border-bottom: 2px solid #16a085;
+    color: #16a085;
+    transition: 0.2s ease;
+  }
+
+.buttonx {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    width: 40%;
+}
+
+
+
+form {
+    width: 450px;
+    padding: 6px;
+    margin: 0 auto;
+    /*Center align form*/
+}
+
+.form-label {
+	position: absolute;
+	top: 17px;
+	left: 30px;
+    background-color: white;
+	color: #999;
+	cursor: text;
+	transition: all .15s ease-in-out 0s;
+}
+
+.form-textbox:focus ~ .form-label,
+.form-textbox:valid ~ .form-label {
+	top: -1.5em;
+	left: 0;
+	font-size: .8em;
+	color: inherit;
+	cursor: pointer;
+}
