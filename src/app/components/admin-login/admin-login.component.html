@@ -1,26 +1,27 @@
 
+    <div class="login-box " align="center">
 
-    <form id="Admin" #loginform1="ngForm" name="loginForm1" (ngSubmit)="LoginData1(loginform1)"  class="center">
-        <h3 class="center">Admin Login</h3>
-        <div>
-            <label>Username</label><br>
-            <input type="text" name="username" [(ngModel)]="model.username"
-            #username="ngModel" required/>
-            <br><span *ngIf="username.errors?.required">Username has to be entered</span>
-        </div>
-    
-        <div>
-            <label>Password</label><br>
-            <input type="password" name="usertxtpass" [(ngModel)]="model.usertxtpass"
-            #usertxtpass="ngModel" required>
-            <br><span *ngIf="usertxtpass.errors?.required">Password cannot be blank</span>
-            
-        </div>
-       
+
+    <form id="Admin" #loginform1="ngForm" name="loginForm1" (ngSubmit)="LoginData1(loginform1)"  >
         
-        <div >
+        <div>
+            <h3>Admin Login</h3>
+            <br>
+            
+            <input type="text" name="username" [(ngModel)]="model.username"
+            #username="ngModel" placeholder="Username" required/>
+            <!-- <label class="form-label" for="form-a" >Username</label><br> -->
+            <!-- <br><span *ngIf="username.errors?.required">Username has to be entered</span> -->
+        
+            <!-- <label>Password</label><br> -->
+            <input type="password" name="usertxtpass" [(ngModel)]="model.usertxtpass"
+            #usertxtpass="ngModel" placeholder="Password" required>
+            <!-- <br><span *ngIf="usertxtpass.errors?.required">Password cannot be blank</span> -->
+            <br>
+        
             <button class="buttonx btn btn-success" type="submit" [disabled]="loginform1.invalid">Login</button>
         </div>
         </form>
+    </div>
 
 

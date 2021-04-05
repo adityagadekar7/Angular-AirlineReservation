@@ -13,6 +13,15 @@
  body{
      background-color:rgb(207, 207, 207)
  }
+ .login-box {
+  position: relative;
+  margin: 5% auto;
+  width: auto;
+  height: Auto;
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
  
  /*INPUT*/
  .form-label {

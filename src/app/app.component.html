@@ -1,11 +1,38 @@
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">Logo</a>
+    <ul  class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home </a>
+      </li>
+    </ul>
+      <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">SignUp</a>
+      </li>
+      <li class="nav-item dropdown active">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Login</a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a href="#" class="dropdown-item">User Login</a>
+                <a href="#" class="dropdown-item">Admin Login</a>
+                <!-- <div class="dropdown-divider"></div>
+                <a href="#"class="dropdown-item">Logout</a> -->
+            </div>
+        </li>    
+    </ul> 
+  </nav>
 <ol>
     <li><a routerLink="AdminLogin">Admin Login</a></li>
     <li><a routerLink="UserLogin">User Login</a></li>
     <li><a routerLink="EditFlight">Edit Flight</a></li>
-    <li><a routerLink="homepage">Search Flights</a></li>
+    <li><a routerLink="homepage">Search</a></li>
     <li><a routerLink="registration">Registration</a></li>
     <li><a routerLink="FlightSelect">Flight Select</a></li>
     <li><a routerLink="PassDet">Passenger Details</a></li>
     <li><a routerLink="PaymentForm">Payment</a></li>
 </ol>
 <router-outlet></router-outlet>
+
+<div class="navbar navbar-expand-sm bg-dark navbar-dark d-flex flex-column " >
+    <p>Footer</p>
+  </div>

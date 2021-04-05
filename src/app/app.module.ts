@@ -18,6 +18,10 @@ import { PassengerdetailsComponent } from './components/passengerdetails/passeng
 
 import{PaymentComponent} from './components/payment/payment.component'
 
+import 'jquery';
+import 'popper.js';
+import 'bootstrap';
+
 
 
 
