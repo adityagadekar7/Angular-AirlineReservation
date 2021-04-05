@@ -1,0 +1,31 @@
+<form class="form-group" #register="ngForm" name="register" (ngSubmit)="Register(register)">
+  <div id="login-box">
+    <div class="left">
+      <h1>Sign up</h1>
+      <select class="title">
+        <option value="title">Title</option>
+        <option value="mr">Mr</option>
+        <option value="mrs">Mrs</option>
+      </select>
+
+      <input type="text" name="fname" placeholder="FirstName" [(ngModel)]="model.fname" #fname="ngModel" required/>
+     
+      <input type="text" name="lname" placeholder="LastName" [(ngModel)]="model.lname" #lname="ngModel" required />
+      <input type="text" name="email" placeholder="E-mail" [(ngModel)]="model.email" #email="ngModel" required />
+      <input type="password" name="password" placeholder="Password" [(ngModel)]="model.password" #password="ngModel" required />
+      <input type="date" name="date" placeholder="date of birth" [(ngModel)]="model.date" #date="ngModel" required />
+      <input type="Number" name="Number" placeholder="Enter Mobile number"  [(ngModel)]="model.Number" #Number="ngModel" required/>
+
+      <input type="submit" name="signup_submit" value="Sign up" />
+    </div>
+
+    <div class="right">
+      <span class="loginwith">Sign in with<br />social network</span>
+
+      <button class="social-signin facebook">Log in with facebook</button>
+      <button class="social-signin twitter">Log in with Twitter</button>
+      <button class="social-signin google">Log in with Google+</button>
+    </div>
+    <div class="or">OR</div>
+  </div>
+  </form>
