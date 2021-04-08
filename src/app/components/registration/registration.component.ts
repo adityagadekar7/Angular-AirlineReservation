@@ -34,7 +34,7 @@ export class RegistrationComponent implements OnInit {
     this.fi.password = register.value.password;
     this.fi.DOB = register.value.date;
     this.fi.PhoneNumber = register.value.Number;
-    this.svc.User_Registration(this.fi).subscribe((data: boolean) => {
+    this.svc.register(this.fi).subscribe((data: boolean) => {
       alert(data);
       if (data == true) {
         alert('successfully Registered your Account');

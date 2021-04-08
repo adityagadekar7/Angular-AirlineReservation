@@ -9,8 +9,8 @@
     "\\src\\app\\components\\user-login",
     "\\src\\app\\modules",
     "\\src\\app\\modules\\city-info",
-    "\\src\\app\\modules\\registerinfo"
+    "\\src\\app\\modules\\flight-info"
   ],
-  "SelectedNode": "\\src\\app\\services\\registerinfo.service.ts",
+  "SelectedNode": "\\src\\app\\components\\registration\\registration.component.ts",
   "PreviewInSolutionExplorer": false
 }
