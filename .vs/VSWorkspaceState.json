@@ -1,9 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\e2e",
     "\\src",
-    "\\src\\app"
+    "\\src\\app",
+    "\\src\\app\\components",
+    "\\src\\app\\components\\edit-flight",
+    "\\src\\app\\components\\registration",
+    "\\src\\app\\components\\user-login",
+    "\\src\\app\\modules",
+    "\\src\\app\\modules\\city-info",
+    "\\src\\app\\modules\\registerinfo"
   ],
+  "SelectedNode": "\\src\\app\\services\\registerinfo.service.ts",
   "PreviewInSolutionExplorer": false
 }

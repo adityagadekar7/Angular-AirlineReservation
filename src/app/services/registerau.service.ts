@@ -26,6 +26,10 @@ export class RegisterauService {
   {
     return this.http.get<string>(this.url + '/' + 'Login' + '/' + name + '/' + pwd); 
   
-    }
+  }
+  User_Registration(p: ResgisterauModule): Observable<boolean> {
+    return this.http.post<boolean>(this.url + '/' + 'Registration', p, this.httpOptions);
+
+  }
 
 }
