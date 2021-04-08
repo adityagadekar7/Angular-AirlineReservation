@@ -12,7 +12,10 @@ export class FlightInfoService {
 
   fs:FlightInfoModule;
   http:HttpClient;
-  url:string='http://localhost:62227/api/Flight_Schedules'; //localhost port different for different projects
+  //url:string='http://localhost:62227/api/Flight_Schedules'; //localhost port different for different projects
+  url:string='http://localhost:56797/api/Flight_Schedules';
+
+
   httpOptions = {headers: new HttpHeaders({
     'Content-Type': 'application/json'
   })
