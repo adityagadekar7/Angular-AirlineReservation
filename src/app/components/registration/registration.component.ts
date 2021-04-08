@@ -13,28 +13,27 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 export class RegistrationComponent implements OnInit {
   model: any = [];
   svc: RegisterauService;
-  fi = new ResgisterauModule();
+  regm = new ResgisterauModule();
   data: ResgisterauModule;
-  constructor(svc: RegisterauService
-  ) {
-    this.svc = this.svc;}
+  constructor(svc: RegisterauService) {this.svc = svc;}
 
   ngOnInit(): void {
-    
-    
   }
   
 
-  Register(register: NgForm): void {
-    console.log(register.value);
-    this.fi.Title = register.value.title;
-    this.fi.FirstName = register.value.fname;
-    this.fi.LastName = register.value.lname;
-    this.fi.EmailID = register.value.email;
-    this.fi.password = register.value.password;
-    this.fi.DOB = register.value.date;
-    this.fi.PhoneNumber = register.value.Number;
-    this.svc.User_Registration(this.fi).subscribe((data: boolean) => {
+  Register(registerForm: NgForm): void {
+    console.log(registerForm.value);
+    this.regm.Title = "Mr.";
+    this.regm.FirstName = registerForm.value.fname;
+    this.regm.LastName = registerForm.value.lname;
+    this.regm.EmailID = registerForm.value.email;
+    this.regm.Password = registerForm.value.pwd;
+    this.regm.DOB = registerForm.value.dob;
+    this.regm.PhoneNumber = registerForm.value.pno;
+    
+    console.log(this.regm);
+
+    this.svc.UserReg(this.regm).subscribe((data: boolean) => {
       alert(data);
       if (data == true) {
         alert('successfully Registered your Account');

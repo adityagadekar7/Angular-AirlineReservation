@@ -12,15 +12,17 @@ import { CommonModule } from '@angular/common';
 export class ResgisterauModule {
   
   //userlogin naming as per user-login component
-  adminname: string;
-  password: string;
+  // adminname: string;
+  // password: string;
+
   Title: string;
   FirstName: string;
   LastName: string;
   EmailID: string;
-  DOB: Date;
-  PhoneNumber: string;
+  Password:string; //added
+  DOB: string;
+  PhoneNumber: number;
 
 
 
- }
+}
