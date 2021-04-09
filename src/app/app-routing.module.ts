@@ -19,7 +19,7 @@ const routes: Routes = [
   {path:'FlightSelect', component:FlightselectComponent},
   {path:'PassDet', component:PassengerdetailsComponent},
   {path:'PaymentForm',component:PaymentComponent},
-  {path:'TicketDetail',component:TicketsComponent}
+  {path:'TicketDetails',component:TicketsComponent}
 ];
 
 @NgModule({
