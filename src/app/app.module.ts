@@ -22,6 +22,7 @@ import{TicketsComponent} from './components/tickets/tickets.component'
 import 'jquery';
 import 'popper.js';
 import 'bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -46,7 +47,8 @@ import 'bootstrap';
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    AlertModule.forRoot(), TabsModule.forRoot()
+    AlertModule.forRoot(), TabsModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

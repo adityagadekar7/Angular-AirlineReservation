@@ -6,46 +6,49 @@
                 <div align="center" class="login-box">
                 <form #addFlightForm="ngForm" name="addFlightForm" (ngSubmit)="FlightData(addFlightForm)"  class="center">
                     <h3 class="center">Add Flight</h3>
-                    
-
-
-
-
-
 
 
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         
                         <input type="number"  name="Flight_Number" [(ngModel)]="model.Flight_Number"
-                        #Flight_Number="ngModel" class=" form-textbox" id="form-a" required/>
-                        <label class="form-label" for="form-a" >  Flight Number</label>
+                        #Flight_Number="ngModel" class=" form-textbox" id="form-a" placeholder="Flight Number" required/>
+                        <!-- <label class="form-label" for="form-a" >  Flight Number</label> -->
                         <!-- <span *ngIf="Flight_Number.errors?.required">Cannot be Blank</span> -->
                     </div>
+
+                    <div class="col-md-4">
+                        
+                        <input type="text"  name="Flight_Name" [(ngModel)]="model.Flight_Name"
+                        #Flight_Name="ngModel" class=" form-textbox" id="form-z" placeholder="Flight Name" required/>
+                        <!-- <label class="form-label" for="form-z" >  Flight Name</label> -->
+                        <!-- <span *ngIf="Flight_Name.errors?.required">Cannot be Blank</span> -->
+                    </div>
             
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         
                         <input type="number" name="Airport_Code" [(ngModel)]="model.Airport_Code"
-                        #Airport_Code="ngModel" class="form-textbox" id="form-b" required/>
-                        <label class="form-label" for="form-b">Airport Code</label>
+                        #Airport_Code="ngModel" class="form-textbox" id="form-b" placeholder="Airport Code" required/>
+                        <!-- <label class="form-label" for="form-b">Airport Code</label> -->
                         <!-- <span *ngIf="Airport_Code.errors?.required">Cannot be Blank</span> -->
                     </div>
+                </div>
                     
             
-                    
-                    <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-6">
                         
                         <input type="time" name="Flight_Departing_Time" [(ngModel)]="model.Flight_Departing_Time"
-                        #Flight_Departing_Time="ngModel" class="form-textbox" id="form-c" required/>
-                        <label class="form-label" for="form-c">Departure Time</label>
+                        #Flight_Departing_Time="ngModel" class="form-textbox" id="form-c" placeholder="Departure Time" required/>
+                        <!-- <label class="form-label" for="form-c">Departure Time</label> -->
                         <!-- <span *ngIf="Flight_Departing_Time.errors?.required">Cannot be Blank</span> -->
                     </div>
             
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         
                         <input type="time" name="Flight_Arrival_Time" [(ngModel)]="model.Flight_Arrival_Time"
-                        #Flight_Arrival_Time="ngModel" class="form-textbox"  id="form-d"required/>
-                        <label class="form-label" for="form-d">Arrival Time</label>
+                        #Flight_Arrival_Time="ngModel" class="form-textbox"  id="form-d" placeholder="Arrival Time" required/>
+                        <!-- <label class="form-label" for="form-d">Arrival Time</label> -->
                         <!-- <span *ngIf="Flight_Arrival_Time.errors?.required">Cannot be Blank</span> -->
                     </div>
                 </div>
@@ -54,8 +57,8 @@
                     <div class="col-md-4">
                         
                         <input type="text" name="Origin" [(ngModel)]="model.Origin"
-                        #Origin="ngModel" class="form-textbox"  id="form-e"required/>
-                        <label class="form-label" for="form-e">Origin</label>
+                        #Origin="ngModel" class="form-textbox"  id="form-e" placeholder="Origin" required/>
+                        <!-- <label class="form-label" for="form-e">Origin</label> -->
                         <!-- <span *ngIf="Origin.errors?.required">Cannot be Blank</span> -->
                     </div>
             
@@ -63,8 +66,8 @@
                     <div class="col-md-4">
                         
                         <input type="text" name="Destination" [(ngModel)]="model.Destination"
-                        #Destination="ngModel" class="form-textbox" id="form-f" required/>
-                        <label class="form-label" for="form-f">Destination</label>
+                        #Destination="ngModel" class="form-textbox" id="form-f" placeholder="Destination" required/>
+                        <!-- <label class="form-label" for="form-f">Destination</label> -->
                         <!-- <span *ngIf="Destination.errors?.required">Cannot be Blank</span> -->
                     </div>
                 
@@ -72,8 +75,8 @@
                     <div class="col-md-4">
                         
                         <input type="text" name="Flight_Status" [(ngModel)]="model.Flight_Status"
-                        #Flight_Status="ngModel" class="form-textbox" id="form-g" required/>
-                        <label class="form-label" for="form-g">Status</label>
+                        #Flight_Status="ngModel" class="form-textbox" id="form-g" placeholder="Status" required/>
+                        <!-- <label class="form-label" for="form-g">Status</label> -->
                         <!-- <span *ngIf="Flight_Status.errors?.required">Cannot be Blank</span> -->
                     </div>
                 </div>
@@ -82,16 +85,16 @@
                     <div class="col-md-3">
                         
                         <input type="number" name="Cost_Eco" [(ngModel)]="model.Cost_Eco"
-                        #Cost_Eco="ngModel" class="form-textbox" id="form-h" required/>
-                        <label class="form-label" for="form-h">Economy Class Cost</label>
+                        #Cost_Eco="ngModel" class="form-textbox" id="form-h" placeholder="Economy Class Cost" required/>
+                        <!-- <label class="form-label" for="form-h">Economy Class Cost</label> -->
                         <!-- <span *ngIf="Cost_Eco.errors?.required">Cannot be Blank</span> -->
                     </div>
             
                     <div class="col-md-3">
                         
                         <input type="number" name="Cost_Business" [(ngModel)]="model.Cost_Business"
-                        #Cost_Business="ngModel" class="form-textbox"  id="form-i" required/>
-                        <label class="form-label" for="form-i">Business Class Cost</label>
+                        #Cost_Business="ngModel" class="form-textbox"  id="form-i" placeholder="Business Class Cost" required/>
+                        <!-- <label class="form-label" for="form-i">Business Class Cost</label> -->
                         <!-- <span *ngIf="Cost_Business.errors?.required">Cannot be Blank</span> -->
                     </div>
                 
@@ -100,16 +103,16 @@
                     <div class="col-md-3">
                         
                         <input type="number" name="Seats_Available_Eco" [(ngModel)]="model.Seats_Available_Eco"
-                        #Seats_Available_Eco="ngModel" class="form-textbox" id="form-j" required/>
-                        <label class="form-label" for="form-j">Economy Class Seats</label>
+                        #Seats_Available_Eco="ngModel" class="form-textbox" id="form-j" placeholder="Economy Class Seats" required/>
+                        <!-- <label class="form-label" for="form-j">Economy Class Seats</label> -->
                         <!-- <span *ngIf="Seats_Available_Eco.errors?.required">Cannot be Blank</span> -->
                     </div>
             
                     <div class="col-md-3">
                         
                         <input type="number" name="Seats_Available_Business" [(ngModel)]="model.Seats_Available_Business"
-                        #Seats_Available_Business="ngModel" class="form-textbox" id="form-k" required/>
-                        <label class="form-label" for="form-k">Business Class Seats</label>
+                        #Seats_Available_Business="ngModel" class="form-textbox" id="form-k" placeholder="Business Class Seats" required/>
+                        <!-- <label class="form-label" for="form-k">Business Class Seats</label> -->
                         <!-- <span *ngIf="Seats_Available_Business.errors?.required">Cannot be Blank</span> -->
                     </div>
                 </div>
@@ -126,31 +129,18 @@
           
             <tab heading="Delete Flight">
                 <h2>Delete Flight</h2>
-                <div>
-                    <table border="1">
-                        <tr>
-                            <th>Flight Number</th>
-                            <th>Airport Code</th>
-                            <th>Departure Time</th>
-                            <th>Arrival Time</th>
-                            <th>Origin</th>
-                            <th>Destination</th>
-                            <th>Status</th>
-                            <th>Delete</th>
-                        </tr>
-                        <!--ngFor-->
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Del</td>
-                        </tr>
-                    </table>
-                </div>
+                <form #deleteform="ngForm" name="deleteForm" (ngSubmit)="DeleteFunction(deleteform)">
+                    <div>
+                        <label>Flight Number: </label>
+                        <input type="number" name="fno" [(ngModel)]="model.fno"
+                        #fno="ngModel" required/>
+                        <span *ngIf="fno.errors?.required">Flight_Number has to be entered</span>
+                    </div>
+                
+                    <div>
+                        <button type="submit" [disabled]="deleteform.invalid">Delete</button>
+                    </div>
+                </form>
 
 
 
