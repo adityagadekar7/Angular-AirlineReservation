@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,NgZone } from '@angular/core';
 import { FormsModule, NgForm, FormGroup, NgModel } from '@angular/forms';
 import { RegisterauService } from 'src/app/services/registerau.service';
 import { ResgisterauModule } from 'src/app/modules/resgisterau/resgisterau.module';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -11,11 +11,16 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+  ngzone: NgZone;
+  router: Router;
   model: any = [];
   svc: RegisterauService;
   regm = new ResgisterauModule();
   data: ResgisterauModule;
-  constructor(svc: RegisterauService) {this.svc = svc;}
+  constructor(svc: RegisterauService, ngzone: NgZone, router: Router) {
+    this.svc = svc;
+    this.ngzone = ngzone;
+    this.router = router; }
 
   ngOnInit(): void {
   }
@@ -39,6 +44,7 @@ export class RegistrationComponent implements OnInit {
       alert(data);
       if (data == true) {
         alert('successfully Registered your Account');
+        this.ngzone.run(() => this.router.navigateByUrl('/homepage'));
       }
     });
   }
