@@ -23,7 +23,9 @@ export class RegistrationComponent implements OnInit {
 
   Register(registerForm: NgForm): void {
     console.log(registerForm.value);
-    this.regm.Title = "Mr.";
+    //this.regm.Title = "Mr";
+    this.regm.Title = registerForm.value.title;
+   // this.regm.Title = registerForm.value.mrs;
     this.regm.FirstName = registerForm.value.fname;
     this.regm.LastName = registerForm.value.lname;
     this.regm.EmailID = registerForm.value.email;

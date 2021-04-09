@@ -13,8 +13,8 @@ export class RegisterauService {
 
   regau: ResgisterauModule; 
   http:HttpClient;
-  //url:string='http://localhost:56797/api/RegisterAU/Login'; //localhost port different for different projects
-  url:string='http://localhost:62227/api/RegisterAU';
+  url:string='http://localhost:56797/api/RegisterAU/Login'; //localhost port different for different projects
+  //url:string='http://localhost:62227/api/Registration';
   
   httpOptions = {headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ export class RegisterauService {
 
   UserReg(regau: ResgisterauModule): Observable<boolean> 
   {
-    return this.http.post<boolean>(this.url + '/' + 'InsertUser', regau, this.httpOptions);
+    return this.http.post<boolean>(this.url + '/' + 'register', regau, this.httpOptions);//use based on your link
   }
 
 }

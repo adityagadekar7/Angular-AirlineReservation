@@ -4,13 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
-    "\\src\\app\\components\\edit-flight",
     "\\src\\app\\components\\registration",
     "\\src\\app\\components\\user-login",
-    "\\src\\app\\modules",
     "\\src\\app\\modules\\city-info",
-    "\\src\\app\\modules\\flight-info"
+    "\\src\\app\\modules\\flight-info",
+    "\\src\\app\\modules\\resgisterau",
+    "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\components\\registration\\registration.component.ts",
+  "SelectedNode": "\\src\\app\\components\\registration\\registration.component.html",
   "PreviewInSolutionExplorer": false
 }
