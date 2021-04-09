@@ -24,10 +24,10 @@ export class UserLoginComponent implements OnInit {
 
   LoginData(loginForm:NgForm):void
   {
-    this.regau.adminname=loginForm.value.adminname; 
-    this.regau.password= loginForm.value.txtpass;
+    this.regau.FirstName=loginForm.value.adminname; 
+    this.regau.Password= loginForm.value.txtpass;
   
-  this.svc.Login(this.regau.adminname,this.regau.password).subscribe((data:string)=>
+  this.svc.Login(this.regau.FirstName,this.regau.Password).subscribe((data:string)=>
   {
     console.log(data);
     if(data=="Login Successful")

@@ -19,6 +19,12 @@ export class AdminLoginComponent implements OnInit {
   
   LoginData1(loginForm1:NgForm):void{
     console.log(loginForm1.value);
+    if (this.model.admin1=="adminX" && this.model.admin1pass=="pass"){
+      alert("Login Successfull")
+    }
+    else{
+      alert("Login Failed")
+    }
   }
 
   
