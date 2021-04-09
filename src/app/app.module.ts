@@ -17,6 +17,7 @@ import { FlightselectComponent } from './components/flightselect/flightselect.co
 import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component'
 
 import{PaymentComponent} from './components/payment/payment.component'
+import{TicketsComponent} from './components/tickets/tickets.component'
 
 import 'jquery';
 import 'popper.js';
@@ -35,7 +36,8 @@ import 'bootstrap';
     RegistrationComponent,
     FlightselectComponent,
     PassengerdetailsComponent,
-    PaymentComponent
+    PaymentComponent,
+    TicketsComponent
     
     
   ],
