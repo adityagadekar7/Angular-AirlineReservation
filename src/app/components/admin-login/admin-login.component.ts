@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,NgZone } from '@angular/core';
 import {FormsModule,NgForm,FormGroup,NgModel} from '@angular/forms';
-
+import{Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-login',
@@ -9,7 +9,13 @@ import {FormsModule,NgForm,FormGroup,NgModel} from '@angular/forms';
 })
 export class AdminLoginComponent implements OnInit {
 
-  constructor() { }
+  ngzone: NgZone;
+  router: Router;
+  constructor(ngzone:NgZone, router:Router)
+   {
+     this.ngzone=ngzone;
+    this.router=router; 
+  }
 
   ngOnInit(): void {
   }
@@ -20,7 +26,8 @@ export class AdminLoginComponent implements OnInit {
   LoginData1(loginForm1:NgForm):void{
     console.log(loginForm1.value);
     if (this.model.admin1=="adminX" && this.model.admin1pass=="pass"){
-      alert("Login Successfull")
+      alert("Login Successfull");
+      this.ngzone.run(()=>this.router.navigateByUrl('/EditFlight'));
     }
     else{
       alert("Login Failed")
