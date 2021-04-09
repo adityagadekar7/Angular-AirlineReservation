@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,NgZone } from '@angular/core';
 import {FormsModule,NgForm,FormGroup,NgModel} from '@angular/forms';
 
 import{RegisterauService}from 'src/app/services/registerau.service';
@@ -14,9 +14,12 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 export class UserLoginComponent implements OnInit {
   svc: RegisterauService;
   regau =new ResgisterauModule();
-
+  
   constructor(svc:RegisterauService ) 
-  { this.svc= svc }
+  { 
+    this.svc= svc;
+    
+   }
 
   ngOnInit(): void {
   }
@@ -33,6 +36,8 @@ export class UserLoginComponent implements OnInit {
     if(data=="Login Successful")
     {
       alert("Login successful");
+      
+
     }
     else{
       alert("Invalid Credentials");
