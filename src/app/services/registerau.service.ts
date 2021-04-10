@@ -13,8 +13,8 @@ export class RegisterauService {
 
   regau: ResgisterauModule; 
   http:HttpClient;
-  //url:string='http://localhost:56797/api/RegisterAU/Login'; //localhost port different for different projects
-  url:string='http://localhost:62227/api/RegisterAU';
+  url:string='http://localhost:56797/api/RegisterAU/Login'; //localhost port different for different projects
+  //url:string='http://localhost:62227/api/RegisterAU';
   //url:string='http://localhost:62227/api/Registration';
   
   httpOptions = {headers: new HttpHeaders({
