@@ -38,14 +38,14 @@ placeholder {
 }
 
 #input2 #input-group {
-  width: 195px;
+  width: 140px;
   margin: 5px;
   border-top: none;
   border-left: none;
   border-right: none;
   outline: none;
   background: transparent;
-  color:white;
+  color:black;
 }
 
 #input3 #input-group {
@@ -61,7 +61,7 @@ placeholder {
   border-right: none;
   outline: none;
   background: transparent;
-  color:white;
+  color:black;
 }
 
 #input4 #input-group1 {

@@ -13,9 +13,10 @@ export class RegisterauService {
 
   regau: ResgisterauModule; 
   http:HttpClient;
-  url:string='http://localhost:56797/api/RegisterAU/Login'; //localhost port different for different projects
+  //url:string='http://localhost:56797/api/RegisterAU/Login'; //localhost port different for different projects
   //url:string='http://localhost:62227/api/RegisterAU';
   //url:string='http://localhost:62227/api/Registration';
+  url:string='http://localhost:59875/api/RegisterAU';
   
   httpOptions = {headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -23,9 +24,9 @@ export class RegisterauService {
 };
 
   constructor(http:HttpClient) {this.http=http }
-  Login(name: string, pwd: string): Observable<string>
+  Login(UserId: number, pwd: string): Observable<string>
   {
-    return this.http.get<string>(this.url + '/' + 'Login' + '/' + name + '/' + pwd); 
+    return this.http.get<string>(this.url + '/' + 'Login' + '/' + UserId + '/' + pwd); 
 
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit,NgZone } from '@angular/core';
+import{Router} from '@angular/router';
 import {FormsModule,NgForm,FormGroup,NgModel} from '@angular/forms';
-
 import{RegisterauService}from 'src/app/services/registerau.service';
 import{ResgisterauModule} from 'src/app/modules/resgisterau/resgisterau.module';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
@@ -14,28 +14,36 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 export class UserLoginComponent implements OnInit {
   svc: RegisterauService;
   regau =new ResgisterauModule();
+  model:any=[]; 
+  ngzone: NgZone;
+  router: Router;
+
   
-  constructor(svc:RegisterauService ) 
+  constructor(svc:RegisterauService, ngzone:NgZone, router:Router ) 
   { 
     this.svc= svc;
+    this.ngzone=ngzone;
+    this.router=router;
     
    }
 
   ngOnInit(): void {
   }
-  model:any=[]; 
+  
 
   LoginData(loginForm:NgForm):void
   {
-    this.regau.FirstName=loginForm.value.adminname; 
+    this.regau.UserId=loginForm.value.uid; 
     this.regau.Password= loginForm.value.txtpass;
   
-  this.svc.Login(this.regau.FirstName,this.regau.Password).subscribe((data:string)=>
+  this.svc.Login(this.regau.UserId,this.regau.Password).subscribe((data:any)=>
   {
     console.log(data);
     if(data=="Login Successful")
     {
-      alert("Login successful");
+      alert("Login Successful");
+      localStorage.setItem('UID',this.regau.UserId.toString());
+      this.ngzone.run(()=>this.router.navigateByUrl('/TicketDetails'));
       
 
     }
