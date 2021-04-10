@@ -115,5 +115,9 @@ placeholder {
 .btn btn-primary
 {
     margin-left:10px;
+    
+}
+.form-group col-xs-3 {
+  margin-left: 90%;
 }
 

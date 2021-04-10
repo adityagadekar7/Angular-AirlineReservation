@@ -8,6 +8,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { FlightselectComponent } from './components/flightselect/flightselect.component';
 import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component';
 import{PaymentComponent} from './components/payment/payment.component'
+import {TicketsComponent} from './components/tickets/tickets.component'
 
 const routes: Routes = [
   {path:'AdminLogin',component:AdminLoginComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   {path:'FlightSelect', component:FlightselectComponent},
   {path:'PassDet', component:PassengerdetailsComponent},
-  {path:'PaymentForm',component:PaymentComponent}
+  {path:'PaymentForm',component:PaymentComponent},
+  {path:'TicketDetails',component:TicketsComponent}
 ];
 
 @NgModule({

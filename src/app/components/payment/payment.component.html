@@ -1,24 +1,24 @@
-<h1 class="center">Payment</h1>
-<form #paymentform="ngForm" name="paymentform" (ngSubmit)="PaymentForm(paymentform)">
-    <div>
-        <label>Card Number</label>
-        <input type="text" name="Card_Number" [(ngModel)]="model.Card_Number" #Card_Number="ngModel" required>
-        <span *ngIf="Card_Number.errors?.required">Cannot be Blank</span>
-    </div>
+<div class="payment-details" align="center">
+    <h1 class="center">Payment</h1>
+    <form #paymentform="ngForm" name="paymentform" (ngSubmit)="PaymentForm(paymentform)">
+        <div>
+            <label>Card Number</label>
+            <input type="text" name="Card_Number" [(ngModel)]="model.Card_Number" #Card_Number="ngModel" required>
+            <!-- <span *ngIf="Card_Number.errors?.required">Cannot be Blank</span>-->
+        </div>
 
-    <div><label>Card Type</label>&nbsp;
-        <input type="radio" name="cardtype" [(ngModel)]="model.cardtype" #cardtype="ngModel" value="debit" required>Debit Card &nbsp;
-        <input type="radio" name="cardtype" [(ngModel)]="model.cardtype" #cardtype="ngModel" value="cerdit" required>Credit Card
-        <span *ngIf="cardtype.errors?.required">Cannot be Blank</span>
-    </div>
+        <div><label>Card Type</label>&nbsp;
+            <input type="radio" name="cardtype" [(ngModel)]="model.cardtype" #cardtype="ngModel" value="debit" required>Debit Card &nbsp;
+            <input type="radio" name="cardtype" [(ngModel)]="model.cardtype" #cardtype="ngModel" value="cerdit" required>Credit Card
+            <!--  <span *ngIf="cardtype.errors?.required">Cannot be Blank</span>-->
+        </div>
 
-    <div>
-        <label>Expiry Date</label>&nbsp;
-        <input type="date" name="expirydate" [(ngModel)]="model.expirydate" #expirydate="ngModel" required>
-        <span *ngIf="expirydate.errors?.required">Cannot be Blank</span>
-    </div>
-
-    <div>
-        <button type="submit" [disabled]="paymentform.invalid">Proceed To Pay</button>
-    </div>
-</form>
+        <div>
+            <label>Expiry Date</label>&nbsp;
+            <input type="date" name="expirydate" [(ngModel)]="model.expirydate" #expirydate="ngModel" required>
+            <!--  <span *ngIf="expirydate.errors?.required">Cannot be Blank</span>-->
+        </div>
+        <div class="row" align="center" style="padding-left: 170px;">
+            <button class="buttonx btn btn-success" type="submit" [disabled]="paymentform.invalid">Proceed To Pay</button>
+        </div>
+    </form>

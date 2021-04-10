@@ -17,10 +17,12 @@ import { FlightselectComponent } from './components/flightselect/flightselect.co
 import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component'
 
 import{PaymentComponent} from './components/payment/payment.component'
+import{TicketsComponent} from './components/tickets/tickets.component'
 
 import 'jquery';
 import 'popper.js';
 import 'bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -35,7 +37,8 @@ import 'bootstrap';
     RegistrationComponent,
     FlightselectComponent,
     PassengerdetailsComponent,
-    PaymentComponent
+    PaymentComponent,
+    TicketsComponent
     
     
   ],
@@ -44,7 +47,8 @@ import 'bootstrap';
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    AlertModule.forRoot(), TabsModule.forRoot()
+    AlertModule.forRoot(), TabsModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

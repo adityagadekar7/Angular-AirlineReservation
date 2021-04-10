@@ -1,9 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\e2e",
     "\\src",
-    "\\src\\app"
+    "\\src\\app",
+    "\\src\\app\\components",
+    "\\src\\app\\components\\registration",
+    "\\src\\app\\components\\user-login",
+    "\\src\\app\\modules\\city-info",
+    "\\src\\app\\modules\\flight-info",
+    "\\src\\app\\modules\\resgisterau",
+    "\\src\\app\\services"
   ],
+  "SelectedNode": "\\src\\app\\components\\registration\\registration.component.html",
   "PreviewInSolutionExplorer": false
 }

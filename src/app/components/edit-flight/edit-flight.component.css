@@ -16,6 +16,18 @@
  .login-box {
   position: relative;
   margin: 5% auto;
+  
+  width: auto;
+  height: Auto;
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.login-box1 {
+  position: relative;
+  margin: 5% auto;
+  padding-left:50px;
   width: auto;
   height: Auto;
   background: white;
