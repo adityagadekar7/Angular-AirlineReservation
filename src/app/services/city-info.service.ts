@@ -12,8 +12,8 @@ import{HttpHeaders} from '@angular/common/http';
 export class CityInfoService {
   city:CityInfoModule;
   http:HttpClient;
-  url:string='http://localhost:62227/api/City_Information';
-  //url:string='http://localhost:56797/api/City_Information';
+  //url:string='http://localhost:62227/api/City_Information';
+  url:string='http://localhost:56797/api/City_Information';
 
   httpOptions = {headers: new HttpHeaders({
     'Content-Type': 'application/json'
