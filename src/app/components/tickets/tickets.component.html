@@ -1,17 +1,84 @@
 <div align="center">
     <tabset #tabset>
-        <tab heading="Booked Ticket">
-            <h2>Booked Flight</h2>
-            <div class="ticket-details" align="center"></div>
+        <tab heading="Booked Tickets">
+            <h2>Booked Tickets</h2>
+            <!-- <div class="ticket-details" align="center">
+                <form #bookedform="ngForm" name="bookedForm" (ngSubmit)="booked(bookedform)">
+                    <div>
+                        <label>User ID : </label>
+                        <input type="number" name="uid" [(ngModel)]="model.uid"
+                        #uid="ngModel" required/>
+                        <span *ngIf="uid.errors?.required">ID has to be entered</span>
+                    </div>
+                
+                    <div>
+                        <button type="submit" [disabled]="bookedform.invalid">Display</button>
+                    </div>
+                </form>
+            </div> -->
+
+            <table border="2">
+                <tr>
+                    <th>Ticket Number</th>
+                    <th>Date</th>             
+                    <th>Flight Number</th>  
+                    <th>Airport Name</th>           
+                    <th>Passenger Name</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Flight Time</th>
+                    <th>Total Price</th>                
+                </tr>
+                <tr *ngFor="let item of booked">
+                     <td>{{item.pnr_no}}</td>
+                     <td>{{item.Flight_date}}</td>
+                     <td>{{item.Flight_Number}}</td>
+                     <td>{{item.Airport_Name}}</td>
+                     <td>{{item.FirstName}}  {{item.LastName}}</td>
+                     <td>{{item.origin}}</td>
+                     <td>{{item.Destination}}</td>
+                     <td>{{item.Flight_Departing_Time}}</td>
+                     <td>{{item.total_price}}</td>
+                     
+                </tr>
+            </table>
 
 
         </tab>
 
-        <tab heading="Cancelled Ticket">
-            <h2>Deleted Flight</h2>
-            <div class="ticket-details" align="center"></div>
 
 
+        <tab heading="Cancelled Tickets">
+            <h2>Cancelled Tickets</h2>
+            
+            <table border="2">
+                <tr>
+                    <th>Ticket Number</th>
+                    <th>Date</th>             
+                    <th>Flight Number</th>  
+                    <th>Airport Name</th>           
+                    <th>Passenger Name</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Total Price</th>  
+                    <th>Refund Amount</th>
+                    <th>Date of Cancellation</th>
+                    <th>Time of Cancellation</th>       
+                </tr>
+                <tr *ngFor="let item of cancelled">
+                    <td>{{item.pnr_no}}</td>
+                    <td>{{item.Flight_date}}</td>
+                    <td>{{item.Flight_Number}}</td>
+                    <td>{{item.Airport_Name}}</td>
+                    <td>{{item.FirstName}}  {{item.LastName}}</td>
+                    <td>{{item.origin}}</td>
+                    <td>{{item.Destination}}</td>
+                    <td>{{item.total_price}}</td>
+                    <td>{{item.Refund_Amount}}</td>
+                    <td>{{item.Dateofcancellation}}</td>
+                    <td>{{item.timeofcancellation}}</td>
+               </tr>
+            </table>
         </tab>
     </tabset>
 </div>

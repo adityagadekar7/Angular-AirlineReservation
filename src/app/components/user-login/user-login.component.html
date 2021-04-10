@@ -4,8 +4,8 @@
     <h3 class="center">User Login</h3>
     <div align="center">
         <!-- <label>Username</label><br> -->
-        <input type="text" name="adminname" [(ngModel)]="model.adminname"
-        #adminname="ngModel" placeholder="Username" required/>
+        <input type="number" name="uid" [(ngModel)]="model.uid"
+        #uid="ngModel" placeholder="User ID" required/>
         <!-- <span *ngIf="adminname.errors?.required">Username has to be entered</span> -->
         <!-- <label>Password</label><br> -->
         <input type="password" name="txtpass" [(ngModel)]="model.txtpass"

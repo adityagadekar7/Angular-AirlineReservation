@@ -26,28 +26,34 @@
                     </div>
             
                     <div class="col-md-4">
-                        
-                        <input type="number" name="Airport_Code" [(ngModel)]="model.Airport_Code"
-                        #Airport_Code="ngModel" class="form-textbox" id="form-b" placeholder="Airport Code" required/>
-                        <!-- <label class="form-label" for="form-b">Airport Code</label> -->
-                        <!-- <span *ngIf="Airport_Code.errors?.required">Cannot be Blank</span> -->
+                        <select name="Airport_Code"  [(ngModel)]="model.Airport_Code" #projid="ngModel" >
+                            <option *ngFor="let item of clist" [value]="item.Airport_Code">{{item.Airport_Name}}</option>
+                        </select>
                     </div>
                 </div>
                     
             
                 <div class="row">
-                    <div class="col-md-6">
+                    
+                    <div class="col-md-4">
                         
+                        <input type="date" name="Flight_Date" [(ngModel)]="model.Flight_Date"
+                            #Flight_Date="ngModel" class="form-textbox"  id="form-z" placeholder="Flight Date" required/><br>Flight Date
+                        <!-- <label class="form-label" for="form-z">Arrival Time</label> -->
+                        <!-- <span *ngIf="Flight_Arrival_Time.errors?.required">Cannot be Blank</span> -->
+                    </div>
+                        
+                    <div class="col-md-4">
                         <input type="time" name="Flight_Departing_Time" [(ngModel)]="model.Flight_Departing_Time"
-                        #Flight_Departing_Time="ngModel" class="form-textbox" id="form-c" placeholder="Departure Time" required/>
+                        #Flight_Departing_Time="ngModel" class="form-textbox" id="form-c" placeholder="Departure Time" required/>Departure Time
                         <!-- <label class="form-label" for="form-c">Departure Time</label> -->
                         <!-- <span *ngIf="Flight_Departing_Time.errors?.required">Cannot be Blank</span> -->
                     </div>
             
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         
                         <input type="time" name="Flight_Arrival_Time" [(ngModel)]="model.Flight_Arrival_Time"
-                        #Flight_Arrival_Time="ngModel" class="form-textbox"  id="form-d" placeholder="Arrival Time" required/>
+                        #Flight_Arrival_Time="ngModel" class="form-textbox"  id="form-d" placeholder="Arrival Time" required/>Arrival Time
                         <!-- <label class="form-label" for="form-d">Arrival Time</label> -->
                         <!-- <span *ngIf="Flight_Arrival_Time.errors?.required">Cannot be Blank</span> -->
                     </div>
@@ -146,6 +152,14 @@
 
             </div>
             </tab>
+
+            <tab heading="Delete Flight">
+                <div class="login-box1 col-md-4">
+                    
+    
+    
+                </div>
+                </tab>
         
         </tabset>
     </div>

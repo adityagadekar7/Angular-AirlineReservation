@@ -4,6 +4,8 @@ import { TabsetComponent, TabDirective } from 'ngx-bootstrap/tabs';
 import{FlightInfoService}from 'src/app/services/flight-info.service';
 import{FlightInfoModule} from 'src/app/modules/flight-info/flight-info.module';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import { CityInfoModule } from 'src/app/modules/city-info/city-info.module';
+import { CityInfoService } from 'src/app/services/city-info.service';
 
 
 @Component({
@@ -15,17 +17,25 @@ export class EditFlightComponent implements OnInit {
 
   svc:FlightInfoService;
   fi=new FlightInfoModule();
+  svc1:CityInfoService;
+  clist:CityInfoModule[];
   data:FlightInfoModule; // for delete
+  model:any=[]; 
 
-  constructor(svc:FlightInfoService) 
+  constructor(svc:FlightInfoService,svc1:CityInfoService) 
   {
     this.svc=svc;
+    this.svc1=svc1;
    }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    this.svc1.GetCity().subscribe((data:CityInfoModule[])=>{
+      this.clist=data;
+      });
   }
 
-  model:any=[]; 
+ 
 
   
   FlightData(addFlightForm:NgForm):void{
