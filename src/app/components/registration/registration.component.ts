@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,NgZone } from '@angular/core';
 import { FormsModule, NgForm, FormGroup, NgModel } from '@angular/forms';
 import { RegisterauService } from 'src/app/services/registerau.service';
 import { ResgisterauModule } from 'src/app/modules/resgisterau/resgisterau.module';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
-
 
 @Component({
   selector: 'app-registration',

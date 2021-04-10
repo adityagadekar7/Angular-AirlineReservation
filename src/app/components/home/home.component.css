@@ -2,17 +2,18 @@
     background-image:url()
 }
 
-#form  {
-  background-color:aqua;
+#form {
+  background: white;
   height: 400px;
   width: 700px;
   margin: auto;
   padding: 20px;
   opacity: 0.8;
-  border-top-left-radius:20px;
-  border-bottom-right-radius:20px;
-  border-bottom-left-radius:20px;
-  border-top-right-radius:20px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
   #form h3 {
