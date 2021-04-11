@@ -52,7 +52,7 @@ export class PassengerdetailsComponent implements OnInit {
 
   }
 
-  DeleteFunction(deleteForm:NgForm):void{
+  /*DeleteFunction(deleteForm:NgForm):void{
     this.pi.Passenger_id=deleteForm.value.Passenger_id;
     this.svc.DeletePassenger(this.pi.Passenger_id).subscribe((data:boolean)=>
     {
@@ -67,8 +67,7 @@ export class PassengerdetailsComponent implements OnInit {
       {
         alert('Delete unsuccessful');
       }
-      
     });
-  }
+  }*/
 
 }

@@ -28,9 +28,9 @@ export class PassengerInfoService {
     return this.http.post<boolean>(this.url+"/"+'InsertPassengerDetails',pd,this.httpOptions); //httpOptions beacause FormBody used in WebApi(studio 2019) --passed through body not uri
   }
 
-  DeletePassenger(id:number):Observable<boolean>
+ /* DeletePassenger(id:number):Observable<boolean>
 {
   return this.http.delete<boolean>(this.url+'/'+'DeletePassenger'+'/'+id);
-}
+}*/
 
 }
