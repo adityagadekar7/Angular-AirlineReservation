@@ -3,22 +3,34 @@
 <form id="Passenger_Details" #passdet="ngForm" name="passdet" (ngSubmit)="PassDet(passdet)" class="center">
    <div align="center">
     <div >
+        <!--<label>Passenger_id</label>-->
+        <input type="number" name="Passenger_id" [(ngModel)]="model.Passenger_id" #Passenger_id="ngModel" placeholder="Passenger_id" required>
+        <!--<span *ngIf="Passenger_id.errors?.required">Cannot be Blank</span>-->
+        <span *ngIf="Passenger_id.errors?.required"></span>
+    </div>
+    <div >
+        <!--<label>Pnr_no</label>-->
+        <input type="number" name="Pnr_no" [(ngModel)]="model.Pnr_no" #Pnr_no="ngModel" placeholder="Pnr_no" required>
+        <!--<span *ngIf="Pnr_no.errors?.required">Cannot be Blank</span>-->
+        <span *ngIf="Pnr_no.errors?.required"></span>
+    </div>
+    <div >
         <!--<label>Passport Number</label>-->
-        <input type="number" name="Passport_Number" [(ngModel)]="model.Passport_Number" #Passport_Number="ngModel" placeholder="Passport Number" required>
-        <!--<span *ngIf="Passport_Number.errors?.required">Cannot be Blank</span>-->
-        <span *ngIf="Passport_Number.errors?.required"></span>
+        <input type="number" name="PassportNumber" [(ngModel)]="model.PassportNumber" #PassportNumber="ngModel" placeholder="Passport Number" required>
+        <!--<span *ngIf="PassportNumber.errors?.required">Cannot be Blank</span>-->
+        <span *ngIf="PassportNumber.errors?.required"></span>
     </div>
     <div>
         <!--<label>Passenger First Name</label>-->
-        <input type="text" name="First_Name" [(ngModel)]="model.First_Name" #First_Name="ngModel" placeholder="Passenger First Name" required>
-        <!--<span *ngIf="First_Name.errors?.required">Cannot be Blank</span>-->
-        <span *ngIf="First_Name.errors?.required"></span>
+        <input type="text" name="FirstName" [(ngModel)]="model.FirstName" #FirstName="ngModel" placeholder="Passenger First Name" required>
+        <!--<span *ngIf="FirstName.errors?.required">Cannot be Blank</span>-->
+        <span *ngIf="FirstName.errors?.required"></span>
     </div>
     <div>
         <!--<label>Passenger Last Name</label>-->
-        <input type="text" name="Last_Name" [(ngModel)]="model.Last_Name" #Last_Name="ngModel" placeholder="Passenger Last Name" required>
-        <!--<span *ngIf="Last_Name.errors?.required">Cannot be Blank</span>-->
-        <span *ngIf="Last_Name.errors?.required"></span>
+        <input type="text" name="LastName" [(ngModel)]="model.LastName" #LastName="ngModel" placeholder="Passenger Last Name" required>
+        <!--<span *ngIf="LastName.errors?.required">Cannot be Blank</span>-->
+        <span *ngIf="LastName.errors?.required"></span>
     </div>
     <div>
         <!--<label>Passenger Date of Birth</label>-->
@@ -34,11 +46,11 @@
     </div>
     <div>
         <!--<label>Passenger Phone Number</label>-->
-        <input type="tel" name="Phone_Number" [(ngModel)]="model.Phone_Number" #Phone_Number="ngModel" placeholder="Phone Number" pattern="^[0-9]{10}$"required>
+        <input type="tel" name="PhoneNumber" [(ngModel)]="model.PhoneNumber" #PhoneNumber="ngModel" placeholder="Phone Number" pattern="^[0-9]{10}$"required>
         <!--<span *ngIf="Phone_Number.errors?.required">Cannot be Blank</span>
         <span *ngIf="Phone_Number.errors?.pattern">Phone Number has to be numeric and 10 digits</span>-->
-        <span *ngIf="Phone_Number.errors?.required"></span>
-        <span *ngIf="Phone_Number.errors?.pattern"></span>
+        <span *ngIf="PhoneNumber.errors?.required"></span>
+        <span *ngIf="PhoneNumber.errors?.pattern"></span>
     </div>
     <div>
         <label>Passenger Covid Certificate</label><br>
@@ -52,4 +64,22 @@
         <button class="buttonx btn btn-success" type="submit" [disabled]="passdet.invalid">Continue</button>
     </div>
 </form>
+
+<div >
+    <h2>Delete Passenger_id</h2>
+    <form #deleteform="ngForm" name="deleteForm" (ngSubmit)="DeleteFunction(deleteform)">
+        <div>
+           <!--<label>Passenger id: </label><br>-->
+            <input type="number" name="Passenger_id" [(ngModel)]="model.Passenger_id" #Passenger_id="ngModel" class="center"required/>
+            <span *ngIf="Passenger_id.errors?.required">Passenger_id has to be entered</span>
+        </div>
+    
+        <div>
+            <button  class="buttonx btn btn-success" type="submit" [disabled]="deleteform.invalid">Delete</button>
+        </div>
+    </form>
+
+
+</div>
+
 </div>

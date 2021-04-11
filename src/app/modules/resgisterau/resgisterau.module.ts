@@ -11,9 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ResgisterauModule {
   
-  //userlogin naming as per user-login component
-  // adminname: string;
-  // password: string;
+  
   UserId:number;   //------------//CHECK
   Title: string;
   FirstName: string;
