@@ -57,7 +57,7 @@
                     <th>Date</th>             
                     <th>Flight Number</th>  
                     <th>Airport Name</th>           
-                    <th>Passenger Name</th>
+                    <!-- <th>Passenger Name</th> -->
                     <th>From</th>
                     <th>To</th>
                     <th>Total Price</th>  
@@ -70,7 +70,7 @@
                     <td>{{item.Flight_date}}</td>
                     <td>{{item.Flight_Number}}</td>
                     <td>{{item.Airport_Name}}</td>
-                    <td>{{item.FirstName}}  {{item.LastName}}</td>
+                    <!-- <td>{{item.FirstName}}  {{item.LastName}}</td> -->
                     <td>{{item.origin}}</td>
                     <td>{{item.Destination}}</td>
                     <td>{{item.total_price}}</td>
@@ -80,5 +80,23 @@
                </tr>
             </table>
         </tab>
+
+        <tab heading="Cancel Booking">
+            <div class="login-box1 col-md-4">
+                <h2>Cancel Tickets</h2>
+                <form #cancelform="ngForm" name="cancelForm" (ngSubmit)="CancelFunction(cancelform)">
+                    <div>
+                        <label class="center">Ticket Number: </label>
+                        <input type="number" name="tno" [(ngModel)]="model.tno"
+                        #tno="ngModel" class="center"required/>
+                        <span *ngIf="tno.errors?.required">Cannot be blank</span>
+                    </div>
+                
+                    <div>
+                        <button  class="buttonx btn btn-danger" type="submit" [disabled]="cancelform.invalid">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            </tab>
     </tabset>
 </div>
