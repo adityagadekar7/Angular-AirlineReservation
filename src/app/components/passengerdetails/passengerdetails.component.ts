@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,NgModule } from '@angular/core';
 import {FormsModule,FormGroup,NgForm,NgModel} from '@angular/forms';
 import { TabsetComponent, TabDirective } from 'ngx-bootstrap/tabs';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';

@@ -17,7 +17,7 @@
       <input type="date" name="dob" placeholder="date of birth" [(ngModel)]="model.dob" #dob="ngModel" required />
       <input type="number" name="pno" placeholder="Enter Mobile number" [(ngModel)]="model.pno" #pno="ngModel" required />
 
-      <button type="submit" class="buttonx  btn btn-success">Sign Up </button><br />
+      <button type="submit" class="buttonx  btn btn-success" [disabled]="register.invalid">Sign Up </button><br />
      <p> Already have an account?<a href="UserLogin">   Login   </a></p>
     </div>
 
