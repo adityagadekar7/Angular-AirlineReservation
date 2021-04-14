@@ -35,9 +35,6 @@ export class EditFlightComponent implements OnInit {
       });
   }
 
- 
-
-  
   FlightData(addFlightForm:NgForm):void{
     console.log(addFlightForm.value);
     this.fi.Flight_Number=addFlightForm.value.Flight_Number; 

@@ -23,6 +23,8 @@ import 'jquery';
 import 'popper.js';
 import 'bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { SeatSelectComponent } from './components/seat-select/seat-select.component';
+import { BookingComponent } from './components/booking/booking.component';
 
 
 
@@ -38,7 +40,9 @@ import { HttpClientModule } from '@angular/common/http';
     FlightselectComponent,
     PassengerdetailsComponent,
     PaymentComponent,
-    TicketsComponent
+    TicketsComponent,
+    SeatSelectComponent,
+    BookingComponent
     
     
   ],

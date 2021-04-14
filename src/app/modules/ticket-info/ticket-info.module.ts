@@ -15,9 +15,9 @@ export class TicketInfoModule {
   Airport_Name:string;
   State:string;
   Zip_Code:number;
-  Flight_date:string;
+  Flight_Date:string;
   Flight_Number:number;
-  origin:string;
+  Origin:string;
   Destination:string;
   Flight_Departing_Time:string;
   Flight_Arrival_Time:string;
