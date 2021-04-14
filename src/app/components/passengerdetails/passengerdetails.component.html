@@ -2,12 +2,21 @@
 <h1 class="center">Passenger Details</h1>
 <form id="Passenger_Details" #passdet="ngForm" name="passdet" (ngSubmit)="PassDet(passdet)" class="center">
    <div align="center">
+<<<<<<< HEAD
     <!-- <div >
         
         <input type="number" name="Passenger_id" [(ngModel)]="model.Passenger_id" #Passenger_id="ngModel" placeholder="Passenger_id" required>
         
         <span *ngIf="Passenger_id.errors?.required"></span>
     </div> -->
+=======
+   <!-- <div >
+        <label>Passenger_id</label>
+        <input type="number" name="Passenger_id" [(ngModel)]="model.Passenger_id" #Passenger_id="ngModel" placeholder="Passenger_id" required>
+        <span *ngIf="Passenger_id.errors?.required">Cannot be Blank</span>
+        <span *ngIf="Passenger_id.errors?.required"></span>
+    </div>-->
+>>>>>>> 1fc133a50e16e72a7d1d8dbc107cf17d91fe6fbf
     <div >
         <!--<label>Pnr_no</label>-->
         <input type="number" name="Pnr_no" [(ngModel)]="model.Pnr_no" #Pnr_no="ngModel" placeholder="Pnr_no" required>
@@ -65,11 +74,12 @@
     </div>
 </form>
 
+<!--
 <div >
     <h2>Delete Passenger_id</h2>
     <form #deleteform="ngForm" name="deleteForm" (ngSubmit)="DeleteFunction(deleteform)">
         <div>
-           <!--<label>Passenger id: </label><br>-->
+          <label>Passenger id: </label><br>
             <input type="number" name="Passenger_id" [(ngModel)]="model.Passenger_id" #Passenger_id="ngModel" class="center"required/>
             <span *ngIf="Passenger_id.errors?.required">Passenger_id has to be entered</span>
         </div>
@@ -80,6 +90,6 @@
     </form>
 
 
-</div>
+</div>-->
 
 </div>

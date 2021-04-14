@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,NgModule } from '@angular/core';
 import {FormsModule,FormGroup,NgForm,NgModel} from '@angular/forms';
 import { TabsetComponent, TabDirective } from 'ngx-bootstrap/tabs';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
@@ -52,7 +52,7 @@ export class PassengerdetailsComponent implements OnInit {
 
   }
 
-  DeleteFunction(deleteForm:NgForm):void{
+  /*DeleteFunction(deleteForm:NgForm):void{
     this.pi.Passenger_id=deleteForm.value.Passenger_id;
     this.svc.DeletePassenger(this.pi.Passenger_id).subscribe((data:boolean)=>
     {
@@ -67,8 +67,7 @@ export class PassengerdetailsComponent implements OnInit {
       {
         alert('Delete unsuccessful');
       }
-      
     });
-  }
+  }*/
 
 }

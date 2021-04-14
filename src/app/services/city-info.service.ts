@@ -13,8 +13,16 @@ export class CityInfoService {
   city:CityInfoModule;
   http:HttpClient;
   //url:string='http://localhost:62227/api/City_Information';
+<<<<<<< HEAD
   //url:string='http://localhost:56797/api/City_Information';
  url:string='http://localhost:59875/api/City_Information'
+=======
+ // url:string='http://localhost:56797/api/City_Information';
+ // url:string='http://localhost:59875/api/City_Information'
+  url:string='http://localhost:62227/api/City_Information';
+  //url:string='http://localhost:56797/api/City_Information';
+  //url:string='http://localhost:59875/api/City_Information'
+>>>>>>> 1fc133a50e16e72a7d1d8dbc107cf17d91fe6fbf
   
 
   httpOptions = {headers: new HttpHeaders({
