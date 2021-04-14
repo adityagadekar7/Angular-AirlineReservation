@@ -14,10 +14,10 @@ import {  AlertModule } from 'ngx-bootstrap/alert';
 import { HomeComponent } from './components/home/home.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FlightselectComponent } from './components/flightselect/flightselect.component';
-import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component'
+import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component';
 
-import{PaymentComponent} from './components/payment/payment.component'
-import{TicketsComponent} from './components/tickets/tickets.component'
+import{PaymentComponent} from './components/payment/payment.component';
+import{TicketsComponent} from './components/tickets/tickets.component';
 
 import 'jquery';
 import 'popper.js';

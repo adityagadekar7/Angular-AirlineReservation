@@ -13,8 +13,13 @@ export class PassengerInfoService {
 
   pd : PassengerInfoModule;
   http : HttpClient;
+<<<<<<< HEAD
   //url : string = 'http://localhost:56797/api/Passenger_Details';
   url:string='http://localhost:59875/api/Passenger_Details';
+=======
+ // url : string = 'http://localhost:56797/api/Passenger_Details';
+  url : string = 'http://localhost:59875/api/Passenger_Details';
+>>>>>>> 5061301d588a01460f2c44f6446f582f5ff15ea2
   
 
   httpOptions = {headers: new HttpHeaders({
@@ -29,9 +34,9 @@ export class PassengerInfoService {
     return this.http.post<boolean>(this.url+"/"+'InsertPassengerDetails',pd,this.httpOptions); //httpOptions beacause FormBody used in WebApi(studio 2019) --passed through body not uri
   }
 
-  DeletePassenger(id:number):Observable<boolean>
+ /* DeletePassenger(id:number):Observable<boolean>
 {
   return this.http.delete<boolean>(this.url+'/'+'DeletePassenger'+'/'+id);
-}
+}*/
 
 }
