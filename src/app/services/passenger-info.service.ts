@@ -13,7 +13,8 @@ export class PassengerInfoService {
 
   pd : PassengerInfoModule;
   http : HttpClient;
-  url : string = 'http://localhost:56797/api/Passenger_Details';
+  //url: string = 'http://localhost:56797/api/Passenger_Details';
+  url: string = 'http://localhost:62227/api/Passenger_Details';
   
 
   httpOptions = {headers: new HttpHeaders({

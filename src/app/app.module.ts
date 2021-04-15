@@ -23,6 +23,7 @@ import 'jquery';
 import 'popper.js';
 import 'bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 
 
 
@@ -38,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     FlightselectComponent,
     PassengerdetailsComponent,
     PaymentComponent,
-    TicketsComponent
+    TicketsComponent,
+   // ResetpasswordComponent
     
     
   ],
