@@ -20,7 +20,7 @@
                 <!--input-->
                 <input type="text" id="input-group" name="from" [(ngModel)]="model.from" #from="ngModel" placeholder="From">
                 <input type="text" id="input-group" name="to" [(ngModel)]="model.to" #to="ngModel" placeholder="To"><br /><br />
-                <input type="date" id="input-group" name="dd" [(ngModel)]="model.dd" #dd="ngModel" placeholder="Departure Date">
+                <!--<input type="date" id="input-group" name="dd" [(ngModel)]="model.dd" #dd="ngModel" placeholder="Departure Date">-->
                 <!-- <input type="time" id="input-group" name="dt" [(ngModel)]="model.dt" #dt="ngModel" placeholder="Departure Time"><br /><br /> -->
                 <select id="input-group" style="background: darkcyan; color:aliceblue">
             <option value="">Preferred Airline</option>
@@ -39,21 +39,23 @@
 
             <div id="input2">
                 <!--input2-->
-                <input type="text" id="input-group" name="rdate" [(ngModel)]="model.rdate" #rdate="ngModel" placeholder="Return Date">
+                <input type="date" id="input-group" name="rdate" [(ngModel)]="model.rdate" #rdate="ngModel" placeholder="Return Date">
                 <input type="number" id="input-group" name="adult" [(ngModel)]="model.adult" #adult="ngModel" placeholder="Adult">
                 <input type="number" id="input-group" name="child" [(ngModel)]="model.child" #child="ngModel" placeholder="Children(2-11years)">
                 <input type="number" id="input-group" name="infant" [(ngModel)]="model.infant" #infant="ngModel" placeholder="infant(under 2years)">
             </div><br />
             <!--input2-->
 
-            <!-- <div id="input3">
+             <div id="input3">
                 
                 <span id="input-group" class="text-primary">Select Your Fare</span>
-                <input type="radio" id="input-group" name="r">
-                <label class="text-white" for="input-group">One Way</label>
-                <input type="radio" id="input-group" name="r">
-                <label class="text-white" for="input-group">Round Trip</label>
-            </div> -->
+                <input type="radio" id="input-group" name="r" value="1"  >
+                <!-- <span *ngSwitchCase="'oneway'"><label class="text-black" for="input-group">One Way</label></span> -->
+                <label class="text-black" for="input-group">One Way</label>
+                <input type="radio" id="input-group" name="r" value="2" >
+                <!-- <span *ngSwitchCase="'twoway'"><label class="text-black" for="input-group">Round Trip</label></span> -->
+                <label class="text-black" for="input-group">Round Trip</label>
+            </div> 
             <!--input3-->
 
             <div id="input4">

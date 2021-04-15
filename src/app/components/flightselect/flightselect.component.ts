@@ -17,7 +17,11 @@ export class FlightselectComponent implements OnInit {
   svc1 : FlightInfoService;
   frm = new FlightReservationModule();
   flist: FlightReservationModule[];
-
+  Origin: string;
+  Destination: string;
+  oneway:string;
+  twoway:string;
+  
   constructor( svc : FlightReservationService, svc1 : FlightInfoService ) 
   { 
     this.svc=svc;
@@ -25,8 +29,31 @@ export class FlightselectComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.Origin = String(localStorage.getItem('Origin'));
+    this.Destination = String(localStorage.getItem('Destination'));
+
+    // if(this.oneway!=null)
+    //   {
+    //     this.Origin = String(localStorage.getItem('Origin'));
+    //     this.Destination = String(localStorage.getItem('Destination'));
+        
+    //   }
+    //   else
+    //   {
+    //     //source
+    //     this.Origin = String(localStorage.getItem('Origin'));
+    //     this.Destination = String(localStorage.getItem('Destination'));
+    //     //destination
+    //     this.Origin = String(localStorage.getItem('Destination'));
+    //     this.Destination = String(localStorage.getItem('Origin'));
+    //   }
+
+    alert("Origin: "+ this.Origin + "Destination: " + this.Destination);
+    
+
     this.svc.GetFlights().subscribe((data:FlightReservationModule[])=>{
       this.flist=data;
+      console.log(this.flist);
       });
   }
 

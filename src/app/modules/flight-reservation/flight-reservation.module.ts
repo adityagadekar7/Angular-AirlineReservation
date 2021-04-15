@@ -24,12 +24,12 @@ export class FlightReservationModule {
   Seats_Available_Eco:number;
   Seats_Available_Business:number;
 
-  Pnr_no : number;
-  User_Id : number;
-  Reservation_Date : string;
-  Reservation_Time :string;
-  num_of_Seats : number;
-  Classtype : string;
-  total_price : number;
-  status : string;
+  // Pnr_no : number;
+  // User_Id : number;
+  // Reservation_Date : string;
+  // Reservation_Time :string;
+  // num_of_Seats : number;
+  // Classtype : string;
+  // total_price : number;
+  // status : string;
 }
