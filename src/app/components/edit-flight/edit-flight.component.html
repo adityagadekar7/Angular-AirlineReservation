@@ -27,7 +27,7 @@
             
                     <div class="col-md-4">
                         <select name="Airport_Code"  [(ngModel)]="model.Airport_Code" #projid="ngModel" >
-                            <option *ngFor="let item of clist" [value]="item.Airport_Code">{{item.Airport_Name}}</option>
+                            <option *ngFor="let item of clist" [value]="item.Airport_Code">{{item.Airport_Code}}</option>
                         </select>
                     </div>
                 </div>
@@ -148,12 +148,10 @@
                         <button  class="buttonx btn btn-success" type="submit" [disabled]="deleteform.invalid">Delete</button>
                     </div>
                 </form>
-
-
             </div>
             </tab>
 
-            <tab heading="Delete Flight">
+            <tab heading="Update Flight">
                 <div class="login-box1 col-md-4">
                     
     

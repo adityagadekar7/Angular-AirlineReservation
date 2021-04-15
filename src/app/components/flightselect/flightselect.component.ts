@@ -1,9 +1,10 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
-import {FormsModule,FormGroup,NgForm,NgModel} from '@angular/forms';
+
 import {FlightReservationModule} from 'src/app/modules/flight-reservation/flight-reservation.module';
 import {FlightReservationService} from 'src/app/services/flight-reservation.service';
 import {FlightInfoModule} from 'src/app/modules/flight-info/flight-info.module';
 import {FlightInfoService} from 'src/app/services/flight-info.service';
+import { Component, OnInit,ViewChild ,NgZone} from '@angular/core';
+import { FormsModule, NgForm, FormGroup, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-flightselect',
@@ -52,7 +53,4 @@ export class FlightselectComponent implements OnInit {
     
 
   }
-
-
-
 }
