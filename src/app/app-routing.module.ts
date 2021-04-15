@@ -15,9 +15,11 @@ const routes: Routes = [
   {path:'UserLogin', component: UserLoginComponent},
   {path:'EditFlight', component: EditFlightComponent },
   {path:'homepage', component: HomeComponent },
-  {path:'registration', component: RegistrationComponent },
+  //{path:'registration', component: RegistrationComponent },
+  {path:'InsertUser', component: RegistrationComponent },
   {path:'FlightSelect', component: FlightselectComponent},
-  {path:'PassDet', component: PassengerdetailsComponent},
+ // {path:'PassDet', component: PassengerdetailsComponent},
+  {path:'Passenger_Details', component: PassengerdetailsComponent},
   {path:'PaymentForm', component: PaymentComponent},
   {path:'TicketDetails', component: TicketsComponent}
 ];
