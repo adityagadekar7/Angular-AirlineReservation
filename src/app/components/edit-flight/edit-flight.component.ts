@@ -64,6 +64,7 @@ export class EditFlightComponent implements OnInit {
     this.fi.Flight_Number=deleteForm.value.fno;
     this.svc.DeleteFlightF(this.fi.Flight_Number).subscribe((data:boolean)=>{
       alert(data);
+    
       console.log(data);
     });
   }

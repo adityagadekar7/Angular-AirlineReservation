@@ -20,6 +20,7 @@ export class ResgisterauModule {
   Password:string; //added
   DOB: string;
   PhoneNumber: number;
+ // OTP: number;
 
 
 

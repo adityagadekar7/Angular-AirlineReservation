@@ -23,8 +23,12 @@ import 'jquery';
 import 'popper.js';
 import 'bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+<<<<<<< HEAD
 import { SeatSelectComponent } from './components/seat-select/seat-select.component';
 import { BookingComponent } from './components/booking/booking.component';
+=======
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+>>>>>>> 849e7d04483a40dd4401d60ea1184ea7a94b7897
 
 
 
@@ -41,8 +45,12 @@ import { BookingComponent } from './components/booking/booking.component';
     PassengerdetailsComponent,
     PaymentComponent,
     TicketsComponent,
+<<<<<<< HEAD
     SeatSelectComponent,
     BookingComponent
+=======
+   // ResetpasswordComponent
+>>>>>>> 849e7d04483a40dd4401d60ea1184ea7a94b7897
     
     
   ],

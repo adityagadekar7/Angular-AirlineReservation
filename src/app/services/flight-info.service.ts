@@ -31,6 +31,8 @@ InsertNewFlight(fs:FlightInfoModule):Observable<boolean>
 DeleteFlightF(id:number):Observable<boolean>
 {
   return this.http.delete<boolean>(this.url+'/'+'DeleteFlight'+'/'+id);
-}
+  }
+
+ 
 
 }
