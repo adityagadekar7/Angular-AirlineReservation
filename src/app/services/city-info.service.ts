@@ -12,12 +12,15 @@ import{HttpHeaders} from '@angular/common/http';
 export class CityInfoService {
   city:CityInfoModule;
   http:HttpClient;
+<<<<<<< HEAD
   //url:string='http://localhost:62227/api/City_Information';
- // url:string='http://localhost:56797/api/City_Information';
- // url:string='http://localhost:59875/api/City_Information'
+  //url:string='http://localhost:56797/api/City_Information';
+ url:string='http://localhost:59875/api/City_Information'
+=======
   url:string='http://localhost:62227/api/City_Information';
   //url:string='http://localhost:56797/api/City_Information';
   //url:string='http://localhost:59875/api/City_Information'
+>>>>>>> 5061301d588a01460f2c44f6446f582f5ff15ea2
   
 
   httpOptions = {headers: new HttpHeaders({

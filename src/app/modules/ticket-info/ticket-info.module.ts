@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class TicketInfoModule {
   User_Id:number;
-  pnr_no:number;
+  Pnr_no:number;
   Airport_Name:string;
   State:string;
   Zip_Code:number;
