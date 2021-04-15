@@ -38,7 +38,10 @@ import { HttpClientModule } from '@angular/common/http';
     FlightselectComponent,
     PassengerdetailsComponent,
     PaymentComponent,
-    TicketsComponent
+    TicketsComponent,
+    SeatSelectComponent,
+    BookingComponent
+   // ResetpasswordComponent
     
     
   ],
