@@ -1,0 +1,29 @@
+<p>booking works!</p>
+
+
+<div align="center">
+    <tabset #tabset>
+        <tab heading="Add Flight">
+            <div align="center" class="login-box">
+            <form #insertForm="ngForm" name="insertForm" (ngSubmit)="Insert(insertForm)"  class="center">
+              
+                <div >
+                    <button class="buttonx btn btn-success" type="submit" >Insert</button>
+                </div>
+
+            </form>
+            <br>
+            <br>
+
+            <form #GetPnrForm="ngForm" name="GetPnrForm" (ngSubmit)="GetPnr(GetPnrForm)"  class="center">
+              
+                <div >
+                    <button class="buttonx btn btn-success" type="submit" >GetPNR</button>
+                </div>
+
+            </form>
+        </div>
+        </tab>  
+    </tabset>
+</div>
+

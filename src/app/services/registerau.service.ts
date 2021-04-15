@@ -33,6 +33,14 @@ export class RegisterauService {
   UserReg(regau: ResgisterauModule): Observable<boolean> 
   {
     return this.http.post<boolean>(this.url + '/' + 'register', regau, this.httpOptions);//use based on your link
+  }/*
+  ChkEmail(email: string): Observable<string> {
+    return this.http.get<string>(this.url + '/CheckEmail/' + email + '/');
   }
+
+  VerifyLinkEmail(reg: ResgisterauModule): Observable<string> {
+    console.log(reg);
+    return this.http.post<string>(this.url + '/' + 'VerifyLinkEmail', reg, this.httpOptions);
+  }*/
 
 }

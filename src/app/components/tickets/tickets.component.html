@@ -1,7 +1,11 @@
 <div align="center">
-    <tabset #tabset>
+    <div>
+        <button  class="buttonx btn btn-success" type="submit" ><a href="homepage" style="color:white;">Book Now</a></button>
+    </div>
+    <tabset #tabset class=" nav-pills-success nav-justified">
+        
         <tab heading="Booked Tickets">
-            <h2>Booked Tickets</h2>
+            <!-- <h2>Booked Tickets</h2> -->
             <!-- <div class="ticket-details" align="center">
                 <form #bookedform="ngForm" name="bookedForm" (ngSubmit)="booked(bookedform)">
                     <div>
@@ -17,7 +21,7 @@
                 </form>
             </div> -->
 
-            <table border="2">
+            <table class="table table-striped table-dark">
                 <tr>
                     <th>Ticket Number</th>
                     <th>Date</th>             
@@ -49,9 +53,9 @@
 
 
         <tab heading="Cancelled Tickets">
-            <h2>Cancelled Tickets</h2>
+            <!-- <h2>Cancelled Tickets</h2> -->
             
-            <table border="2">
+            <table class="table table-striped table-dark">
                 <tr>
                     <th>Ticket Number</th>
                     <th>Date</th>             
@@ -66,12 +70,12 @@
                     <th>Time of Cancellation</th>       
                 </tr>
                 <tr *ngFor="let item of cancelled">
-                    <td>{{item.pnr_no}}</td>
-                    <td>{{item.Flight_date}}</td>
+                    <td>{{item.Pnr_no}}</td>
+                    <td>{{item.Flight_Date}}</td>
                     <td>{{item.Flight_Number}}</td>
                     <td>{{item.Airport_Name}}</td>
                     <!-- <td>{{item.FirstName}}  {{item.LastName}}</td> -->
-                    <td>{{item.origin}}</td>
+                    <td>{{item.Origin}}</td>
                     <td>{{item.Destination}}</td>
                     <td>{{item.total_price}}</td>
                     <td>{{item.Refund_Amount}}</td>
@@ -82,21 +86,30 @@
         </tab>
 
         <tab heading="Cancel Booking">
-            <div class="login-box1 col-md-4">
-                <h2>Cancel Tickets</h2>
+            <div class="login-box  center">
+                <!-- <h2>Cancel Tickets</h2> -->
                 <form #cancelform="ngForm" name="cancelForm" (ngSubmit)="CancelFunction(cancelform)">
-                    <div>
-                        <label class="center">Ticket Number: </label>
+                    <!-- <div>
+                        <label class="center">Ticket Number</label><br>
                         <input type="number" name="tno" [(ngModel)]="model.tno"
-                        #tno="ngModel" class="center"required/>
+                        #tno="ngModel" class="center"required/><br>
                         <span *ngIf="tno.errors?.required">Cannot be blank</span>
+                    </div> -->
+
+                    <div>Select Ticket
+                        <select class="form-control" name="tno"  [(ngModel)]="model.tno" #tno="ngModel" style="background: black; color:aliceblue">
+                            <option *ngFor="let item of bookedlist" [value]="item.pnr_no">Ticket No. - {{item.pnr_no}}, Flight Date - {{item.Flight_date}}, From - {{item.origin}}, To - {{item.Destination}}</option>
+                        </select>
                     </div>
                 
                     <div>
-                        <button  class="buttonx btn btn-danger" type="submit" [disabled]="cancelform.invalid">Cancel</button>
+                        <button  class="button btn btn-danger" type="submit" [disabled]="cancelform.invalid">Cancel</button>
                     </div>
                 </form>
             </div>
             </tab>
+            <div>
+                <button  class="button btn btn-danger" type="submit"><a href="homepage" style="color:white">Logout</a></button>
+            </div>
     </tabset>
 </div>
