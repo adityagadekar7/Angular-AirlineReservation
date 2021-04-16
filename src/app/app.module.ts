@@ -1,6 +1,8 @@
 import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
+import{RouterModule} from '@angular/router';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,20 +50,16 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     PassengerdetailsComponent,
     PaymentComponent,
     TicketsComponent,
-<<<<<<< HEAD
     AboutpageComponent,
-    FaqComponent
-=======
-
+    FaqComponent,
     SeatSelectComponent,
-    BookingComponent
-   // ResetpasswordComponent
-
->>>>>>> 97a2e00498b3fffe24a0dfdd8ce95707a336e8bb
+    BookingComponent,
+    ResetpasswordComponent
     
     
   ],
   imports: [
+   
     BrowserModule,
     AppRoutingModule,
     FormsModule,
