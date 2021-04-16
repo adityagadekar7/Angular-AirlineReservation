@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class PassengerInfoModule {
-  Passenger_id : number;
+  // Passenger_id : number;
   Pnr_no : number;
   PassportNumber : number;
   FirstName : string;

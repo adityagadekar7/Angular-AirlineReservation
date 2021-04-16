@@ -16,6 +16,9 @@ export class PassengerdetailsComponent implements OnInit {
   pi = new PassengerInfoModule();
   data : PassengerInfoModule; // for delete
   model:any=[];
+  TotalSeats:Number;
+  SeatNos:String;
+
 
   constructor(svc : PassengerInfoService) 
   {
@@ -23,11 +26,14 @@ export class PassengerdetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.TotalSeats=Number(localStorage.getItem('TOTALSEATS'));
+    this.SeatNos=String(localStorage.getItem('SEATNO'));
+    alert(this.TotalSeats+" + "+this.SeatNos);
   }
 
   PassDet(passdet:NgForm):void{
    // console.log(passdet.value);
-    this.pi.Passenger_id = passdet.value.Passenger_id;
+    //this.pi.Passenger_id = passdet.value.Passenger_id;
     this.pi.Pnr_no = passdet.value.Pnr_no;
     this.pi.PassportNumber = passdet.value.Passport_Number;
     this.pi.FirstName =  passdet.value.FirstName;

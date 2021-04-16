@@ -12,7 +12,8 @@ import {PaymentModule} from '../modules/payment/payment.module';
 export class PaymentService {
   payment:PaymentModule
   http:HttpClient;
-  url:string='http://localhost:59875/api/Dashboard'; //localhost port different for different projects
+  //url:string='http://localhost:59875/api/Dashboard'; //localhost port different for different projects
+  url:string='http://localhost:56767/api/Dashboard'
   //url:string='http://localhost:62227/api/RegisterAU';
   //url:string='http://localhost:62227/api/Registration';
   //url:string='http://localhost:59875/api/RegisterAU';

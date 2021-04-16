@@ -1,5 +1,6 @@
 <div class="passenger-details" align="center">
 <h1 class="center">Passenger Details</h1>
+<h6 style="color:red" class="center">Fill the form {{TotalSeats}} times for {{TotalSeats}} Passengers</h6>
 <form id="Passenger_Details" #passdet="ngForm" name="passdet" (ngSubmit)="PassDet(passdet)" class="center">
    <div align="center">
    <!-- <div >
@@ -61,9 +62,18 @@
     </div>
 </div>
     <div class="row" align="center" style="padding-left: 170px;">
-        <button class="buttonx btn btn-success" type="submit" [disabled]="passdet.invalid">Continue</button>
+        <button class="buttonx btn btn-success" type="submit" [disabled]="passdet.invalid">Insert</button>
     </div>
+
+    <div class="row" align="center" style="padding-left: 170px;">
+        <button class="buttonx btn btn-success" type="reset">Clear</button>
+    </div>
+
+    
 </form>
+<div class="row" align="center" style="padding-left: 170px;">
+    <button class="buttonx btn btn-success"  ><a href="PaymentForm" style="color:white;">Continue</a></button>
+</div>
 
 <!--
 <div >

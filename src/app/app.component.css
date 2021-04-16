@@ -1,3 +1,11 @@
+body{
+  background: #ffffff;
+}
+
+.nav-section {
+  background: #166a84;
+}
+
 .footer-section {
   background: #166a84;
   padding-bottom: 80px;
@@ -6,7 +14,7 @@
 .footer-section-row {
   background: #1d7590;
   padding: 18px;
-  margin-top: 200px;
+  /* margin-top: 200px; */
   margin-bottom: 50px;
 }
 
@@ -295,3 +303,5 @@
   letter-spacing: 2px;
   font-weight: 600;
 }
+
+
