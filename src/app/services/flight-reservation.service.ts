@@ -14,7 +14,9 @@ export class FlightReservationService {
 
   fr : FlightReservationModule;
   http:HttpClient;
-  url:string='http://localhost:56797/api';
+  //url: string = 'http://localhost:56797/api';
+  url: string = 'http://localhost:62227/api';
+
 
   httpOptions = {headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -31,10 +33,5 @@ export class FlightReservationService {
   {
     return this.http.get<FlightReservationModule[]>(this.url+'/Flight_Schedules/'+'GetFlights');
   }
-
-  /*FlightsReserve(frs1:FlightReservationModule):Observable<boolean>  
-{
- return this.http.post<boolean>(this.url+"/"+'Flight_Schedules/'+'InsertFlightReservation',frs1,this.httpOptions); //passing 1 parameter   //httpOptions beacause FormBody used in WebApi(studio 2019) --passed through body not uri
-}*/
 
 }

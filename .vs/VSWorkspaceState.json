@@ -4,13 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
+    "\\src\\app\\components\\booking",
     "\\src\\app\\components\\registration",
-    "\\src\\app\\components\\user-login",
-    "\\src\\app\\modules",
-    "\\src\\app\\modules\\city-info",
+    "\\src\\app\\components\\resetpassword",
+    "\\src\\app\\components\\seat-select",
     "\\src\\app\\modules\\resgisterau",
     "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\modules\\resgisterau\\resgisterau.module.ts",
+  "SelectedNode": "\\src\\app\\components\\registration\\registration.component.ts",
   "PreviewInSolutionExplorer": false
 }

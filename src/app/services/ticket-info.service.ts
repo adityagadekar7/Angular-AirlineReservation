@@ -15,12 +15,12 @@ import { PassengerInfoModule } from '../modules/passenger-info/passenger-info.mo
 })
 export class TicketInfoService {
   http:HttpClient;
-  //url:string='http://localhost:59875/api/Dashboard';
-  //url1:string='http://localhost:59875/api/Booking';
-  url:string='http://localhost:56797/api/Dashboard';
-  url1:string='http://localhost:56797/api/Booking';  
+ // url:string='http://localhost:59875/api/Dashboard';
+  url1:string='http://localhost:59875/api/Booking'  
 
   //url:string='http://localhost:62227/api/Dashboard'
+  url:string='http://localhost:62227/api/Dashboard'
+  //url:string='http://localhost:59875/api/Dashboard'
   //url:string='http://localhost:56797/api/Dashboard'
   httpOptions = {headers: new HttpHeaders({
     'Content-Type': 'application/json'

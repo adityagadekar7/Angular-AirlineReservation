@@ -12,49 +12,29 @@ import { FormsModule, NgForm, FormGroup, NgModel } from '@angular/forms';
   styleUrls: ['./flightselect.component.css']
 })
 export class FlightselectComponent implements OnInit {
-  model : any=[];
-  svc : FlightReservationService;
-  svc1 : FlightInfoService;
+  model: any = [];
+  svc: FlightReservationService;
+  svc1: FlightInfoService;
   frm = new FlightReservationModule();
   flist: FlightReservationModule[];
   Origin: string;
   Destination: string;
-  oneway:string;
-  twoway:string;
-  
-  constructor( svc : FlightReservationService, svc1 : FlightInfoService ) 
-  { 
-    this.svc=svc;
-    this.svc1=svc1;
-  }
+  oneway: string;
+  twoway: string;
+  constructor(svc: FlightReservationService, svc1: FlightInfoService) {
+    this.svc = svc;
+    this.svc1 = svc1; }
 
   ngOnInit(): void {
     this.Origin = String(localStorage.getItem('Origin'));
     this.Destination = String(localStorage.getItem('Destination'));
+    alert("Origin: " + this.Origin + "Destination: " + this.Destination);
 
-    // if(this.oneway!=null)
-    //   {
-    //     this.Origin = String(localStorage.getItem('Origin'));
-    //     this.Destination = String(localStorage.getItem('Destination'));
-        
-    //   }
-    //   else
-    //   {
-    //     //source
-    //     this.Origin = String(localStorage.getItem('Origin'));
-    //     this.Destination = String(localStorage.getItem('Destination'));
-    //     //destination
-    //     this.Origin = String(localStorage.getItem('Destination'));
-    //     this.Destination = String(localStorage.getItem('Origin'));
-    //   }
 
-    alert("Origin: "+ this.Origin + "Destination: " + this.Destination);
-    
-
-    this.svc.GetFlights().subscribe((data:FlightReservationModule[])=>{
-      this.flist=data;
+    this.svc.GetFlights().subscribe((data: FlightReservationModule[]) => {
+      this.flist = data;
       console.log(this.flist);
-      });
+    });
   }
 
 

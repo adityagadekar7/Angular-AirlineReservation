@@ -1,4 +1,4 @@
-<form class="form-group" #register="ngForm" name="registerForm" (ngSubmit)="Register(register)">
+<form class="form-group" #registerForm="ngForm" name="registerForm" (ngSubmit)="Register(registerForm)">
   <div id="login-box">
     <div align="center">
       <br>
@@ -24,7 +24,7 @@
         </ngx-recaptcha2>
       </div>
 
-      <button type="submit" class="buttonx  btn btn-success" [disabled]="register.invalid">Sign Up </button><br />
+      <button type="submit" class="buttonx  btn btn-success" [disabled]="registerForm.invalid">Sign Up </button><br />
      <p> Already have an account?<a href="UserLogin">   Login   </a></p>
     </div>
 
