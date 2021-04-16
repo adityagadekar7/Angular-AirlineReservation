@@ -29,15 +29,12 @@ const routes: Routes = [
 
   {path:'Passenger_Details', component: PassengerdetailsComponent},
   {path:'PaymentForm', component: PaymentComponent},
-<<<<<<< HEAD
   {path:'TicketDetails', component: TicketsComponent},
   {path:'About',component:AboutpageComponent},
   {path:'FAQ',component:FaqComponent},
-=======
   { path: 'TicketDetails', component: TicketsComponent },
  { path: 'resetpassword', component: ResetpasswordComponent },
  
->>>>>>> eef995e9a2bb54ddc86d734639704eaef14be4c3
   {path:'SeatSelect', component:SeatSelectComponent},
   {path:'Booking',component:BookingComponent}
 ];
