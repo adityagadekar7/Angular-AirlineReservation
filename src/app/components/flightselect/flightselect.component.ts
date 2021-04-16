@@ -12,22 +12,10 @@ import { FormsModule, NgForm, FormGroup, NgModel } from '@angular/forms';
   styleUrls: ['./flightselect.component.css']
 })
 export class FlightselectComponent implements OnInit {
-  model : any=[];
-  svc : FlightReservationService;
-  svc1 : FlightInfoService;
-  frm = new FlightReservationModule();
-  flist: FlightReservationModule[];
 
-  constructor( svc : FlightReservationService, svc1 : FlightInfoService ) 
-  { 
-    this.svc=svc;
-    this.svc1=svc1;
-  }
+  constructor() { }
 
   ngOnInit(): void {
-    this.svc.GetFlights().subscribe((data:FlightReservationModule[])=>{
-      this.flist=data;
-      });
   }
 
 

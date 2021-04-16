@@ -62,11 +62,11 @@
 <h2>Flight Select</h2>
 <form #flightselect="ngForm" name="flightselect" (ngSubmit)="FlightSelect(flightselect)" class="center">
     <h3 class="center">Flight Select</h3>
-        <div>
+       <!--<div>
             <label class="form-label" for="form-a">Flight Number</label>
             <input type="number" name="Flight_Number" [(ngModel)]="model.Flight_Number" #Flight_Number="ngModel" class="form-textbox" id="form-a" required>
             <span *ngIf="Flight_Number.errors?.required">Cannot be Blank</span>
-        </div>
+        </div>-->
 
         <div>
             <button type="submit" [disabled]="flightselect.invalid">Continue</button>
@@ -74,7 +74,7 @@
 </form><br>
 <table border="1">
     <tr>
-        <th>Flight_Number</th>                
+        <!-- <th>Flight_Number</th>                
         <th>Flight_Name</th>         
         <th>Flight_Date</th>     
         <th>Airport_Code</th>     
@@ -86,9 +86,15 @@
         <th>Cost_Eco</th>
         <th>Cost_Business</th> 
         <th>Seats_Available_Eco</th> 
-        <th>Seats_Available_Business</th>          
+        <th>Seats_Available_Business</th>           -->
     </tr>
-     <tr *ngFor="let f of flist">
+    
+    <!-- For one way -->
+    <span *ngFor = "let f of flist" >
+        <!-- <span *ngSwitchCase="'oneway'"> -->
+       <!-- <div *ngIf = "f.Origin==Origin && f.Destination==Destination">-->
+    
+     <tr *ngIf = "f.Origin==Origin && f.Destination==Destination" >
         <td>{{f.Flight_Number}}</td>
         <td>{{f.Flight_Name}}</td>
         <td>{{f.Flight_Date}}</td>
@@ -102,5 +108,72 @@
         <td>{{f.Cost_Business}}</td>
         <td>{{f.Seats_Available_Eco}}</td>
         <td>{{f.Seats_Available_Business}}</td>
+        <td><button class="buttonx btn btn-success" type="submit" (click)="Select(f.Flight_Number)">Select</button></td>
      </tr>
+     <!-- </span> -->
+    </span>
+
+    <!-- For Two way -->
+    <!-- <span *ngFor = "let f of flist" >
+         <div *ngIf = "f.Origin==Origin && f.Destination==Destination">
+        <span *ngSwitchCase="'twoway'">
+      <tr *ngIf = "f.Origin==Origin && f.Destination==Destination" >
+         <td>{{f.Flight_Number}}</td>
+         <td>{{f.Flight_Name}}</td>
+         <td>{{f.Flight_Date}}</td>
+         <td>{{f.Airport_Code}}</td>
+         <td>{{f.Flight_Departing_Time}}</td>
+         <td>{{f.Flight_Arrival_Time}}</td>
+         <td>{{f.Origin}}</td>
+         <td>{{f.Destination}}</td>
+         <td>{{f.Flight_Status}}</td>
+         <td>{{f.Cost_Eco}}</td>
+         <td>{{f.Cost_Business}}</td>
+         <td>{{f.Seats_Available_Eco}}</td>
+         <td>{{f.Seats_Available_Business}}</td>
+         <td><button class="buttonx btn btn-success" type="submit" (click)="Select(f.Flight_Number)">Select</button></td>
+      </tr>
+      <tr *ngIf = "f.Origin==Destination && f.Destination==Origin" >
+        <td>{{f.Flight_Number}}</td>
+        <td>{{f.Flight_Name}}</td>
+        <td>{{f.Flight_Date}}</td>
+        <td>{{f.Airport_Code}}</td>
+        <td>{{f.Flight_Departing_Time}}</td>
+        <td>{{f.Flight_Arrival_Time}}</td>
+        <td>{{f.Origin}}</td>
+        <td>{{f.Destination}}</td>
+        <td>{{f.Flight_Status}}</td>
+        <td>{{f.Cost_Eco}}</td>
+        <td>{{f.Cost_Business}}</td>
+        <td>{{f.Seats_Available_Eco}}</td>
+        <td>{{f.Seats_Available_Business}}</td>
+        <td><button class="buttonx btn btn-success" type="submit" (click)="Select(f.Flight_Number)">Select</button></td>
+     </tr>
+      </span>
+     </span> -->
 </table>
+<!--<table border="1">
+    <tr>
+        <th>Flight_Number</th>                
+        <th>User_Id</th>         
+        <th>Reservation_Date</th>     
+        <th>Reservation_Time</th>     
+        <th>num_of_seats</th>
+        <th>Classtype</th>     
+        <th>Total_price</th>
+        <th>status</th>          
+    </tr>
+     <tr *ngFor="let f of flist">
+        <td>{{f.Flight_Number}}</td>
+        <td>{{f.User_Id}}</td>
+        <td>{{f.Reservation_Date}}</td>
+        <td>{{f.Reservation_Time}}</td>
+        <td>{{f.Flight_Departing_Time}}</td>
+        <td>{{f.Flight_Arrival_Time}}</td>
+        <td>{{f.num_of_seats}}</td>
+        <td>{{f.Classtype}}</td>
+        <td>{{f.Total_price}}</td>
+        <td>{{f.status}}</td>
+        <td><button class="buttonx btn btn-success" type="submit" >Proceed</button></td>
+     </tr>
+</table>-->
