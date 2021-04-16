@@ -1,10 +1,10 @@
-import { Component, OnInit,NgModule } from '@angular/core';
+import { Component, OnInit,NgModule,NgZone} from '@angular/core';
 import {FormsModule,FormGroup,NgForm,NgModel} from '@angular/forms';
 import { TabsetComponent, TabDirective } from 'ngx-bootstrap/tabs';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import{PassengerInfoService}from 'src/app/services/passenger-info.service';
 import{PassengerInfoModule} from 'src/app/modules/passenger-info/passenger-info.module';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-passengerdetails',
   templateUrl: './passengerdetails.component.html',
@@ -18,11 +18,15 @@ export class PassengerdetailsComponent implements OnInit {
   model:any=[];
   TotalSeats:Number;
   SeatNos:String;
+  ngzone: NgZone;
+  router: Router;
 
 
-  constructor(svc : PassengerInfoService) 
+  constructor(svc : PassengerInfoService, ngzone: NgZone, router: Router) 
   {
     this.svc = svc;
+    this.ngzone = ngzone;
+    this.router = router;
   }
 
   ngOnInit(): void {
@@ -49,6 +53,7 @@ export class PassengerdetailsComponent implements OnInit {
       if(data == true)
       {
         alert("New Passenger Added");
+        this.ngzone.run(() => this.router.navigateByUrl('/PaymentForm'));
       }
       else
       {

@@ -47,6 +47,8 @@ export class PaymentComponent implements OnInit {
      if(data=="Payment Successful")
      {
        alert("Payment Successful");
+       //localStorage.setItem('UID',this.regau.UserId.toString());
+       this.ngzone.run(()=>this.router.navigateByUrl('/TicketDetails'));
        
      }
      else if(data == true) {

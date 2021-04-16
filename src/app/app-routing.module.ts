@@ -11,7 +11,9 @@ import{AboutpageComponent} from './components/aboutpage/aboutpage.component';
 import{FaqComponent} from './components/faq/faq.component';
 
 import { PaymentComponent } from './components/payment/payment.component'
-import { TicketsComponent } from './components/tickets/tickets.component'
+import { TicketsComponent } from './components/tickets/tickets.component';
+import { ResetpasswordComponent } from 'src/app/components/resetpassword/resetpassword.component';
+
 import { SeatSelectComponent } from './components/seat-select/seat-select.component';
 import { BookingComponent } from './components/booking/booking.component';
 
@@ -20,15 +22,22 @@ const routes: Routes = [
   {path:'UserLogin', component: UserLoginComponent},
   {path:'EditFlight', component: EditFlightComponent },
   {path:'homepage', component: HomeComponent },
-  //{path:'registration', component: RegistrationComponent },
-  {path:'InsertUser', component: RegistrationComponent },
+  {path:'registration', component: RegistrationComponent },
+  
   {path:'FlightSelect', component: FlightselectComponent},
- // {path:'PassDet', component: PassengerdetailsComponent},
+
+
   {path:'Passenger_Details', component: PassengerdetailsComponent},
   {path:'PaymentForm', component: PaymentComponent},
+<<<<<<< HEAD
   {path:'TicketDetails', component: TicketsComponent},
   {path:'About',component:AboutpageComponent},
   {path:'FAQ',component:FaqComponent},
+=======
+  { path: 'TicketDetails', component: TicketsComponent },
+ { path: 'resetpassword', component: ResetpasswordComponent },
+ 
+>>>>>>> eef995e9a2bb54ddc86d734639704eaef14be4c3
   {path:'SeatSelect', component:SeatSelectComponent},
   {path:'Booking',component:BookingComponent}
 ];

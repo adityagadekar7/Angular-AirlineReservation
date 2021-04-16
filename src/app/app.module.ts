@@ -50,11 +50,21 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     PassengerdetailsComponent,
     PaymentComponent,
     TicketsComponent,
+<<<<<<< HEAD
     AboutpageComponent,
     FaqComponent,
     SeatSelectComponent,
     BookingComponent,
     ResetpasswordComponent
+=======
+    ResetpasswordComponent,
+    
+
+    SeatSelectComponent,
+    BookingComponent,
+    ResetpasswordComponent
+
+>>>>>>> eef995e9a2bb54ddc86d734639704eaef14be4c3
     
     
   ],
@@ -66,7 +76,7 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     NgbModule,
     AlertModule.forRoot(), TabsModule.forRoot(),
     HttpClientModule,
-    NgxCaptchaModule,
+    NgxCaptchaModule
     
   ],
   providers: [],

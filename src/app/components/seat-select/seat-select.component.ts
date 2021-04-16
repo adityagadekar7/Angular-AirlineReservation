@@ -71,7 +71,7 @@ export class SeatSelectComponent implements OnInit {
             //alert(this.temp);
             localStorage.setItem('TOTALSEATS',this.selected.length.toString());
             localStorage.setItem('SEATNO',this.selected.toString());
-            this.ngzone.run(()=>this.router.navigateByUrl('/PassDet'));
+            this.ngzone.run(()=>this.router.navigateByUrl('/Passenger_Details'));
         } else {
             alert("No seats selected!");
         }
