@@ -7,8 +7,11 @@ import { HomeComponent } from './components/home/home.component';
 import { RegistrationComponent } from './components/registration/registration.component'
 import { FlightselectComponent } from './components/flightselect/flightselect.component';
 import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component';
-import { PaymentComponent } from './components/payment/payment.component'
-import { TicketsComponent } from './components/tickets/tickets.component'
+import { PaymentComponent } from './components/payment/payment.component';
+import { TicketsComponent } from './components/tickets/tickets.component';
+import{AboutpageComponent} from './components/aboutpage/aboutpage.component';
+import{FaqComponent} from './components/faq/faq.component';
+
 
 const routes: Routes = [
   {path:'AdminLogin', component: AdminLoginComponent},
@@ -19,7 +22,9 @@ const routes: Routes = [
   {path:'FlightSelect', component: FlightselectComponent},
   {path:'PassDet', component: PassengerdetailsComponent},
   {path:'PaymentForm', component: PaymentComponent},
-  {path:'TicketDetails', component: TicketsComponent}
+  {path:'TicketDetails', component: TicketsComponent},
+  {path:'About',component:AboutpageComponent},
+  {path:'FAQ',component:FaqComponent}
 ];
 
 @NgModule({

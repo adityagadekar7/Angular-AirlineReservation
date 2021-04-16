@@ -24,13 +24,9 @@ export class PaymentService {
 
   constructor(http:HttpClient) {this.http=http }
 
-  CheckPayment( CardNo:bigint,cardtype:string,Expiry_Month:number,Expiry_year:number):Observable<PaymentModule[]>
+  /*CheckPayment( CardNo:bigint,cardtype:string,Expiry_Month:number,Expiry_year:number):Observable<PaymentModule[]>
   {
     return this.http.get<PaymentModule[]>(this.url+'/'+'PaymentCheck'+'/'+CardNo + '/' + cardtype+'/' + Expiry_Month + '/' + Expiry_year);
-  }
- /*CheckPayment( UserId:number, CardNo:bigint,cardtype:string,Expiry_Month:number,Expiry_year:number):Observable<string>
-  {
-    return this.http.get<string>(this.url+'/' + 'CheckPayment'+'/'+UserId+'/'+CardNo + '/' + cardtype+'/' + Expiry_Month + '/' + Expiry_year);
   }*/
 InsertCard(payment:PaymentModule):Observable<boolean>
 {

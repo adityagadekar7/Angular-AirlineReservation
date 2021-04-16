@@ -18,11 +18,15 @@ import { PassengerdetailsComponent } from './components/passengerdetails/passeng
 
 import{PaymentComponent} from './components/payment/payment.component';
 import{TicketsComponent} from './components/tickets/tickets.component';
+import{AboutpageComponent} from './components/aboutpage/aboutpage.component';
+import{FaqComponent} from './components/faq/faq.component';
 
 import 'jquery';
 import 'popper.js';
 import 'bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+
+
 
 
 
@@ -38,7 +42,9 @@ import { HttpClientModule } from '@angular/common/http';
     FlightselectComponent,
     PassengerdetailsComponent,
     PaymentComponent,
-    TicketsComponent
+    TicketsComponent,
+    AboutpageComponent,
+    FaqComponent
     
     
   ],
