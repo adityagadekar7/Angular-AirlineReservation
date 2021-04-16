@@ -1,7 +1,7 @@
-<div class="container" style="background-image: url('./assets/airplane3.jpg')">
-
-
-    <!--container-->
+ 
+ <div style="background-image: url('./assets/trial3.jpg'); background-size:cover">
+  <br>
+ <br>
 
 
     <!--container-->
@@ -9,11 +9,12 @@
     <form class="form-group" #book="ngForm" name="book" (ngSubmit)="Bookflight(book)">
         <!--form-->
 
-        <h1 class="text-center" style="color:aqua">Happy Trip</h1>
-
+        <h1 class="text-center" style="color:White; text-align:center">Happy Trip</h1>
+        <br>
+        <br>
         <div id="form">
             <!--form-->
-            <h3 class="text-black">Booking Details</h3> <!--text-white-->
+            <h3 class="text-black">Search Flight</h3> <!--text-white-->
 
             <div id="input">
                 <!--input-->
@@ -65,53 +66,59 @@
             <!--input5-->
 
 
-            <button type="reset" class="btn btn-primary">Clear Form</button>
+            <button type="reset" class="btn btn-danger">Clear Form</button>
+            <br>
+            
+            <br>
+            <div  id="search">
+
+              <div class="form-group col-xs-3">
+                  <button type="submit" class="btn btn-block btn-primary" style="width:200px ;height:50px;">Search</button>
+              </div>
+          </div>
+            
+           
         </div>
         <!--form-->
       <br />
     
 
-        <div class="row" id="search">
-
-            <div class="form-group col-xs-3">
-                <button type="submit" class="btn btn-block btn-primary" style="width:200px ;height:50px;">Search</button>
-            </div>
-        </div>
+        
 
     </form>
     <!--form-->
 
     
 
-</div>
+
 <ul class="image-list-small">
   <li>
     <a href="#" style="background-image: url('./assets/airplane3.jpg');"></a>
     <div class="details">
       <h3><a href="#">AirLines</a></h3>
-      <p class="image-author">Best Air Services</p>
+      <p class="image-author"></p>
     </div>
   </li>
   <li>
     <a href="#" style="background-image: url('./assets/forest.jpg');"></a>
     <div class="details">
       <h3><a href="#">Coorg Beauty of Nature</a></h3>
-      <p class="image-author">Peacefull Location</p>
+      <p class="image-author"></p>
     </div>
   </li>
   <li>
     <a href="#" style="background-image: url('./assets/ladakh.jpg');"></a>
     <div class="details">
       <h3><a href="#">When in Ladakh..</a></h3>
-      <p class="image-author">Mountain Top</p>
+      <p class="image-author"></p>
       
     </div>
   </li>
   <li>
     <a href="#" style="background-image: url('./assets/air.jpg');"></a>
     <div class="details">
-      <h3><a href="#">Bangalore Kempagowda Airpoat</a></h3>
-      <p class="image-author">Rick Alpine</p>
+      <h3><a href="#">Bangalore Kempagowda Airport</a></h3>
+      <p class="image-author"></p>
     </div>
   </li>
   
@@ -136,7 +143,7 @@
     <a href="#" style="background-image: url('./assets/balii.jpg');"></a>
     <div class="details">
       <h3><a href="#">When in bali..</a></h3>
-      <p class="image-author">Water on Top</p>
+      <p class="image-author"></p>
 
     </div>
   </li>
@@ -149,3 +156,4 @@
   </li>
 
 </ul>
+</div>

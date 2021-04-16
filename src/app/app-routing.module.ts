@@ -8,7 +8,11 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { FlightselectComponent } from './components/flightselect/flightselect.component';
 import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component';
 import { PaymentComponent } from './components/payment/payment.component'
-import { TicketsComponent } from './components/tickets/tickets.component'
+import { TicketsComponent } from './components/tickets/tickets.component';
+import { ResetpasswordComponent } from 'src/app/components/resetpassword/resetpassword.component';
+
+import { SeatSelectComponent } from './components/seat-select/seat-select.component';
+import { BookingComponent } from './components/booking/booking.component';
 
 const routes: Routes = [
   {path:'AdminLogin', component: AdminLoginComponent},
@@ -16,10 +20,17 @@ const routes: Routes = [
   {path:'EditFlight', component: EditFlightComponent },
   {path:'homepage', component: HomeComponent },
   {path:'registration', component: RegistrationComponent },
+  
   {path:'FlightSelect', component: FlightselectComponent},
-  {path:'PassDet', component: PassengerdetailsComponent},
+
+
+  {path:'Passenger_Details', component: PassengerdetailsComponent},
   {path:'PaymentForm', component: PaymentComponent},
-  {path:'TicketDetails', component: TicketsComponent}
+  { path: 'TicketDetails', component: TicketsComponent },
+ { path: 'resetpassword', component: ResetpasswordComponent },
+ 
+  {path:'SeatSelect', component:SeatSelectComponent},
+  {path:'Booking',component:BookingComponent}
 ];
 
 @NgModule({

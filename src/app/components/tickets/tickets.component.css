@@ -30,12 +30,12 @@ input[type=text] {
 .buttonx {
     border: none;
     color: white;
-    padding: 15px 32px;
+    /* padding: 15px 32px; */
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 12px;
-    width: 60%;
+    font-size: 28px;
+    width: 30%;
 }
 
 label {
@@ -69,3 +69,70 @@ form {
     color: inherit;
     cursor: pointer;
 }
+
+.center{
+    text-align:center;
+     justify-content:center;
+ }
+ 
+ div{
+     padding-top:10px;
+     padding-bottom:10px;
+     padding-left: 30px;
+     padding-right: 50px;
+ }
+ 
+ body{
+     background-color:rgb(207, 207, 207)
+ }
+ .login-box {
+  position: relative;
+  margin: auto;
+  width: 60%;
+  height: Auto;
+  background:#343a40;
+  color: white;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.login-box1 {
+  position: relative;
+  margin: 5% auto;
+  padding-left:50px;
+  width: auto;
+  height: Auto;
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+ 
+ /*INPUT*/
+ .form-label {
+	position: absolute;
+	top: 17px;
+	left: 30px;
+    background-color: white;
+	color: #999;
+	cursor: text;
+	transition: all .15s ease-in-out 0s;
+}
+
+.form-textbox:focus ~ .form-label,
+.form-textbox:valid ~ .form-label {
+	top: -1.5em;
+	left: 0;
+	font-size: .8em;
+	color: inherit;
+	cursor: pointer;
+}  
+ 
+ form{
+    
+width:80%;
+   padding: 6px;
+   margin: 0 auto; /*Center align form*/
+ }
+ 
+ 
+ 

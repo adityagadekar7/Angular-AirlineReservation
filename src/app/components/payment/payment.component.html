@@ -9,14 +9,18 @@
 
         <div><label>Card Type</label>&nbsp;
             <input type="radio" name="cardtype" [(ngModel)]="model.cardtype" #cardtype="ngModel" value="debit" required>Debit Card &nbsp;
-            <input type="radio" name="cardtype" [(ngModel)]="model.cardtype" #cardtype="ngModel" value="cerdit" required>Credit Card
+            <input type="radio" name="cardtype" [(ngModel)]="model.cardtype" #cardtype="ngModel" value="credit" required>Credit Card
             <!--  <span *ngIf="cardtype.errors?.required">Cannot be Blank</span>-->
         </div>
-
         <div>
-            <label>Expiry Date</label>&nbsp;
-            <input type="date" name="expirydate" [(ngModel)]="model.expirydate" #expirydate="ngModel" required>
-            <!--  <span *ngIf="expirydate.errors?.required">Cannot be Blank</span>-->
+            <label>Expiry Month</label>
+            <input type="number" name="month" [(ngModel)]="model.month" #month="ngModel" required>
+            <!-- <span *ngIf="Adult.errors?.required">Cannot be Blank</span>-->
+        </div>
+        <div>
+            <label>Expiry Year</label>
+            <input type="number" name="year" [(ngModel)]="model.year" #year="ngModel" required>
+            <!--<span *ngIf="Adult.errors?.required">Cannot be Blank</span>-->
         </div>
         <div class="row" align="center" style="padding-left: 170px;">
             <button class="buttonx btn btn-success" type="submit" [disabled]="paymentform.invalid">Proceed To Pay</button>
