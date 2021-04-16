@@ -4,6 +4,7 @@ import { TabsetComponent, TabDirective } from 'ngx-bootstrap/tabs';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { CancellationInfoModule } from 'src/app/modules/cancellation-info/cancellation-info.module';
 import { TicketInfoModule } from 'src/app/modules/ticket-info/ticket-info.module';
+import { BookingInfoService } from 'src/app/services/booking-info.service';
 import { TicketInfoService } from 'src/app/services/ticket-info.service';
 
 @Component({
@@ -14,6 +15,7 @@ import { TicketInfoService } from 'src/app/services/ticket-info.service';
 })
 export class TicketsComponent implements OnInit {
   svc:TicketInfoService;
+  svc1:BookingInfoService;
   databooked:TicketInfoModule;
   datacancelled:TicketInfoModule;
   booked:TicketInfoModule[];
@@ -25,10 +27,16 @@ export class TicketsComponent implements OnInit {
   ticketbypnr=new TicketInfoModule();
   cancelbooked=new CancellationInfoModule();
   bookedlist:TicketInfoModule[];
+  SeatsToRemove:string;
+  Flight_Number:number;
+  test:string="";
+  UpdateCancelledSeats1:string="";
+  reserved:string[] = [];
 
-  constructor(svc:TicketInfoService) 
+  constructor(svc:TicketInfoService, svc1:BookingInfoService) 
   {
     this.svc=svc;
+    this.svc1=svc1;
   }
 
   ngOnInit(): void {
@@ -60,6 +68,29 @@ export class TicketsComponent implements OnInit {
     date.setHours(0,0,0,0);
     return date;
   }
+
+  removeValue = function(SeatsToRemove) {
+    //separator = ",";
+    var values = SeatsToRemove.split(",");
+    console.log(values);
+    for(var i = 0 ; i < this.reserved.length ; i++) {
+        //console.log(this.reserved[i]);
+        for(var j = 0 ; j < values.length ; j++){
+            //console.log(values[j]);
+            if(this.reserved[i]==values[j]) {
+              this.reserved.splice(i, 1);
+            }
+        //return this.reserved.join(",");
+        }
+    }
+    this.UpdateCancelledSeats1=this.reserved.join(",")
+    console.log(this.reserved);
+    console.log(this.UpdateCancelledSeats1)
+    this.svc.UpdateCancelledSeats(this.Flight_Number,this.UpdateCancelledSeats1).subscribe((data1:TicketInfoModule)=>{
+      console.log("Reached");
+    });
+    //return this.reserved;
+  }
   
   CancelFunction(cancelForm:NgForm):void{
     this.pnr=cancelForm.value.tno;
@@ -78,6 +109,9 @@ export class TicketsComponent implements OnInit {
       }
       var time=new Date().toLocaleTimeString('it-IT');
 
+      this.Flight_Number=datapnr.Flight_Number;
+      alert("Test: "+this.Flight_Number);
+
       this.cancelbooked.Pnr_no=datapnr.Pnr_no; 
       this.cancelbooked.User_id=datapnr.User_Id;
       this.cancelbooked.Dateofcancellation=this.WithoutTime(Date()).toDateString();
@@ -94,16 +128,35 @@ export class TicketsComponent implements OnInit {
         }
       });
 
-      this.ticketbypnr.status='Cancelled'
+      this.ticketbypnr.status='Cancelled';
+      
       this.svc.UpdateBookedTickets(this.pnr,this.ticketbypnr).subscribe((data:boolean)=>{
         alert(data);
         if(data==true){
-          alert("Update Successful");
+          alert("Update Successful"); 
+
+          //-------------------//
+          this.svc1.GetSeats(this.Flight_Number).subscribe((data:string)=>{
+            this.test=data;
+            console.log(this.test);
+            this.reserved = this.test.split(","); 
+            console.log(this.reserved);
+            //this.removeValue("H3,H4,H5")
+            this.SeatsToRemove=this.ticketbypnr.Seats;
+            this.removeValue(this.SeatsToRemove);
+          });
+
+
+          //-------------------//
         }
         else{
           alert("Update Failed");
         }
       });
+
+        console.log(this.Flight_Number);
+
+        
   });
 
   }

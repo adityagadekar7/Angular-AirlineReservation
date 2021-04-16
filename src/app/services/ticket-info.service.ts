@@ -76,5 +76,9 @@ GetPnr():Observable<number>
   return this.http.get<number>(this.url1+'/GetPnr');
 }
 
+UpdateCancelledSeats(Flight_Number:number,Seats:string):Observable<boolean>
+  {
+    return this.http.post<boolean>(this.url+'/UpdateCancelledSeats/'+Flight_Number+'/'+Seats ,this.httpOptions);
+  }
 
 }

@@ -35,6 +35,7 @@ export class TicketInfoModule {
   PhoneNumber:number;
   CovidCertificate:string;
   status:string;
+  Seats:string;
   //can
   Refund_Amount:number;
   Dateofcancellation:string;

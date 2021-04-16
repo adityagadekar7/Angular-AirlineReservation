@@ -23,4 +23,5 @@ export class FlightInfoModule {
   Cost_Business:number;
   Seats_Available_Eco:number;
   Seats_Available_Business:number;
+  Seats:string;
 }

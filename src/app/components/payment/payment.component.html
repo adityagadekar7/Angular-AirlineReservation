@@ -1,5 +1,8 @@
 <div class="payment-details" align="center">
     <h1 class="center">Payment</h1>
+    <h6>Total Price{{TotalPrice}}</h6>
+    <h6>Total Seats: {{TotalSeats}} ||  Seat Number: {{Seats}}</h6>
+    <h4></h4>
     <form #paymentform="ngForm" name="paymentform" (ngSubmit)="PaymentForm(paymentform)">
         <div>
             <label>Card Number</label>
@@ -26,3 +29,4 @@
             <button class="buttonx btn btn-success" type="submit" [disabled]="paymentform.invalid">Proceed To Pay</button>
         </div>
     </form>
+    <!-- <button (click)="Button1()"  class="btn btn-success">Test</button> -->

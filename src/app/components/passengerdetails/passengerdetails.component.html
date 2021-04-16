@@ -3,17 +3,8 @@
 <h6 style="color:red" class="center">Fill the form {{TotalSeats}} times for {{TotalSeats}} Passengers</h6>
 <form id="Passenger_Details" #passdet="ngForm" name="passdet" (ngSubmit)="PassDet(passdet)" class="center">
    <div align="center">
-   <!-- <div >
-        <label>Passenger_id</label>
-        <input type="number" name="Passenger_id" [(ngModel)]="model.Passenger_id" #Passenger_id="ngModel" placeholder="Passenger_id" required>
-        <span *ngIf="Passenger_id.errors?.required">Cannot be Blank</span>
-        <span *ngIf="Passenger_id.errors?.required"></span>
-    </div>-->
     <div >
-        <!--<label>Pnr_no</label>-->
-        <input type="number" name="Pnr_no" [(ngModel)]="model.Pnr_no" #Pnr_no="ngModel" placeholder="Pnr_no" required>
-        <!--<span *ngIf="Pnr_no.errors?.required">Cannot be Blank</span>-->
-        <span *ngIf="Pnr_no.errors?.required"></span>
+        <h3>Ticket Number: {{test}}</h3>
     </div>
     <div >
         <!--<label>Passport Number</label>-->

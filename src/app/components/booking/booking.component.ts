@@ -53,6 +53,7 @@ export class BookingComponent implements OnInit {
     this.ti.status="Success";
     //console.log("Hello"+this.ti.total_price);
 
+    
     this.svc.InsertFlightRes(this.ti).subscribe((data:boolean)=>{
       if(data == true){
         alert('Added to Flight Reservation');
