@@ -19,6 +19,8 @@ import { PassengerdetailsComponent } from './components/passengerdetails/passeng
 import{PaymentComponent} from './components/payment/payment.component';
 import{TicketsComponent} from './components/tickets/tickets.component';
 
+import { NgxCaptchaModule } from 'ngx-captcha';
+
 import 'jquery';
 import 'popper.js';
 import 'bootstrap';
@@ -42,10 +44,12 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     PassengerdetailsComponent,
     PaymentComponent,
     TicketsComponent,
+    ResetpasswordComponent,
+    
 
     SeatSelectComponent,
-    BookingComponent
-   // ResetpasswordComponent
+    BookingComponent,
+    ResetpasswordComponent
 
     
     
@@ -56,7 +60,9 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     FormsModule,
     NgbModule,
     AlertModule.forRoot(), TabsModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgxCaptchaModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

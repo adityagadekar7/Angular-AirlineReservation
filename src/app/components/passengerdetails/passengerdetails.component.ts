@@ -1,4 +1,4 @@
-import { Component, OnInit,NgModule, NgZone } from '@angular/core';
+import { Component, OnInit,NgModule,NgZone} from '@angular/core';
 import {FormsModule,FormGroup,NgForm,NgModel} from '@angular/forms';
 import { TabsetComponent, TabDirective } from 'ngx-bootstrap/tabs';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
@@ -76,6 +76,7 @@ export class PassengerdetailsComponent implements OnInit {
       if(data == true)
       {
         alert("New Passenger Added");
+        this.ngzone.run(() => this.router.navigateByUrl('/PaymentForm'));
       }
       else
       {

@@ -79,6 +79,7 @@ export class PaymentComponent implements OnInit {
     // console.log(data);
      if(data=="Payment Successful")
      {
+<<<<<<< HEAD
       //this.InsertInFlightReservation();
       alert("Payment Successful");
       alert(this.Flight_Number+" "+this.Seats);
@@ -98,6 +99,11 @@ export class PaymentComponent implements OnInit {
     });
     }
      
+=======
+       alert("Payment Successful");
+       //localStorage.setItem('UID',this.regau.UserId.toString());
+       this.ngzone.run(()=>this.router.navigateByUrl('/TicketDetails'));
+>>>>>>> eef995e9a2bb54ddc86d734639704eaef14be4c3
        
      else{
        alert("Enter Valid Card Details");
