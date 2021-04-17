@@ -8,6 +8,7 @@ import{HttpHeaders} from '@angular/common/http';
 import { TicketInfoModule } from '../modules/ticket-info/ticket-info.module';
 import { CancellationInfoModule } from '../modules/cancellation-info/cancellation-info.module';
 import { PassengerInfoModule } from '../modules/passenger-info/passenger-info.module';
+import { FlightInfoModule } from '../modules/flight-info/flight-info.module';
 
 
 @Injectable({
@@ -15,11 +16,11 @@ import { PassengerInfoModule } from '../modules/passenger-info/passenger-info.mo
 })
 export class TicketInfoService {
   http:HttpClient;
- // url:string='http://localhost:59875/api/Dashboard';
+  url:string='http://localhost:59875/api/Dashboard';
   url1:string='http://localhost:59875/api/Booking'  
 
   //url:string='http://localhost:62227/api/Dashboard'
-  url:string='http://localhost:62227/api/Dashboard'
+  //url:string='http://localhost:62227/api/Dashboard'
   //url:string='http://localhost:59875/api/Dashboard'
   //url:string='http://localhost:56797/api/Dashboard'
   httpOptions = {headers: new HttpHeaders({
@@ -72,6 +73,13 @@ InsertPassengerDet(pi:PassengerInfoModule):Observable<boolean>
 // GetPnrbyId(id:number):Observable<TicketInfoModule>{
 //   return this.http.get<TicketInfoModule>(this.url1+'/GetPnrbyId/'+id);
 // }
+GetFlightByFlightNumber( Flight_Number:number):Observable<FlightInfoModule>{
+  return this.http.get<FlightInfoModule>(this.url+'/GetFlightByFlightNumber/'+Flight_Number)
+}
+
+CompareTicketTime(Flight_Number:number):Observable<number>{
+  return this.http.get<number>(this.url+'/CompareTicketTime/'+Flight_Number);
+}
 
 GetPnr():Observable<number>
 {

@@ -53,10 +53,10 @@ export class ResetpasswordComponent implements OnInit {
   ResetPassword(passwordreset: NgForm): void {
     this.stud.OTP = passwordreset.value.otp;
     this.stud.Password = passwordreset.value.pass;
-    if (this.stud.Password != passwordreset.value.pass2)
+    if (this.stud.Password != passwordreset.value.pass2)  
       alert("Password not matching");
     else {
-      this.svc.SetNewPassword(this.stud).subscribe((data: boolean) => {
+      this.svc.SetNewPassword(this.stud).subscribe((data: any) => {
         if (data == true) {
           alert('Password is Updated');
         }

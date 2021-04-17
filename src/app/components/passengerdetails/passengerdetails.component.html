@@ -8,47 +8,38 @@
     </div>
     <div >
         <!--<label>Passport Number</label>-->
-        <input type="number" name="PassportNumber" [(ngModel)]="model.PassportNumber" #PassportNumber="ngModel" placeholder="Passport Number" required>
-        <!--<span *ngIf="PassportNumber.errors?.required">Cannot be Blank</span>-->
+        <input type="text" name="PassportNumber" [(ngModel)]="model.PassportNumber" #PassportNumber="ngModel" placeholder="Passport Number" required>
         <span *ngIf="PassportNumber.errors?.required"></span>
     </div>
     <div>
         <!--<label>Passenger First Name</label>-->
         <input type="text" name="FirstName" [(ngModel)]="model.FirstName" #FirstName="ngModel" placeholder="Passenger First Name" required>
-        <!--<span *ngIf="FirstName.errors?.required">Cannot be Blank</span>-->
         <span *ngIf="FirstName.errors?.required"></span>
     </div>
     <div>
         <!--<label>Passenger Last Name</label>-->
         <input type="text" name="LastName" [(ngModel)]="model.LastName" #LastName="ngModel" placeholder="Passenger Last Name" required>
-        <!--<span *ngIf="LastName.errors?.required">Cannot be Blank</span>-->
         <span *ngIf="LastName.errors?.required"></span>
     </div>
     <div>
         <!--<label>Passenger Date of Birth</label>-->
         <input type="date" name="DOB" [(ngModel)]="model.DOB" #DOB="ngModel" placeholder="Passenger Date of Birth" required>
-        <!--<span *ngIf="DOB.errors?.required">Cannot be Blank</span>-->
         <span *ngIf="DOB.errors?.required"></span>
     </div>
-    <div><label>Select Gender</label><br>
+    <div><label>Select Gender: </label>
         <input type="radio" name="gen" [(ngModel)]="model.gen" #gen="ngModel" value="Male" required>Male
         <input type="radio" name="gen" [(ngModel)]="model.gen" #gen="ngModel" value="Female" required>Female
-        <!--<span *ngIf="gen.errors?.required">Cannot be Blank</span>-->
         <span *ngIf="gen.errors?.required"></span>
     </div>
     <div>
-        <!--<label>Passenger Phone Number</label>-->
-        <input type="tel" name="PhoneNumber" [(ngModel)]="model.PhoneNumber" #PhoneNumber="ngModel" placeholder="Phone Number" pattern="^[0-9]{10}$"required>
-        <!--<span *ngIf="Phone_Number.errors?.required">Cannot be Blank</span>
-        <span *ngIf="Phone_Number.errors?.pattern">Phone Number has to be numeric and 10 digits</span>-->
-        <span *ngIf="PhoneNumber.errors?.required"></span>
-        <span *ngIf="PhoneNumber.errors?.pattern"></span>
+        <label>Passenger Phone Number</label>
+        <input type="number" name="PhoneNumber" [(ngModel)]="model.PhoneNumber" #PhoneNumber="ngModel" placeholder="Phone Number" required>   
+            <!-- pattern="^[0-9]{10}$" -->
     </div>
     <div>
         <label>Passenger Covid Certificate</label><br>
         <input type="radio" name="cc" [(ngModel)]="model.cc" #cc="ngModel" value="Yes" required>Yes
         <input type="radio" name="cc" [(ngModel)]="model.cc" #cc="ngModel" value="No" required>No
-        <!--<span *ngIf="cc.errors?.required">Cannot be Blank</span>-->
         <span *ngIf="cc.errors?.required"></span>
     </div>
 </div>
@@ -63,25 +54,7 @@
     
 </form>
 <div class="row" align="center" style="padding-left: 170px;">
-    <button class="buttonx btn btn-success"  ><a href="PaymentForm" style="color:white;">Continue</a></button>
+    <button class="buttonx btn btn-success" (click)="Continue()">Continue</button>
 </div>
-
-<!--
-<div >
-    <h2>Delete Passenger_id</h2>
-    <form #deleteform="ngForm" name="deleteForm" (ngSubmit)="DeleteFunction(deleteform)">
-        <div>
-          <label>Passenger id: </label><br>
-            <input type="number" name="Passenger_id" [(ngModel)]="model.Passenger_id" #Passenger_id="ngModel" class="center"required/>
-            <span *ngIf="Passenger_id.errors?.required">Passenger_id has to be entered</span>
-        </div>
-    
-        <div>
-            <button  class="buttonx btn btn-success" type="submit" [disabled]="deleteform.invalid">Delete</button>
-        </div>
-    </form>
-
-
-</div>-->
 
 </div>

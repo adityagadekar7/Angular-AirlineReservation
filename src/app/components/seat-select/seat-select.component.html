@@ -311,6 +311,7 @@
       <!-- <div class="movie">
           <h3 class="movieTitle">{{Flight_Number}}</h3>
       </div> -->
+      <h5>Select {{aci}} seats</h5>
 
       <!-- Showing a static legend bar -->
       <div class="legend">
@@ -338,9 +339,9 @@
       <div *ngIf="selected.length > 0" class="font14 marginTB10">
           <!-- <div class="wordWrap">Seats Selected : {{selected.length}} <span class="count">({{selected}})</span> <li *ngFor="let hero of selected">{{hero}}</li></div> -->
           <div class="wordWrap">Seats Selected : {{selected.length}} <span *ngFor="let select of selected"> ({{select}}),</span></div>
-          <div>PRICE : {{ticketPrice}} * {{selected.length}} = {{currency}}.{{ticketPrice*selected.length}} </div>
-          <div>CONVENIENCE FEE : {{currency}}.{{convFee}}</div>
-          <div>TOTAL : {{currency}}.{{ticketPrice * selected.length + convFee}}</div>
+          <div>SEAT PRICE : {{ticketPrice}} * {{selected.length}} = {{currency}}.{{ticketPrice*selected.length}} </div>
+          <div>CONVENIENCE FEE : {{currency}}. {{convFee*selected.length}}</div>
+          <div>TOTAL : {{currency}}. {{ticketPrice * selected.length + convFee}}</div>
       </div>
 
       <!-- Action buttons -->

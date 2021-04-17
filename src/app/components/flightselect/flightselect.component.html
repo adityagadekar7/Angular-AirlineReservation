@@ -1,179 +1,63 @@
-<!--<div align="center">
-    <tabset #tabset>
-        <tab heading="Flight Select">
-            <div align="center">
-
-         <form #flightselect="ngForm" name="flightselect" (ngSubmit)="FlightSelect(flightselect)" class="center">
-            <h3 class="center">Flight Select</h3>
-         
-            <div>
-                <label class="form-label" for="form-a">Flight Number</label>
-                <input type="number" name="Flight_Number" [(ngModel)]="model.Flight_Number" #Flight_Number="ngModel" class="form-textbox" id="form-a" required>
-                <span *ngIf="Flight_Number.errors?.required">Cannot be Blank</span>
-            </div>
-            <div>
-                <label>Reservation Date</label>
-                <input type="date" name="Reservation_Date" [(ngModel)]="model.Reservation_Date" #Reservation_Date="ngModel" required/>
-                <span *ngIf="Reservation_Date.errors?.required">Cannot be Blank</span>
-            </div>
-            <div>
-                <label>Reservation Time</label>
-                <input type="time" name="Reservation_Time" [(ngModel)]="model.Reservation_Time" #Reservation_Time="ngModel" required/>
-                <span *ngIf="Reservation_Time.errors?.required">Cannot be Blank</span>
-            </div>
-            <div>
-                <label>Number of Seats-</label>
-                <label>Adults(12y+)</label>
-                <input type="number" name="Adult" [(ngModel)]="model.Adult" #Adult="ngModel" required>
-                <span *ngIf="Adult.errors?.required">Cannot be Blank</span>
-                <label>Children(2y-12y)</label>
-                <input type="number" name="Children" [(ngModel)]="model.Children" #Children="ngModel" required>
-                <span *ngIf="Children.errors?.required">Cannot be Blank</span>
-                <label>Infants(0y-2y)</label>
-                <input type="number" name="Infants" [(ngModel)]="model.Infants" #Infants="ngModel" required>
-                <span *ngIf="Infants.errors?.required">Cannot be Blank</span>
-            </div>
-            <div>
-                <label>Class Type</label>
-                <input type = "checkbox" id = "ct"  name = "Economy" [(ngModel)] = "model.class1" #ct = "ngModel" #Economy = "ngModel" value = "EC">Economy
-                <input type = "checkbox" id = "ct"  name = "Business" [(ngModel)] = "model.class2" #ct = "ngModel" #Business = "ngModel" value = "BU">Business
-                <span *ngIf="ct.errors?.required">Cannot be Blank</span>
-           </div>
-           <div>
-                <label>Total Price</label>
-                <input type="number" name="Total_Price" [(ngModel)]="model.Total_Price" #Total_Price="ngModel" required>
-                <span *ngIf="Total_Price.error?.required">Cannot be Blank</span>
-           </div>
-           <div>
-                <label>Flight Status</label>
-                <input type="text" name="Flight_Status" [(ngModel)]="model.Flight_Status" #Flight_Status="ngModel" required>
-                <span *ngIf="Flight_Status.error?.required">Cannot be Blank</span>
-            </div>
-            <div>
-                <button type="submit" [disabled]="flightselect.invalid">Continue</button>
-             </div>
-         </form>
-       </div>
-    </tab>
-</tabset>
-</div>-->
-
-
-<h2>Flight Select</h2>
-<form #flightselect="ngForm" name="flightselect" (ngSubmit)="FlightSelect(flightselect)" class="center">
-    <h3 class="center">Flight Select</h3>
-       <!--<div>
-            <label class="form-label" for="form-a">Flight Number</label>
-            <input type="number" name="Flight_Number" [(ngModel)]="model.Flight_Number" #Flight_Number="ngModel" class="form-textbox" id="form-a" required>
-            <span *ngIf="Flight_Number.errors?.required">Cannot be Blank</span>
-        </div>-->
-
-        <div>
-            <button type="submit" [disabled]="flightselect.invalid">Continue</button>
-        </div>
-</form><br>
+<h2>OneWay</h2>
+<form #flightselect="ngForm" name="flightselect" class="center" >
 <table border="1">
-    <tr>
-        <!-- <th>Flight_Number</th>                
+    <tr >
+        <th>Flight_Number</th>                
         <th>Flight_Name</th>         
-        <th>Flight_Date</th>     
-        <th>Airport_Code</th>     
+        <th>Flight_Date</th>       
         <th>Flight_Departing_Time</th>
         <th>Flight_Arrival_Time</th>     
         <th>Origin</th>
         <th>Destination</th>
-        <th>Flight_Status</th>
-        <th>Cost_Eco</th>
-        <th>Cost_Business</th> 
-        <th>Seats_Available_Eco</th> 
-        <th>Seats_Available_Business</th>           -->
+        <th>Economy Class</th>
+        <th>Business Class</th> 
+        <th *ngIf="!showButton">SELECT</th>
     </tr>
-    
-    <!-- For one way -->
-    <span *ngFor = "let f of flist" >
-        <!-- <span *ngSwitchCase="'oneway'"> -->
-       <!-- <div *ngIf = "f.Origin==Origin && f.Destination==Destination">-->
-    
-     <tr *ngIf = "f.Origin==Origin && f.Destination==Destination" >
-        <td>{{f.Flight_Number}}</td>
-        <td>{{f.Flight_Name}}</td>
-        <td>{{f.Flight_Date}}</td>
-        <td>{{f.Airport_Code}}</td>
-        <td>{{f.Flight_Departing_Time}}</td>
-        <td>{{f.Flight_Arrival_Time}}</td>
-        <td>{{f.Origin}}</td>
-        <td>{{f.Destination}}</td>
-        <td>{{f.Flight_Status}}</td>
-        <td>{{f.Cost_Eco}}</td>
-        <td>{{f.Cost_Business}}</td>
-        <td>{{f.Seats_Available_Eco}}</td>
-        <td>{{f.Seats_Available_Business}}</td>
-        <td><button class="buttonx btn btn-success" type="submit" (click)="Select(f.Flight_Number)">Select</button></td>
-     </tr>
-     <!-- </span> -->
-    </span>
 
-    <!-- For Two way -->
-    <!-- <span *ngFor = "let f of flist" >
-         <div *ngIf = "f.Origin==Origin && f.Destination==Destination">
-        <span *ngSwitchCase="'twoway'">
-      <tr *ngIf = "f.Origin==Origin && f.Destination==Destination" >
-         <td>{{f.Flight_Number}}</td>
-         <td>{{f.Flight_Name}}</td>
-         <td>{{f.Flight_Date}}</td>
-         <td>{{f.Airport_Code}}</td>
-         <td>{{f.Flight_Departing_Time}}</td>
-         <td>{{f.Flight_Arrival_Time}}</td>
-         <td>{{f.Origin}}</td>
-         <td>{{f.Destination}}</td>
-         <td>{{f.Flight_Status}}</td>
-         <td>{{f.Cost_Eco}}</td>
-         <td>{{f.Cost_Business}}</td>
-         <td>{{f.Seats_Available_Eco}}</td>
-         <td>{{f.Seats_Available_Business}}</td>
-         <td><button class="buttonx btn btn-success" type="submit" (click)="Select(f.Flight_Number)">Select</button></td>
-      </tr>
-      <tr *ngIf = "f.Origin==Destination && f.Destination==Origin" >
+    <tr *ngFor = "let f of flist" >
         <td>{{f.Flight_Number}}</td>
         <td>{{f.Flight_Name}}</td>
         <td>{{f.Flight_Date}}</td>
-        <td>{{f.Airport_Code}}</td>
         <td>{{f.Flight_Departing_Time}}</td>
         <td>{{f.Flight_Arrival_Time}}</td>
         <td>{{f.Origin}}</td>
         <td>{{f.Destination}}</td>
-        <td>{{f.Flight_Status}}</td>
-        <td>{{f.Cost_Eco}}</td>
-        <td>{{f.Cost_Business}}</td>
-        <td>{{f.Seats_Available_Eco}}</td>
-        <td>{{f.Seats_Available_Business}}</td>
-        <td><button class="buttonx btn btn-success" type="submit" (click)="Select(f.Flight_Number)">Select</button></td>
-     </tr>
-      </span>
-     </span> -->
+        <td>&nbsp;<input type="radio" name="costeb" [value]="f.Cost_Eco" checked ngModel>&nbsp;&nbsp;{{f.Cost_Eco}}</td>
+        <td>&nbsp;<input type="radio" name="costeb" [value]="f.Cost_Business" ngModel>&nbsp;&nbsp;{{f.Cost_Business}}</td>
+        <td *ngIf="!showButton"><button class="buttonx btn btn-success" type="submit" (click)="FlightSelect(f.Flight_Number,flightselect.value.costeb)">Select</button></td>
+    </tr>
 </table>
-<!--<table border="1">
+</form><br>
+
+
+<span *ngIf="show">
+<h2>Return Flights</h2>
+<form #flightselect1="ngForm" name="flightselect1"  class="center">
+<table border="1">
     <tr>
         <th>Flight_Number</th>                
-        <th>User_Id</th>         
-        <th>Reservation_Date</th>     
-        <th>Reservation_Time</th>     
-        <th>num_of_seats</th>
-        <th>Classtype</th>     
-        <th>Total_price</th>
-        <th>status</th>          
+        <th>Flight_Name</th>         
+        <th>Flight_Date</th>       
+        <th>Flight_Departing_Time</th>
+        <th>Flight_Arrival_Time</th>     
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Economy Class</th>
+        <th>Business Class</th> 
+        <th *ngIf="showButton" >SELECT</th>
     </tr>
-     <tr *ngFor="let f of flist">
-        <td>{{f.Flight_Number}}</td>
-        <td>{{f.User_Id}}</td>
-        <td>{{f.Reservation_Date}}</td>
-        <td>{{f.Reservation_Time}}</td>
-        <td>{{f.Flight_Departing_Time}}</td>
-        <td>{{f.Flight_Arrival_Time}}</td>
-        <td>{{f.num_of_seats}}</td>
-        <td>{{f.Classtype}}</td>
-        <td>{{f.Total_price}}</td>
-        <td>{{f.status}}</td>
-        <td><button class="buttonx btn btn-success" type="submit" >Proceed</button></td>
-     </tr>
-</table>-->
+    <tr *ngFor = "let f1 of flist1" >
+        <td>{{f1.Flight_Number}}</td>
+        <td>{{f1.Flight_Name}}</td>
+        <td>{{f1.Flight_Date}}</td>
+        <td>{{f1.Flight_Departing_Time}}</td>
+        <td>{{f1.Flight_Arrival_Time}}</td>
+        <td>{{f1.Origin}}</td>
+        <td>{{f1.Destination}}</td>
+        <td>&nbsp;<input type="radio" name="costeb1" [value]="f1.Cost_Eco" checked ngModel>&nbsp;&nbsp;{{f1.Cost_Eco}}</td>
+        <td>&nbsp;<input type="radio" name="costeb1" [value]="f1.Cost_Business" ngModel>&nbsp;&nbsp;{{f1.Cost_Business}}</td>
+        <td *ngIf="showButton" ><button class="buttonx btn btn-success" type="submit" (click)="FlightSelect(f1.Flight_Number,flightselect1.value.costeb1)">Select </button></td>
+    </tr> 
+</table>
+</form><br>
+</span>

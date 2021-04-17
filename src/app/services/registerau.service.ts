@@ -15,8 +15,8 @@ export class RegisterauService {
   http:HttpClient;
   
   //url:string='http://localhost:62227/api/RegisterAU';
- url:string='http://localhost:62227/api/Registration';
- // url:string='http://localhost:59875/api/RegisterAU';
+ //url:string='http://localhost:62227/api/Registration';
+  url:string='http://localhost:59875/api/RegisterAU';
   
   httpOptions = {headers: new HttpHeaders({
     'Content-Type': 'application/json'
