@@ -44,7 +44,9 @@ export class TicketsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.id=Number(localStorage.getItem('UID'));
+    //this.id=Number(localStorage.getItem('UID'));
+    this.id=Number(sessionStorage.getItem('UID'));
+    console.log("TEST: "+this.id)
     this.svc.GetBookedTickets(this.id).subscribe((databooked:TicketInfoModule[])=>{
       this.booked=databooked;
       this.bookedlist=databooked //ddl

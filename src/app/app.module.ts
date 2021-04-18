@@ -2,14 +2,11 @@ import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import{RouterModule} from '@angular/router';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { EditFlightComponent } from './components/edit-flight/edit-flight.component';
-  
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import {  AlertModule } from 'ngx-bootstrap/alert';
@@ -17,17 +14,11 @@ import { HomeComponent } from './components/home/home.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FlightselectComponent } from './components/flightselect/flightselect.component';
 import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component';
-
 import{PaymentComponent} from './components/payment/payment.component';
 import{TicketsComponent} from './components/tickets/tickets.component';
 import{AboutpageComponent} from './components/aboutpage/aboutpage.component';
 import{FaqComponent} from './components/faq/faq.component';
-
 import { NgxCaptchaModule } from 'ngx-captcha';
-
-
-import { NgxCaptchaModule } from 'ngx-captcha';
-
 import 'jquery';
 import 'popper.js';
 import 'bootstrap';
@@ -53,21 +44,11 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     PassengerdetailsComponent,
     PaymentComponent,
     TicketsComponent,
-<<<<<<< HEAD
     AboutpageComponent,
     FaqComponent,
     SeatSelectComponent,
     BookingComponent,
     ResetpasswordComponent
-=======
-    ResetpasswordComponent,
-    
-
-    SeatSelectComponent,
-    BookingComponent,
-    ResetpasswordComponent
-
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
     
     
   ],
@@ -79,12 +60,8 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     NgbModule,
     AlertModule.forRoot(), TabsModule.forRoot(),
     HttpClientModule,
-<<<<<<< HEAD
     NgxCaptchaModule,
    
-=======
-    NgxCaptchaModule
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
     
   ],
   providers: [],

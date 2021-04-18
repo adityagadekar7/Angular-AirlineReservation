@@ -297,11 +297,6 @@
     <button class="btn btn-success">Continue</button>
   </div>
 </div> 
-<<<<<<< HEAD
-
--->
-=======
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
 
 -->
 
@@ -323,11 +318,8 @@
       <!-- <div class="movie">
           <h3 class="movieTitle">{{Flight_Number}}</h3>
       </div> -->
-<<<<<<< HEAD
-=======
       <h5>Select {{aci}} seats</h5>
 
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
       <!-- Showing a static legend bar -->
       <div class="legend">
         <span class="material-icons">chair</span> Free
@@ -352,17 +344,10 @@
       <div *ngIf="selected.length > 0" class="font14 marginTB10">
         4
           <!-- <div class="wordWrap">Seats Selected : {{selected.length}} <span class="count">({{selected}})</span> <li *ngFor="let hero of selected">{{hero}}</li></div> -->
-<<<<<<< HEAD
-        <div class="wordWrap">Seats Selected : {{selected.length}} <span *ngFor="let select of selected"> ({{select}}),</span></div>
-        <div>PRICE : {{ticketPrice}} * {{selected.length}} = {{currency}}.{{ticketPrice*selected.length}} </div>
-        <div>CONVENIENCE FEE : {{currency}}.{{convFee}}</div>
-        <div>TOTAL : {{currency}}.{{ticketPrice * selected.length + convFee}}</div>
-=======
           <div class="wordWrap">Seats Selected : {{selected.length}} <span *ngFor="let select of selected"> ({{select}}),</span></div>
           <div>SEAT PRICE : {{ticketPrice}} * {{selected.length}} = {{currency}}.{{ticketPrice*selected.length}} </div>
           <div>CONVENIENCE FEE : {{currency}}. {{convFee*selected.length}}</div>
           <div>TOTAL : {{currency}}. {{ticketPrice * selected.length + convFee}}</div>
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
       </div>
 
       <!-- Action buttons -->
@@ -371,14 +356,6 @@
           <button (click)="clearSelected()" [disabled]="selected.length === 0" class="btn btn-danger">Clear</button>&nbsp;&nbsp;
           <button (click)="showSelected()" [disabled]="selected.length === 0" class="btn btn-success">Select</button>
       </div>
-<<<<<<< HEAD
-      <br>
-    </main>
-  </div>
-</div>
-
-=======
       <br>        
   </main>     
 </div>
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b

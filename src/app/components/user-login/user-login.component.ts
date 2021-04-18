@@ -45,10 +45,11 @@ export class UserLoginComponent implements OnInit {
       alert("Login Successful");
       
       localStorage.setItem('UID',this.regau.UserId.toString());
-      this.ngzone.run(()=>this.router.navigateByUrl('/homepage'));
+      
 
       sessionStorage.setItem('UID',this.regau.UserId.toString());
       console.log(sessionStorage.length);
+      this.ngzone.run(()=>this.router.navigateByUrl('/homepage'));
       this.svc.loginstatus.next(true);
       
 

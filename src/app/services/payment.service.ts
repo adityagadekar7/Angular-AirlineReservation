@@ -12,15 +12,10 @@ import {PaymentModule} from '../modules/payment/payment.module';
 export class PaymentService {
   payment:PaymentModule
   http:HttpClient;
-  //url:string='http://localhost:59875/api/Dashboard'; //localhost port different for different projects
+  url:string='http://localhost:59875/api/Dashboard'; //localhost port different for different projects
   //url:string='http://localhost:62227/api/RegisterAU';
   //url:string='http://localhost:62227/api/Dashboard';
-<<<<<<< HEAD
-  //url:string='http://localhost:56797/api/Dashboard';
-  url:string='http://localhost:59875/api/RegisterAU';
-=======
  
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
   
   httpOptions = {headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -33,13 +28,10 @@ export class PaymentService {
   {
     return this.http.get<PaymentModule[]>(this.url+'/'+'PaymentCheck'+'/'+CardNo + '/' + cardtype+'/' + Expiry_Month + '/' + Expiry_year);
   }
-<<<<<<< HEAD
-=======
 //  CheckPayment( UserId:number, CardNo:bigint,cardtype:string,Expiry_Month:number,Expiry_year:number):Observable<string>
 //   {
 //     return this.http.get<string>(this.url+'/' + 'CheckPayment'+'/'+UserId+'/'+CardNo + '/' + cardtype+'/' + Expiry_Month + '/' + Expiry_year);
 //   }
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
 InsertCard(payment:PaymentModule):Observable<boolean>
 {
   return this.http.post<boolean>(this.url + '/' + 'EnterPayment',payment, this.httpOptions);

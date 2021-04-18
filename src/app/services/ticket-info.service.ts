@@ -21,14 +21,8 @@ export class TicketInfoService {
 
   //url:string='http://localhost:62227/api/Dashboard'
   //url:string='http://localhost:62227/api/Dashboard'
-<<<<<<< HEAD
-  //url:string='http://localhost:56797/api/Dashboard';
-  //url1:string='http://localhost:56797/api/Booking'; 
-
-=======
   //url:string='http://localhost:59875/api/Dashboard'
   //url:string='http://localhost:56797/api/Dashboard'
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
   httpOptions = {headers: new HttpHeaders({
     'Content-Type': 'application/json'
   })
