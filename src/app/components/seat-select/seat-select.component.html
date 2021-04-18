@@ -300,54 +300,55 @@
 
 -->
 
-
-
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
-<link href = "https://fonts.googleapis.com/icon?family=Material+Icons" rel = "stylesheet">
-<!-- Template for the seat component -->
-<!-- Author: Uzair Ahmed -->
 <div class="container">
-  <main class="innerContainer">
+
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Template for the seat component -->
+  <!-- Author: Uzair Ahmed -->
+  <div>
+    <main class="innerContainer">
+      r"
       <!-- <div class="movie">
           <h3 class="movieTitle">{{Flight_Number}}</h3>
       </div> -->
-
       <!-- Showing a static legend bar -->
       <div class="legend">
         <span class="material-icons">chair</span> Free
-          <span class="material-icons">living</span>Booked
-          <span class="material-icons">block</span> Taken
-                      
+        <span class="material-icons">living</span>Booked
+        <span class="material-icons">block</span> Taken
+
       </div>
 
       <!-- <p class="font14 marginTop5">Front</p>
       <div class="screen"></div> -->
-
       <!-- Generate the seating grid -->
       <div *ngFor="let row of rows">
         <hr>
-          <span class="seat" *ngFor="let col of cols" (click)="seatClicked(row + col)" 
-                  [ngSwitch]="getStatus(row + col)">
-              <span *ngSwitchCase="'selected'" class="material-icons selectedSeat">living</span>
-              <span *ngSwitchCase="'reserved'" class="material-icons reservedSeat">block</span>
-              <span *ngSwitchDefault class="material-icons freeSeat">chair</span>
-          </span>
+        <span class="seat" *ngFor="let col of cols" (click)="seatClicked(row + col)" [ngSwitch]="getStatus(row + col)">
+          <span *ngSwitchCase="'selected'" class="material-icons selectedSeat">living</span>
+          <span *ngSwitchCase="'reserved'" class="material-icons reservedSeat">block</span>
+          <span *ngSwitchDefault class="material-icons freeSeat">chair</span>
+        </span>
       </div>
 
       <!-- Structural directive - only visible on selection -->
       <div *ngIf="selected.length > 0" class="font14 marginTB10">
+        4
           <!-- <div class="wordWrap">Seats Selected : {{selected.length}} <span class="count">({{selected}})</span> <li *ngFor="let hero of selected">{{hero}}</li></div> -->
-          <div class="wordWrap">Seats Selected : {{selected.length}} <span *ngFor="let select of selected"> ({{select}}),</span></div>
-          <div>PRICE : {{ticketPrice}} * {{selected.length}} = {{currency}}.{{ticketPrice*selected.length}} </div>
-          <div>CONVENIENCE FEE : {{currency}}.{{convFee}}</div>
-          <div>TOTAL : {{currency}}.{{ticketPrice * selected.length + convFee}}</div>
+        <div class="wordWrap">Seats Selected : {{selected.length}} <span *ngFor="let select of selected"> ({{select}}),</span></div>
+        <div>PRICE : {{ticketPrice}} * {{selected.length}} = {{currency}}.{{ticketPrice*selected.length}} </div>
+        <div>CONVENIENCE FEE : {{currency}}.{{convFee}}</div>
+        <div>TOTAL : {{currency}}.{{ticketPrice * selected.length + convFee}}</div>
       </div>
 
       <!-- Action buttons -->
       <div class="buttonBar marginTop5">
-          <button (click)="clearSelected()" [disabled]="selected.length === 0" class="btn btn-danger">Clear</button>&nbsp;
-          <button (click)="showSelected()" [disabled]="selected.length === 0" class="btn btn-success">Select</button>
+        <button (click)="clearSelected()" [disabled]="selected.length === 0" class="btn btn-danger">Clear</button>&nbsp;
+        <button (click)="showSelected()" [disabled]="selected.length === 0" class="btn btn-success">Select</button>
       </div>
-      <br>        
-  </main>     
+      <br>
+    </main>
+  </div>
 </div>
+

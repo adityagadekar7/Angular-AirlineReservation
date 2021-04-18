@@ -12,7 +12,7 @@ import {FlightReservationService} from 'src/app/services/flight-reservation.serv
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  textBoxDisabled = true;
   model: any = [];
   svc:FlightInfoService;
   fi= new FlightInfoModule();
@@ -22,12 +22,15 @@ export class HomeComponent implements OnInit {
   flag:number=0;
 
 
-  constructor(svc:FlightInfoService, ngzone:NgZone, router:Router ) 
-  { 
+  constructor(svc:FlightInfoService, ngzone:NgZone, router:Router ) {
+  // toggle() {
+  //   this.textBoxDisabled = !this.textBoxDisabled;
+  // } 
     this.svc = svc;
     this.ngzone = ngzone;
     this.router = router;
   }
+  
 
   ngOnInit(): void {
     localStorage.clear();

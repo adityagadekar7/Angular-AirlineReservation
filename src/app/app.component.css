@@ -1,6 +1,10 @@
 body{
   background: #ffffff;
 }
+.logo {
+  height: 50px;
+  width: 60px;
+}
 
 .nav-section {
   background: #166a84;
@@ -303,5 +307,9 @@ body{
   letter-spacing: 2px;
   font-weight: 600;
 }
-
+.navbar-brand {
+ 
+  height:2px;
+  width:2px;
+}
 

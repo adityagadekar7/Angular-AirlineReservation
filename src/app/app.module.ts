@@ -25,6 +25,7 @@ import{FaqComponent} from './components/faq/faq.component';
 
 import { NgxCaptchaModule } from 'ngx-captcha';
 
+
 import 'jquery';
 import 'popper.js';
 import 'bootstrap';
@@ -66,7 +67,8 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     NgbModule,
     AlertModule.forRoot(), TabsModule.forRoot(),
     HttpClientModule,
-    NgxCaptchaModule
+    NgxCaptchaModule,
+   
     
   ],
   providers: [],
