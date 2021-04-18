@@ -80,7 +80,11 @@ export class BookingComponent implements OnInit {
 
      this.pi.Pnr_no=this.test;
      console.log(this.pi.Pnr_no);
+<<<<<<< HEAD
     this.pi.PassportNumber="1234"
+=======
+    this.pi.PassportNumber="AXVP1234"
+>>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
     this.pi.FirstName="test"
     this.pi.LastName="All"
     this.pi.DOB="11/11/2000"

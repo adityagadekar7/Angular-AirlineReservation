@@ -4,6 +4,7 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
+<<<<<<< HEAD
     "\\src\\app\\components\\edit-flight",
     "\\src\\app\\components\\registration",
     "\\src\\app\\components\\resetpassword",
@@ -12,5 +13,15 @@
     "\\src\\app\\services"
   ],
   "SelectedNode": "\\src\\app\\components\\tickets\\tickets.component.ts",
+=======
+    "\\src\\app\\components\\booking",
+    "\\src\\app\\components\\registration",
+    "\\src\\app\\components\\resetpassword",
+    "\\src\\app\\components\\seat-select",
+    "\\src\\app\\modules\\resgisterau",
+    "\\src\\app\\services"
+  ],
+  "SelectedNode": "\\src\\app\\components\\registration\\registration.component.ts",
+>>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
   "PreviewInSolutionExplorer": false
 }

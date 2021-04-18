@@ -17,6 +17,7 @@ export class RegisterauService {
 
   regau: ResgisterauModule; 
   http:HttpClient;
+<<<<<<< HEAD
  
   public loginstatus = new BehaviorSubject<boolean>((sessionStorage.length!=0)?true:false);
 
@@ -28,6 +29,11 @@ export class RegisterauService {
   //url:string='http://localhost:62227/api/RegisterAU';
  //url:string='http://localhost:62227/api/Registration';
  //url:string='http://localhost:56797/api/Registration';
+=======
+  
+  //url:string='http://localhost:62227/api/RegisterAU';
+ //url:string='http://localhost:62227/api/Registration';
+>>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
   url:string='http://localhost:59875/api/RegisterAU';
 
   
@@ -37,9 +43,12 @@ export class RegisterauService {
 };
 
   constructor(http:HttpClient) {this.http=http ;}
+<<<<<<< HEAD
 
   
 
+=======
+>>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
   Login(UserId: number, pwd: string): Observable<string>
   {
     return this.http.get<string>(this.url + '/' + 'Login' + '/' + UserId + '/' + pwd); 
@@ -62,8 +71,11 @@ export class RegisterauService {
     console.log("Inside SetNewPassword " + stud)
     return this.http.post<boolean>(this.url + '/' + 'SetNewPassword', stud, this.httpOptions);
   }
+<<<<<<< HEAD
   checkphone(phonenumber: number): Observable<string> {
     return this.http.get<string>(this.url + '/checkphone/' + phonenumber + '/');
   }
+=======
+>>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
 
 }

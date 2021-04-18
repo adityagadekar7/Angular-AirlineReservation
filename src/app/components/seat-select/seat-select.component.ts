@@ -13,12 +13,21 @@ import { TicketInfoService } from 'src/app/services/ticket-info.service';
 export class SeatSelectComponent implements OnInit {
     svc:BookingInfoService;
     Flight_Number:number;
+    Cost:number;
+    flag:number;
     ngzone: NgZone;
     router: Router;
     test:string="";
     svc1:TicketInfoService;
     ti= new TicketInfoModule();
     datapnr:TicketInfoModule;
+    ticketPrice: number;
+    convFee: number;
+    totalPrice: number;
+    currency: string;
+    infantCost:number;
+    aci:number;
+    count:number=0;
     
 
     constructor( svc:BookingInfoService,svc1:TicketInfoService, ngzone:NgZone, router:Router) {
@@ -29,7 +38,17 @@ export class SeatSelectComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.Flight_Number=1;
+        this.Flight_Number = Number(localStorage.getItem('FLIGHTNUMBER'));
+        this.Cost = Number(localStorage.getItem('COST'));
+        this.flag=Number(localStorage.getItem('FLAG'));
+        this.aci=Number(localStorage.getItem('ACI'))
+        //this.Flight_Number=1;
+        this.ticketPrice = this.Cost;
+        this.infantCost=this.Cost/2;
+        this.convFee= this.Cost * 0.18;
+        this.currency = "Rs";
+        console.log(this.ticketPrice + " "+this.Cost)
+        console.log("TESTTTTTT: "+this.Flight_Number+this.Cost);
 
         this.svc.GetSeats(this.Flight_Number).subscribe((data:string)=>{
         this.test=data;
@@ -53,10 +72,7 @@ export class SeatSelectComponent implements OnInit {
     //reserved: string[] = ['A2', 'A3', 'F5', 'F1', 'F2','F6', 'H1', 'H2', 'H3', 'H4'];
     selected: string[] = [];
 
-    ticketPrice: number = 3500;
-    convFee: number = 350;
-    totalPrice: number = 0;
-    currency: string = "Rs";
+    
 
 
     // removeValue = function(cancelled) {
@@ -101,13 +117,23 @@ export class SeatSelectComponent implements OnInit {
         //console.log(this.test);//--------------------------------------------------------------
         var index = this.selected.indexOf(seatPos);
         
-        if(index !== -1) {
+        if(index !== -1){
             // seat already selected, remove
-            this.selected.splice(index, 1)
+            if(this.count>0){
+                this.count--;
+                this.selected.splice(index, 1);
+            }
         } else {
             //push to selected array only if it is not reserved
             if(this.reserved.indexOf(seatPos) === -1)
-                this.selected.push(seatPos);
+                {  
+                    if(this.count<this.aci){
+                        this.count++;
+                        this.selected.push(seatPos);
+                    }
+                    
+                }
+                
         }
     }
     //Buy button handler
@@ -122,6 +148,7 @@ export class SeatSelectComponent implements OnInit {
             localStorage.setItem('SEATNO',this.selected.toString());
             localStorage.setItem('PRICE',(this.ticketPrice * this.selected.length + this.convFee).toString());
             localStorage.setItem('FLIGHTNO',this.Flight_Number.toString());
+            localStorage.setItem('FLAG',this.flag.toString());
             this.ngzone.run(()=>this.router.navigateByUrl('/PassDet'));
             //-------------------------
             this.InsertInFlightReservation()
