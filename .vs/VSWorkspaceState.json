@@ -4,13 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
-    "\\src\\app\\components\\booking",
+    "\\src\\app\\components\\edit-flight",
     "\\src\\app\\components\\registration",
     "\\src\\app\\components\\resetpassword",
-    "\\src\\app\\components\\seat-select",
-    "\\src\\app\\modules\\resgisterau",
+    "\\src\\app\\components\\tickets",
+    "\\src\\app\\components\\user-login",
     "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\components\\registration\\registration.component.ts",
+  "SelectedNode": "\\src\\app\\components\\tickets\\tickets.component.ts",
   "PreviewInSolutionExplorer": false
 }

@@ -56,7 +56,7 @@ export class ResetpasswordComponent implements OnInit {
     if (this.stud.Password != passwordreset.value.pass2)
       alert("Password not matching");
     else {
-      this.svc.SetNewPassword(this.stud).subscribe((data: boolean) => {
+      this.svc.SetNewPassword(this.stud).subscribe((data: any) => {
         if (data == true) {
           alert('Password is Updated');
         }

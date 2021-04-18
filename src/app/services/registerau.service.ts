@@ -46,5 +46,8 @@ export class RegisterauService {
     console.log("Inside SetNewPassword " + stud)
     return this.http.post<boolean>(this.url + '/' + 'SetNewPassword', stud, this.httpOptions);
   }
+  checkphone(phonenumber: number): Observable<string> {
+    return this.http.get<string>(this.url + '/checkphone/' + phonenumber + '/');
+  }
 
 }

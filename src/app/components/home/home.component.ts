@@ -12,19 +12,23 @@ import {FlightReservationService} from 'src/app/services/flight-reservation.serv
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  textBoxDisabled = true;
   model: any = [];
   svc: FlightReservationService;
   frs1 = new FlightReservationModule();
   ngzone: NgZone;
   router: Router;  
 
+  toggle() {
+    this.textBoxDisabled = !this.textBoxDisabled;
+  }
   constructor(svc:FlightReservationService, ngzone:NgZone, router:Router ) 
   { 
     this.svc = svc;
     this.ngzone = ngzone;
     this.router = router;
   }
+  
 
   ngOnInit(): void {
   }
