@@ -76,6 +76,7 @@ export class PassengerdetailsComponent implements OnInit {
       if(data == true)
       {
         alert("New Passenger Added");
+        this.ngzone.run(() => this.router.navigateByUrl('/PaymentForm'));
       }
       else
       {

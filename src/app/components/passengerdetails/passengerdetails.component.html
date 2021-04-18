@@ -8,7 +8,7 @@
     </div>
     <div >
         <!--<label>Passport Number</label>-->
-        <input type="number" name="PassportNumber" [(ngModel)]="model.PassportNumber" #PassportNumber="ngModel" placeholder="Passport Number" required>
+        <input type="text" name="PassportNumber" [(ngModel)]="model.PassportNumber" #PassportNumber="ngModel" placeholder="Passport Number" required>
         <!--<span *ngIf="PassportNumber.errors?.required">Cannot be Blank</span>-->
         <span *ngIf="PassportNumber.errors?.required"></span>
     </div>

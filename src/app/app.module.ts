@@ -1,6 +1,8 @@
 import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
+import{RouterModule} from '@angular/router';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +20,11 @@ import { PassengerdetailsComponent } from './components/passengerdetails/passeng
 
 import{PaymentComponent} from './components/payment/payment.component';
 import{TicketsComponent} from './components/tickets/tickets.component';
+import{AboutpageComponent} from './components/aboutpage/aboutpage.component';
+import{FaqComponent} from './components/faq/faq.component';
+
+import { NgxCaptchaModule } from 'ngx-captcha';
+
 
 import 'jquery';
 import 'popper.js';
@@ -26,6 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SeatSelectComponent } from './components/seat-select/seat-select.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+
+
 
 
 
@@ -42,21 +51,25 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     PassengerdetailsComponent,
     PaymentComponent,
     TicketsComponent,
-
+    AboutpageComponent,
+    FaqComponent,
     SeatSelectComponent,
-    BookingComponent
-   // ResetpasswordComponent
-
+    BookingComponent,
+    ResetpasswordComponent
     
     
   ],
   imports: [
+   
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgbModule,
     AlertModule.forRoot(), TabsModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgxCaptchaModule,
+   
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

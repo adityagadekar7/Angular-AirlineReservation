@@ -17,7 +17,7 @@ export class UserLoginComponent implements OnInit {
   model:any=[]; 
   ngzone: NgZone;
   router: Router;
-
+ 
   
   constructor(svc:RegisterauService, ngzone:NgZone, router:Router ) 
   { 
@@ -38,12 +38,18 @@ export class UserLoginComponent implements OnInit {
   
   this.svc.Login(this.regau.UserId,this.regau.Password).subscribe((data:any)=>
   {
+    
     console.log(data);
     if(data=="Login Successful")
     {
       alert("Login Successful");
+      
       localStorage.setItem('UID',this.regau.UserId.toString());
-      this.ngzone.run(()=>this.router.navigateByUrl('/TicketDetails'));
+      this.ngzone.run(()=>this.router.navigateByUrl('/homepage'));
+
+      sessionStorage.setItem('UID',this.regau.UserId.toString());
+      console.log(sessionStorage.length);
+      this.svc.loginstatus.next(true);
       
 
     }

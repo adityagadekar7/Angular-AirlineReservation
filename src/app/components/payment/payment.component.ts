@@ -24,6 +24,8 @@ export class PaymentComponent implements OnInit {
   TotalSeats:number;
   Seats:string;
   TotalPrice:number;
+  TempPrice:number;
+  FinalAmount:number;
 
   //---------------
   svc1:BookingInfoService;
@@ -33,9 +35,13 @@ export class PaymentComponent implements OnInit {
   Flight_Number:number;
   trial:string;
   Pnr_no:number;
+  flag:number;
 
   
 
+  Seats1:string;
+  Flight_Number1:number;
+  Pnr_no1:number;
 
 
   
@@ -54,12 +60,19 @@ export class PaymentComponent implements OnInit {
     this.TotalSeats=Number(localStorage.getItem('TOTALSEATS'));
     this.Seats=String(localStorage.getItem('SEATNO'));
     this.TotalPrice=Number(localStorage.getItem('PRICE'));
+    this.TempPrice=Number(localStorage.getItem('TEMPPRICE'));
     this.Pnr_no=Number(localStorage.getItem('PNR'));
     this.Flight_Number=Number(localStorage.getItem('FLIGHTNO'));
+    this.flag=Number(localStorage.getItem('FLAG'));
+
+    this.Seats1=String(localStorage.getItem('SEATNO1'));
+    this.Pnr_no1=Number(localStorage.getItem('PNR1'));
+    this.Flight_Number1=Number(localStorage.getItem('FLIGHTNO1'));
     //this.Flight_Number=1;
     console.log(this.TotalSeats);
     console.log(this.Seats);
     console.log(this.TotalPrice);
+    this.FinalAmount=this.TotalPrice+this.TempPrice;
     alert(this.TotalSeats+" + "+this.Seats);
     
   }
@@ -82,20 +95,48 @@ export class PaymentComponent implements OnInit {
       //this.InsertInFlightReservation();
       alert("Payment Successful");
       alert(this.Flight_Number+" "+this.Seats);
-      
+      if(this.flag==3){
+        this.svc1.UpdateSeats(this.Flight_Number,this.Seats,this.Pnr_no).subscribe((data:boolean)=>
+        {
+          console.log(data);
+          if(data == true)
+          {
+            alert("Seats Added");
+          }
+          else
+          {
+            alert("Seats not selected");
+          }
+        });
 
-      this.svc1.UpdateSeats(this.Flight_Number,this.Seats,this.Pnr_no).subscribe((data:boolean)=>
-      {
-      console.log(data);
-      if(data == true)
-      {
-        alert("Seats Added");
+        this.svc1.UpdateSeats(this.Flight_Number1,this.Seats1,this.Pnr_no1).subscribe((data:boolean)=>
+        {
+          console.log(data);
+          if(data == true)
+          {
+            alert("Seats Added");
+          }
+          else
+          {
+            alert("Seats not selected");
+          }
+        });
       }
       else
       {
-        alert("Seats not selected");
-      }
-    });
+        this.svc1.UpdateSeats(this.Flight_Number,this.Seats,this.Pnr_no).subscribe((data:boolean)=>
+        {
+        console.log(data);
+        if(data == true)
+        {
+          alert("Seats Added");
+        }
+        else
+        {
+          alert("Seats not selected");
+        }
+        });
+      }  
     }
      
        

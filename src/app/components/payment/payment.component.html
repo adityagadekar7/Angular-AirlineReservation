@@ -6,8 +6,8 @@
     <form #paymentform="ngForm" name="paymentform" (ngSubmit)="PaymentForm(paymentform)">
         <div>
             <label>Card Number</label>
-            <input type="text" name="Card_Number" [(ngModel)]="model.Card_Number" #Card_Number="ngModel" required>
-            <!-- <span *ngIf="Card_Number.errors?.required">Cannot be Blank</span>-->
+            <input type="text" name="Card_Number" pattern="[0-9]{12}" [(ngModel)]="model.Card_Number" #Card_Number="ngModel" required>
+            <!-- <span *ngIf="Card_Number.errors?.pattern">Cannot be Blank</span>-->
         </div>
 
         <div><label>Card Type</label>&nbsp;

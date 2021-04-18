@@ -80,7 +80,7 @@ export class BookingComponent implements OnInit {
 
      this.pi.Pnr_no=this.test;
      console.log(this.pi.Pnr_no);
-    this.pi.PassportNumber=1234
+    this.pi.PassportNumber="1234"
     this.pi.FirstName="test"
     this.pi.LastName="All"
     this.pi.DOB="11/11/2000"
@@ -100,7 +100,7 @@ export class BookingComponent implements OnInit {
 
     }
    
-  });
+     });
   
   
 

@@ -1,9 +1,9 @@
-<form class="form-group" #register="ngForm" name="registerForm" (ngSubmit)="Register(register)">
+<form class="form-group" #registerForm="ngForm" name="registerForm" (ngSubmit)="Register(registerForm)">
   <div id="login-box">
     <div align="center">
       <br>
       <h1>Sign up</h1>
-      <select class="title" type="text" name="title" [(ngModel)]="model.title" #title="ngModel" required>
+      <select class="title" type="text" name="title" placeholder="Title" [(ngModel)]="model.title" #title="ngModel"  required>
         <option value="">Title</option>
         <option value="Mr">Mr</option>
         <option value="Mrs">Mrs</option>
@@ -17,8 +17,15 @@
       <input type="date" name="dob" placeholder="date of birth" [(ngModel)]="model.dob" #dob="ngModel" required />
       <input type="number" name="pno" placeholder="Enter Mobile number" [(ngModel)]="model.pno" #pno="ngModel" required />
 
-      <button type="submit" class="buttonx  btn btn-success" [disabled]="register.invalid">Sign Up </button><br />
-     <p> Already have an account?<a href="UserLogin">   Login   </a></p>
+      <!--div tag for captcha-->
+      <div align="center">
+        <ngx-recaptcha2 #captchaElement [siteKey]="siteKey" name="cap" [(ngModel)]="model.cap" #cap="ngModel" required>
+          <span *ngIf="cap.errors?.required"></span>
+        </ngx-recaptcha2>
+      </div>
+
+      <button type="submit" class="buttonx  btn btn-success" [disabled]="registerForm.invalid">Sign Up </button><br />
+      <p> Already have an account?<a href="UserLogin">   Login   </a></p>
     </div>
 
     <!--
@@ -32,4 +39,6 @@
     <div class="or">OR</div>
     -->
   </div>
-  </form>
+</form>
+
+<!--javascript for validation*/-->
