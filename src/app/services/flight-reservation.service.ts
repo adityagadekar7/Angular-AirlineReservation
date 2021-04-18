@@ -14,14 +14,8 @@ export class FlightReservationService {
 
   fr : FlightReservationModule;
   http:HttpClient;
-<<<<<<< HEAD
-  url: string = 'http://localhost:56797/api';
+  url: string = 'http://localhost:59875/api';
   //url: string = 'http://localhost:62227/api';
-=======
-  //url: string = 'http://localhost:56797/api';
-  //url: string = 'http://localhost:62227/api';
-  url:string='http://localhost:59875/api';
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
 
 
   httpOptions = {headers: new HttpHeaders({
@@ -35,18 +29,11 @@ export class FlightReservationService {
     return this.http.get<FlightReservationModule>(this.url + '/Flight_Reservation/' + 'GetFlight' + '/' + id);   
   }*/
 
-<<<<<<< HEAD
-  GetFlights():Observable<FlightReservationModule[]>
-  {
-    return this.http.get<FlightReservationModule[]>(this.url+'/Flight_Schedules/'+'GetFlights');
-  }
-=======
   // GetFlights():Observable<FlightReservationModule[]>
   // {
   //   return this.http.get<FlightReservationModule[]>(this.url+'/Flight_Schedules/'+'GetFlights');
   // }
 
   
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
 
 }
