@@ -72,24 +72,32 @@
             <button type="submit" [disabled]="flightselect.invalid">Continue</button>
         </div>
 </form><br>
-<table border="1">
-    <tr>
-        <!-- <th>Flight_Number</th>                
-        <th>Flight_Name</th>         
-        <th>Flight_Date</th>     
-        <th>Airport_Code</th>     
-        <th>Flight_Departing_Time</th>
-        <th>Flight_Arrival_Time</th>     
-        <th>Origin</th>
-        <th>Destination</th>
-        <th>Flight_Status</th>
-        <th>Cost_Eco</th>
-        <th>Cost_Business</th> 
-        <th>Seats_Available_Eco</th> 
-        <th>Seats_Available_Business</th>           -->
-    </tr>
-    
+
+<a  (click)="OneWayFlight()"  role="button">One way Flight</a>&nbsp;
+<!-- <a  (click)="TwoWayFlight()"  role="button">Two way Flight</a>&nbsp; -->
+<br><br>
+
+<div *ngIf="buttonName1=='OneWayFlight'">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Flight_Number</th>                
+                <th>Flight_Name</th>         
+                <th>Flight_Date</th>     
+                <th>Airport_Code</th>     
+                <th>Flight_Departing_Time</th>
+                <th>Flight_Arrival_Time</th>     
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Flight_Status</th>
+                <th>Cost_Eco</th>
+                <th>Cost_Business</th> 
+                <th>Seats_Available_Eco</th> 
+                <th>Seats_Available_Business</th>          
+            </tr>
+        </thead>
     <!-- For one way -->
+    <tbody>
     <span *ngFor = "let f of flist" >
         <!-- <span *ngSwitchCase="'oneway'"> -->
        <!-- <div *ngIf = "f.Origin==Origin && f.Destination==Destination">-->
@@ -112,7 +120,9 @@
      </tr>
      <!-- </span> -->
     </span>
-
+    </tbody>
+</table>
+</div>
     <!-- For Two way -->
     <!-- <span *ngFor = "let f of flist" >
          <div *ngIf = "f.Origin==Origin && f.Destination==Destination">
@@ -151,7 +161,7 @@
      </tr>
       </span>
      </span> -->
-</table>
+<!-- </table> -->
 <!--<table border="1">
     <tr>
         <th>Flight_Number</th>                

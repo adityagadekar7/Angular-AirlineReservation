@@ -14,8 +14,8 @@ export class FlightReservationService {
 
   fr : FlightReservationModule;
   http:HttpClient;
-  //url: string = 'http://localhost:56797/api';
-  url: string = 'http://localhost:62227/api';
+  url: string = 'http://localhost:56797/api';
+  //url: string = 'http://localhost:62227/api';
 
 
   httpOptions = {headers: new HttpHeaders({

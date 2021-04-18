@@ -1,164 +1,166 @@
+<div style="background-image: url('./assets/trial3.jpg'); background-size:cover">
+  <br>
+  <br>
  
- <div style="background-image: url('./assets/trial3.jpg'); background-size:cover">
- <br>
- <br>
-
-
-    <!--container-->
-
-    <form class="form-group" #book="ngForm" name="book" (ngSubmit)="Bookflight(book)">
-        <!--form-->
-
-        <h1 class="text-center" style="color:White; text-align:center">Happy Trip</h1>
-        <br>
-        <br>
-        <div id="form">
-            <!--form-->
-            <h3 class="text-black">Search Flight</h3> <!--text-white-->
-
-            <div id="input">
-                <!--input-->
-                <input type="text" id="input-group" name="from" [(ngModel)]="model.from" #from="ngModel" placeholder="From" required>
-                <input type="text" id="input-group" name="to" [(ngModel)]="model.to" #to="ngModel" placeholder="To" required><br /><br />
-                <!--<input type="date" id="input-group" name="dd" [(ngModel)]="model.dd" #dd="ngModel" placeholder="Departure Date">-->
-                <!-- <input type="time" id="input-group" name="dt" [(ngModel)]="model.dt" #dt="ngModel" placeholder="Departure Time"><br /><br /> -->
-
-                <select id="input-group" style="background: darkcyan; color:aliceblue" 
-                        name="airlines" [(ngModel)]="model.airlines" #airlines="ngModel" required>
-                  <option value="">Preferred Airline</option>
-                  <option value="">IndiGo</option>
-                  <option value="">AirIndia</option>
-                  <option value="">SpiceJet</option>
-                </select>
-                <!-- <select id="input-group" style="background: darkcyan; color: aliceblue;">
-            <option value="">Preferred Seating</option>
-            <option value="">Economy Class</option>
-            <option value="">Business Class</option>
-
-          </select>--><br /><br />
-          
-            </div>
-
-            <div id="input2">
-                <!--input2-->
-                <input type="date" id="input-group" name="rdate" [(ngModel)]="model.rdate" #rdate="ngModel" placeholder="Return Date">Return date
-                <input type="number" id="input-group" name="adult" [(ngModel)]="model.adult" #adult="ngModel" placeholder="Adult(12+years)">Adult
-                <input type="number" id="input-group" name="child" [(ngModel)]="model.child" #child="ngModel" placeholder="Children(2-12years)">Children
-                <input type="number" id="input-group" name="infant" [(ngModel)]="model.infant" #infant="ngModel" placeholder="Infant(0-2years)">Infant
-            </div><br />
-            <!--input2-->
-
-             <div id="input3">
-                
-                <span id="input-group" class="text-primary">Select </span>
-                <input type="radio" id="input-group" name="oneway" [(ngModel)]= "model.oneway" #oneway="ngModel" value="1" >
-                <!-- <span *ngSwitchCase="'oneway'"><label class="text-black" for="input-group">One Way</label></span> -->
-                <label class="text-black" for="input-group">One Way</label>
-
-                <input type="radio" id="input-group" name="twoway" [(ngModel)]="model.twoway" #twoway="ngModel" value="2" >
-                <!-- <span *ngSwitchCase="'twoway'"><label class="text-black" for="input-group">Round Trip</label></span> -->
-                <label class="text-black" for="input-group">Round Trip</label>
-            </div> 
-            <!--input3-->
-
-            <div id="input4">
-                <!--input4-->
-                <!-- <input type="text" id="input-group" name="rdate" [(ngModel)]="model.rdate" #rdate="ngModel" placeholder="Return Date"> -->
-                <!-- <input type="text" id="input-group" name="rtime" [(ngModel)]="model.rtime" #rtime="ngModel" placeholder="Return time"> -->
-
-            </div>
-            <!--input4-->
-            <!--input5-->
-
-
-            <button type="reset" class="btn btn-danger">Clear Form</button>
-            <br>
-            
-            <br>
-            <div  id="search">
-
-              <div class="form-group col-xs-3">
-                  <button type="submit" class="btn btn-block btn-primary" style="width:200px ;height:50px;" [disabled]="book.invalid">Search</button>
-              </div>
-          </div>
-            
+ 
+     <!--container-->
+ 
+     <form class="form-group" #search="ngForm" name="search" (ngSubmit)="Searchflight(search)">
+         <!--form-->
+ 
+         <h1 class="text-center" style="color:White; text-align:center">Happy Trip</h1>
+         <br>
+         <br>
+         <div id="form">
+             <!--form-->
+             <h3 class="text-black">Search Flight</h3> <!--text-white-->
+ 
+             <div id="input">
+                 <!--input-->
+                 <input type="text" id="input-group" name="from" [(ngModel)]="model.from" #from="ngModel" placeholder="From" required>
+                 <input type="text" id="input-group" name="to" [(ngModel)]="model.to" #to="ngModel" placeholder="To" required><br /><br />
+                 <input type="date" id="input-group" name="dd" [(ngModel)]="model.dd" #dd="ngModel" placeholder="Departure Date">
+                 <!-- <input type="time" id="input-group" name="dt" [(ngModel)]="model.dt" #dt="ngModel" placeholder="Departure Time"><br /><br /> -->
+ 
+                 <select id="input-group" style="background: darkcyan; color:aliceblue" 
+                         name="airlines" [(ngModel)]="model.airlines" #airlines="ngModel" required>
+                   <option value="">Preferred Airline</option>
+                   <option value="IndiGo">IndiGo</option>
+                   <option value="AirIndia">AirIndia</option>
+                   <option value="SpiceJet">SpiceJet</option>
+                 </select>
+                 <!-- <select id="input-group" style="background: darkcyan; color: aliceblue;">
+             <option value="">Preferred Seating</option>
+             <option value="">Economy Class</option>
+             <option value="">Business Class</option>
+ 
+           </select>--><br /><br />
            
-        </div>
-        <!--form-->
-      <br />
-    
-
-        
-
-    </form>
-    <!--form-->
-
-    
-
-
-<ul class="image-list-small">
-  <li>
-    <a href="#" style="background-image: url('./assets/airplane3.jpg');"></a>
-    <div class="details">
-      <h3><a href="#">AirLines</a></h3>
-      <p class="image-author"></p>
-    </div>
-  </li>
-  <li>
-    <a href="#" style="background-image: url('./assets/forest.jpg');"></a>
-    <div class="details">
-      <h3><a href="#">Coorg Beauty of Nature</a></h3>
-      <p class="image-author"></p>
-    </div>
-  </li>
-  <li>
-    <a href="#" style="background-image: url('./assets/ladakh.jpg');"></a>
-    <div class="details">
-      <h3><a href="#">When in Ladakh..</a></h3>
-      <p class="image-author"></p>
-      
-    </div>
-  </li>
-  <li>
-    <a href="#" style="background-image: url('./assets/air.jpg');"></a>
-    <div class="details">
-      <h3><a href="#">Bangalore Kempagowda Airport</a></h3>
-      <p class="image-author"></p>
-    </div>
-  </li>
-  
-</ul>
-<!--container-->
-<ul class="image-list-small">
-  <li>
-    <a href="#" style="background-image: url('./assets/jam.jpg');"></a>
-    <div class="details">
-      <h3><a href="#">Jammu & Kashmir</a></h3>
-      
-    </div>
-  </li>
-  <li>
-    <a href="#" style="background-image: url('./assets/mum.jpg');"></a>
-    <div class="details">
-      <h3><a href="#">Central City</a></h3>
-      
-    </div>
-  </li>
-  <li>
-    <a href="#" style="background-image: url('./assets/balii.jpg');"></a>
-    <div class="details">
-      <h3><a href="#">When in bali..</a></h3>
-      <p class="image-author"></p>
-
-    </div>
-  </li>
-  <li>
-    <a href="#" style="background-image: url('./assets/mal.jpg');"></a>
-    <div class="details">
-      <h3><a href="#">Maldives</a></h3>
-    
-    </div>
-  </li>
-
-</ul>
-</div>
+             </div>
+ 
+             <div id="input2">
+                 <!--input2-->
+                 <input type="date" id="input-group" name="rd" [(ngModel)]="model.rd" #rd="ngModel" placeholder="Return Date">Return date
+                 <input type="number" id="input-group" name="adult" [(ngModel)]="model.adult" #adult="ngModel" placeholder="Adult(12+years)">Adult
+                 <input type="number" id="input-group" name="child" [(ngModel)]="model.child" #child="ngModel" placeholder="Children(2-12years)">Children
+                 <input type="number" id="input-group" name="infant" [(ngModel)]="model.infant" #infant="ngModel" placeholder="Infant(0-2years)">Infant
+             </div><br />
+             <!--input2-->
+ 
+              <div id="input3">
+                 
+                 <span id="input-group" class="text-primary">Select </span>
+                 <input type="radio" id="input-group" name="oneway" [(ngModel)]= "model.oneway" #oneway="ngModel" value="1" >
+                 <!-- <span *ngSwitchCase="'oneway'"><label class="text-black" for="input-group">One Way</label></span> -->
+                 <label class="text-black" for="input-group">One Way</label>
+ 
+                 <input type="radio" id="input-group" name="twoway" [(ngModel)]="model.twoway" #twoway="ngModel" value="2" >
+                 <!-- <span *ngSwitchCase="'twoway'"><label class="text-black" for="input-group">Round Trip</label></span> -->
+                 <label class="text-black" for="input-group">Round Trip</label>
+             </div> 
+             <!--input3-->
+ 
+             <div id="input4">
+                 <!--input4-->
+                 <!-- <input type="text" id="input-group" name="rdate" [(ngModel)]="model.rdate" #rdate="ngModel" placeholder="Return Date"> -->
+                 <!-- <input type="text" id="input-group" name="rtime" [(ngModel)]="model.rtime" #rtime="ngModel" placeholder="Return time"> -->
+ 
+             </div>
+             <!--input4-->
+             <!--input5-->
+ 
+ 
+             <button type="reset" class="btn btn-danger">Clear Form</button>
+             <br>
+             
+             <br>
+             <div  id="search">
+ 
+               <!-- <div class="form-group col-xs-3">
+                   <button type="submit" class="btn btn-block btn-primary" style="width:200px ;height:50px;" [disabled]="book.invalid">Search</button>
+               </div> -->
+               <div class="form-group col-xs-3">
+                <button type="submit" class="btn btn-block btn-primary" style="width:200px ;height:50px;">Search</button>
+            </div>
+           </div>
+             
+            
+         </div>
+         <!--form-->
+       <br />
+     
+ 
+         
+ 
+     </form>
+     <!--form-->
+ 
+     
+ 
+ 
+ <ul class="image-list-small">
+   <li>
+     <a href="#" style="background-image: url('./assets/airplane3.jpg');"></a>
+     <div class="details">
+       <h3><a href="#">AirLines</a></h3>
+       <p class="image-author"></p>
+     </div>
+   </li>
+   <li>
+     <a href="#" style="background-image: url('./assets/forest.jpg');"></a>
+     <div class="details">
+       <h3><a href="#">Coorg Beauty of Nature</a></h3>
+       <p class="image-author"></p>
+     </div>
+   </li>
+   <li>
+     <a href="#" style="background-image: url('./assets/ladakh.jpg');"></a>
+     <div class="details">
+       <h3><a href="#">When in Ladakh..</a></h3>
+       <p class="image-author"></p>
+       
+     </div>
+   </li>
+   <li>
+     <a href="#" style="background-image: url('./assets/air.jpg');"></a>
+     <div class="details">
+       <h3><a href="#">Bangalore Kempagowda Airport</a></h3>
+       <p class="image-author"></p>
+     </div>
+   </li>
+   
+ </ul>
+ <!--container-->
+ <ul class="image-list-small">
+   <li>
+     <a href="#" style="background-image: url('./assets/jam.jpg');"></a>
+     <div class="details">
+       <h3><a href="#">Jammu & Kashmir</a></h3>
+       
+     </div>
+   </li>
+   <li>
+     <a href="#" style="background-image: url('./assets/mum.jpg');"></a>
+     <div class="details">
+       <h3><a href="#">Central City</a></h3>
+       
+     </div>
+   </li>
+   <li>
+     <a href="#" style="background-image: url('./assets/balii.jpg');"></a>
+     <div class="details">
+       <h3><a href="#">When in bali..</a></h3>
+       <p class="image-author"></p>
+ 
+     </div>
+   </li>
+   <li>
+     <a href="#" style="background-image: url('./assets/mal.jpg');"></a>
+     <div class="details">
+       <h3><a href="#">Maldives</a></h3>
+     
+     </div>
+   </li>
+ 
+ </ul>
+ </div>

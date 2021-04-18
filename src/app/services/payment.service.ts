@@ -14,7 +14,8 @@ export class PaymentService {
   http:HttpClient;
   //url:string='http://localhost:59875/api/Dashboard'; //localhost port different for different projects
   //url:string='http://localhost:62227/api/RegisterAU';
-  url:string='http://localhost:62227/api/Dashboard';
+  //url:string='http://localhost:62227/api/Dashboard';
+  url:string='http://localhost:56797/api/Dashboard';
   //url:string='http://localhost:59875/api/RegisterAU';
   
   httpOptions = {headers: new HttpHeaders({

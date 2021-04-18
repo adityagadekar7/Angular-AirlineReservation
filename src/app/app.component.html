@@ -5,6 +5,27 @@
             <a class="nav-link" href="homepage">Home </a>
 
         </li>
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="About">About</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="FAQ">FAQ</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="FlightSelect">Flight Select</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="Passenger_Details" *ngIf="loginstatus$ | async as loginstatus">Passenger Details</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="PaymentForm" *ngIf="loginstatus$ | async as loginstatus">Payment</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="SeatSelect" *ngIf="loginstatus$ | async as loginstatus">Seat select</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="Booking" *ngIf="loginstatus$ | async as loginstatus">Booking</a>
+        </li>
 
     </ul>
 
@@ -14,16 +35,22 @@
 
     <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-            <a class="nav-link" href="registration">SignUp</a>
+            <a class="nav-link" routerLink="registration" *ngIf="!(loginstatus$ | async) as loginstatus" >SignUp</a>   <!--Visible only if the user is not logged in-->
         </li>
         <li class="nav-item dropdown active">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Login</a>
+            <a routerLink="#" class="nav-link dropdown-toggle" data-toggle="dropdown" *ngIf="!(loginstatus$ | async) as loginstatus" >Login</a>  <!--Visible only if the user is not logged in-->
             <div class="dropdown-menu dropdown-menu-right">
                 <a href="UserLogin" class="dropdown-item">User Login</a>
                 <a href="AdminLogin" class="dropdown-item">Admin Login</a>
                 <!-- <div class="dropdown-divider"></div>
         <a href="#"class="dropdown-item">Logout</a> -->
             </div>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="homepage" *ngIf="loginstatus$ | async as loginstatus" (click)="logout()">Logout</a>   <!--Visible only if the user islogged in-->
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="TicketDetails" *ngIf="loginstatus$ | async as loginstatus" >Dashboard</a>   <!--Visible only if the user islogged in-->
         </li>
     </ul>
 </nav>
@@ -38,13 +65,13 @@
         <!-- <li><a routerLink="EditFlight">Edit Flight</a></li> -->
         <!-- <li><a routerLink="homepage">Search</a></li>-->
         <!--<li><a routerLink="registration">Registration</a></li>-->
-        <li><a routerLink="About">About</a></li>
+        <!-- <li><a routerLink="About">About</a></li>
         <li><a routerLink="FAQ">FAQ</a></li>
         <li><a routerLink="FlightSelect">Flight Select</a></li>
-        <li><a routerLink="Passenger_Details">Passenger Details</a></li>
-        <li><a routerLink="PaymentForm">Payment</a></li>
-        <li><a routerLink="SeatSelect">Seat select</a></li>
-        <li><a routerLink="Booking">Booking</a></li>
+        <li><a routerLink="Passenger_Details" *ngIf="loginstatus$ | async as loginstatus">Passenger Details</a></li>
+        <li><a routerLink="PaymentForm" *ngIf="loginstatus$ | async as loginstatus">Payment</a></li>
+        <li><a routerLink="SeatSelect" *ngIf="loginstatus$ | async as loginstatus">Seat select</a></li>
+        <li><a routerLink="Booking" *ngIf="loginstatus$ | async as loginstatus">Booking</a></li> -->
         <!-- <li><a routerLink="TicketDetails">TicketDetails</a></li> -->
     </ol>
 

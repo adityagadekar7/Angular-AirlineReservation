@@ -17,10 +17,20 @@ export class FlightselectComponent implements OnInit {
   svc1: FlightInfoService;
   frm = new FlightReservationModule();
   flist: FlightReservationModule[];
+
   Origin: string;
   Destination: string;
+
   oneway: string;
   twoway: string;
+  
+  buttonName1:string;
+
+  OneWayFlight(){
+    this.buttonName1="OneWayFlight";
+  }
+
+
   constructor(svc: FlightReservationService, svc1: FlightInfoService) {
     this.svc = svc;
     this.svc1 = svc1; }
