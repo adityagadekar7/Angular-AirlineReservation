@@ -1,0 +1,20 @@
+h1 {
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: xx-large;
+    color: rgba(43, 128, 177, 0.938);
+}
+
+h2 {
+    color: rgba(43, 128, 177, 0.938);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+}
+
+.container {
+    background-image: url();
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
