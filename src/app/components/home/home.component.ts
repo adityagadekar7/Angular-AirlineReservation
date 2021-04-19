@@ -20,21 +20,6 @@ export class HomeComponent implements OnInit {
   ngzone: NgZone;
   router: Router; 
   flag:number=0;
-
-<<<<<<< HEAD
-
-  constructor(svc:FlightInfoService, ngzone:NgZone, router:Router ) {
-  // toggle() {
-  //   this.textBoxDisabled = !this.textBoxDisabled;
-  // } 
-=======
-  model: any = [];
-  svc:FlightInfoService;
-  fi= new FlightInfoModule();
-  fiReturn= new FlightInfoModule();
-  ngzone: NgZone;
-  router: Router; 
-  flag:number=0;
   adult:number;
   child:number;
   infant:number;
@@ -43,15 +28,10 @@ export class HomeComponent implements OnInit {
 
   constructor(svc:FlightInfoService, ngzone:NgZone, router:Router ) 
   { 
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
     this.svc = svc;
     this.ngzone = ngzone;
     this.router = router;
   }
-<<<<<<< HEAD
-  
-=======
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
 
   ngOnInit(): void {
     localStorage.clear();
@@ -64,24 +44,18 @@ export class HomeComponent implements OnInit {
     this.fi.Flight_Date = search.value.dd;
     this.fi.Origin = search.value.from;
     this.fi.Destination = search.value.to;
-<<<<<<< HEAD
-=======
     
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
 
     this.fiReturn.Flight_Name = search.value.airlines;
     this.fiReturn.Flight_Date = search.value.rd;
     this.fiReturn.Origin = search.value.to;
     this.fiReturn.Destination = search.value.from;
     
-<<<<<<< HEAD
-=======
 
     this.adult=search.value.adult;
     this.child=search.value.child;
     this.infant=search.value.infant;
     this.aci=this.adult+this.child+this.infant;
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
     if(this.fiReturn.Flight_Date == undefined){
       this.flag=0;
     }
@@ -99,13 +73,10 @@ export class HomeComponent implements OnInit {
       localStorage.setItem('RETURNFLIGHTDATE', this.fiReturn.Flight_Date);
       localStorage.setItem('RETURNORIGIN',this.fiReturn.Origin);
       localStorage.setItem('RETURNDESTINATION', this.fiReturn.Destination);
-<<<<<<< HEAD
-=======
       localStorage.setItem('ADULT',this.adult.toString());
       localStorage.setItem('CHILD',this.child.toString());
       localStorage.setItem('INFANT',this.infant.toString());
       localStorage.setItem('ACI',this.aci.toString());
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
       this.ngzone.run(()=>this.router.navigateByUrl('/FlightSelect'));
     
     // console.log(book.value);

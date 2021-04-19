@@ -105,16 +105,12 @@ export class PassengerdetailsComponent implements OnInit {
       if(data == true)
       {
         alert("New Passenger Added");
-<<<<<<< HEAD
-        this.ngzone.run(() => this.router.navigateByUrl('/PaymentForm'));
-=======
         // if(this.flag==0){  //--------------------------------------------------CHECK---------------------------------------//
         //   this.ngzone.run(() => this.router.navigateByUrl('/PaymentForm'));
         // }
         // else{
         //   this.ngzone.run(() => this.router.navigateByUrl('/FlightSelect'));
         // }
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
       }
       else
       {

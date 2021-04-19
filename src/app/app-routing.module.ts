@@ -22,24 +22,14 @@ const routes: Routes = [
   {path:'UserLogin', component: UserLoginComponent},
   {path:'EditFlight', component: EditFlightComponent },
   {path:'homepage', component: HomeComponent },
+  {path:'FAQ', component: FaqComponent},
+  {path:'About', component: AboutpageComponent},
   {path:'registration', component: RegistrationComponent },
-  
   {path:'FlightSelect', component: FlightselectComponent},
-
-
-<<<<<<< HEAD
-  {path:'Passenger_Details', component: PassengerdetailsComponent},
-  {path:'PaymentForm', component: PaymentComponent},
-  {path:'TicketDetails', component: TicketsComponent},
-  {path:'About',component:AboutpageComponent},
-  {path:'FAQ',component:FaqComponent},
-=======
   {path:'PassDet', component: PassengerdetailsComponent},
   {path:'PaymentForm', component: PaymentComponent},
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
-  { path: 'TicketDetails', component: TicketsComponent },
- { path: 'resetpassword', component: ResetpasswordComponent },
- 
+  {path:'TicketDetails', component: TicketsComponent },
+  {path:'resetpassword', component: ResetpasswordComponent },
   {path:'SeatSelect', component:SeatSelectComponent},
   {path:'Booking',component:BookingComponent}
 ];

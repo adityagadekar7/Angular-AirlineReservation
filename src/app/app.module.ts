@@ -25,9 +25,6 @@ import{FaqComponent} from './components/faq/faq.component';
 
 import { NgxCaptchaModule } from 'ngx-captcha';
 
-
-import { NgxCaptchaModule } from 'ngx-captcha';
-
 import 'jquery';
 import 'popper.js';
 import 'bootstrap';
@@ -53,13 +50,6 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     PassengerdetailsComponent,
     PaymentComponent,
     TicketsComponent,
-<<<<<<< HEAD
-    AboutpageComponent,
-    FaqComponent,
-    SeatSelectComponent,
-    BookingComponent,
-    ResetpasswordComponent
-=======
     ResetpasswordComponent,
     
 
@@ -67,7 +57,6 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     BookingComponent,
     ResetpasswordComponent
 
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
     
     
   ],
@@ -79,12 +68,7 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     NgbModule,
     AlertModule.forRoot(), TabsModule.forRoot(),
     HttpClientModule,
-<<<<<<< HEAD
-    NgxCaptchaModule,
-   
-=======
     NgxCaptchaModule
->>>>>>> 25bf8504612467404ab0a7e5c14c5722e3fbb88b
     
   ],
   providers: [],

@@ -49,10 +49,7 @@
   margin: auto;
   padding: 20px;
   opacity: 0.8;
-  border-top-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-radius: 15px 15px 15px 15px;
   box-shadow: black 2px 9px white;
   margin-bottom:100px;
 }
@@ -68,7 +65,8 @@ placeholder {
 }
 
 #input #input-group {
-  width: 300px;
+  width: 250px;
+  padding-right: 15px;
   margin: 5px;
   border-top: none;
   border-left: none;
@@ -208,16 +206,20 @@ placeholder {
 
     .image-list-small .details h3 {
       display: block;
-      font-size: 14px;
+      font-size: 20px;
+      font-family: FontAwesome;
+      font-weight:bolder;
       margin: 0 0 3px 0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      background: #030f27;
+    transition: .5s;
     }
 
       .image-list-small .details h3 a {
-        color: #303030;
-        text-decoration: none;
+        color:#fdbe33;
+        transition: .3s;
       }
 
     .image-list-small .details .image-author {
@@ -228,6 +230,12 @@ placeholder {
       margin: 0;
     }
 
+    h1{
+
+      text-shadow: 8px 8px 5px black ;
+      text-align:center;
+      font-weight: bolder;
+    }
 @media only screen and (max-wdith: 640px) {
   .image-list-small {
     max-width: 100%;

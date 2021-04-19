@@ -1,20 +1,30 @@
 h1 {
+    top: 50px;
     text-align: center;
-    font-family: sans-serif;
-    font-weight: 700;
-    font-size: xx-large;
-    color: rgba(43, 128, 177, 0.938);
+    font-family:'Lucida Sans';
+    font-weight:bolder;
+    font-size:50px;
+    text-decoration-line:underline ;
+    
+    color:blanchedalmond;
 }
 
 h2 {
-    color: rgba(43, 128, 177, 0.938);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: large;
+    color: rgb(221, 130, 94);
+    font-weight:bolder;
+    font-family: Calibri;
 }
 
 .container {
+    padding-top: 60px;
     background-image: url();
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment:fixed;
     background-size: cover;
 }
+.para1 p{
+    font-size: 13px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 580 ;
+}
+
