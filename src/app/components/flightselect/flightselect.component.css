@@ -1,0 +1,48 @@
+.flight-select {
+    position: relative;
+    margin: 5% 10%;
+    width: auto;
+    height: Auto;
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .center {
+    text-align: center;
+    justify-content: center;
+}
+
+div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    
+}
+
+
+form {
+    width: auto;
+    padding: 6px;
+    margin: 0 auto;
+    /*Center align form*/
+}
+
+.form-label {
+	position: absolute;
+	top: 17px;
+	left: 30px;
+    background-color: white;
+	color: #999;
+	cursor: text;
+	transition: all .15s ease-in-out 0s;
+}
+
+.form-textbox:focus ~ .form-label,
+.form-textbox:valid ~ .form-label {
+	top: -1.5em;
+	left: 0;
+	font-size: .8em;
+	color: inherit;
+	cursor: pointer;
+}

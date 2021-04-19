@@ -62,8 +62,11 @@ export class FlightselectComponent implements OnInit {
       this.flist=data;
       console.log(this.flist);
       console.log(data);
+      if (this.flist==null){
+        alert("No data");
+      }
     });
-    console.log(this.flag)
+    console.log(this.flag);
     console.log(this.show);
 
     if(this.flag==0){

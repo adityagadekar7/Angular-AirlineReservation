@@ -2,7 +2,7 @@
   <div id="login-box">
     <div align="center">
       <br>
-      <h1>Sign up</h1>
+      <h1><b>Sign up</b></h1>
       <select class="title" type="text" name="title" [(ngModel)]="model.title" #title="ngModel" placeholder = "Title" required>
         <!--<option value="">Title</option>-->
         <option value="Mr">Mr</option>
@@ -23,10 +23,15 @@
           <span *ngIf= "cap.errors?.required"></span>
         </ngx-recaptcha2>
       </div>
-
+      
+      <br>
       <button type="submit" class="buttonx  btn btn-success" [disabled]="registerForm.invalid">Sign Up </button><br />
+      
+      <br>
      <p> Already have an account?<a href="UserLogin">   Login   </a></p>
     </div>
+    <br>
+    <br>
 
     <!--
     <div class="right">

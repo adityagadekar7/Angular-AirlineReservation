@@ -95,7 +95,7 @@ export class PaymentComponent implements OnInit {
       //this.InsertInFlightReservation();
       alert("Payment Successful");
       alert(this.Flight_Number+" "+this.Seats);
-      if(this.flag==3){
+      if(this.flag==3){  //for 2 way
         this.svc1.UpdateSeats(this.Flight_Number,this.Seats,this.Pnr_no).subscribe((data:boolean)=>
         {
           console.log(data);
@@ -122,7 +122,7 @@ export class PaymentComponent implements OnInit {
           }
         });
       }
-      else
+      else  //for 1 way
       {
         this.svc1.UpdateSeats(this.Flight_Number,this.Seats,this.Pnr_no).subscribe((data:boolean)=>
         {
@@ -136,7 +136,8 @@ export class PaymentComponent implements OnInit {
           alert("Seats not selected");
         }
         });
-      }  
+      } 
+      this.ngzone.run(()=>this.router.navigateByUrl('/homepage')); 
     }
      
        

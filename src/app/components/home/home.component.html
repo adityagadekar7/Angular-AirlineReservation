@@ -13,51 +13,55 @@
          <br>
          <div id="form">
              <!--form-->
-             <h3 class="text-black">Search Flight</h3> <!--text-white-->
+             <h3 class="text-black"><b>Search Flight</b></h3> <!--text-white-->
  
              <div id="input">
                  <!--input-->
                  <input type="text" id="input-group" name="from" [(ngModel)]="model.from" #from="ngModel" placeholder="From" required>
                  <input type="text" id="input-group" name="to" [(ngModel)]="model.to" #to="ngModel" placeholder="To" required><br /><br />
-                 <input type="date" id="input-group" name="dd" [(ngModel)]="model.dd" #dd="ngModel" placeholder="Departure Date">
-                 <!-- <input type="time" id="input-group" name="dt" [(ngModel)]="model.dt" #dt="ngModel" placeholder="Departure Time"><br /><br /> -->
- 
-                 <select id="input-group" style="background: darkcyan; color:aliceblue" 
+                 
+                 </div>
+                 <div id="input2">
+                  <label><b>Departure Date</b></label>
+                 <input type="date" id="input-group" name="dd" [(ngModel)]="model.dd" #dd="ngModel" placeholder="Departure Date" required>
+                 &nbsp;&nbsp;
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><b>Return Date: </b></label>
+                <input type="date" id="input-group" name="rd" [(ngModel)]="model.rd" #rd="ngModel" placeholder="Return Date" required><br /><br>
+              </div>
+              <div id="input">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label><b>Preferred Airline:</b></label>
+           <select id="input-group" style="background: darkcyan; color:aliceblue" 
                          name="airlines" [(ngModel)]="model.airlines" #airlines="ngModel" required>
                    <option value="">Preferred Airline</option>
                    <option value="IndiGo">IndiGo</option>
                    <option value="AirIndia">AirIndia</option>
                    <option value="SpiceJet">SpiceJet</option>
                  </select>
-                 <!-- <select id="input-group" style="background: darkcyan; color: aliceblue;">
-             <option value="">Preferred Seating</option>
-             <option value="">Economy Class</option>
-             <option value="">Business Class</option>
- 
-           </select>--><br /><br />
-           
-             </div>
+           </div>
+           <br>
+             
  
              <div id="input2">
                  <!--input2-->
-                 <input type="date" id="input-group" name="rd" [(ngModel)]="model.rd" #rd="ngModel" placeholder="Return Date">Return date
-                 <input type="number" id="input-group" name="adult" [(ngModel)]="model.adult" #adult="ngModel" placeholder="Adult(12+years)">Adult
-                 <input type="number" id="input-group" name="child" [(ngModel)]="model.child" #child="ngModel" placeholder="Children(2-12years)">Children
-                 <input type="number" id="input-group" name="infant" [(ngModel)]="model.infant" #infant="ngModel" placeholder="Infant(0-2years)">Infant
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <input type="number" id="input-group" name="adult" [(ngModel)]="model.adult" #adult="ngModel" placeholder="Adult(12+years)" required>
+                 <input type="number" id="input-group" name="child" [(ngModel)]="model.child" #child="ngModel" placeholder="Children(2-12years)" required>
+                 <input type="number" id="input-group" name="infant" [(ngModel)]="model.infant" #infant="ngModel" placeholder="Infant(0-2years)" required>
              </div><br />
              <!--input2-->
  
-              <div id="input3">
+              <!-- <div id="input3">
                  
                  <span id="input-group" class="text-primary">Select </span>
                  <input type="radio" id="input-group" name="oneway" [(ngModel)]= "model.oneway" #oneway="ngModel" value="1" >
-                 <!-- <span *ngSwitchCase="'oneway'"><label class="text-black" for="input-group">One Way</label></span> -->
+                 <span *ngSwitchCase="'oneway'"><label class="text-black" for="input-group">One Way</label></span>
                  <label class="text-black" for="input-group">One Way</label>
  
                  <input type="radio" id="input-group" name="twoway" [(ngModel)]="model.twoway" #twoway="ngModel" value="2" >
-                 <!-- <span *ngSwitchCase="'twoway'"><label class="text-black" for="input-group">Round Trip</label></span> -->
+                 <span *ngSwitchCase="'twoway'"><label class="text-black" for="input-group">Round Trip</label></span>
                  <label class="text-black" for="input-group">Round Trip</label>
-             </div> 
+             </div>  -->
              <!--input3-->
  
              <div id="input4">
@@ -80,7 +84,7 @@
                    <button type="submit" class="btn btn-block btn-primary" style="width:200px ;height:50px;" [disabled]="book.invalid">Search</button>
                </div> -->
                <div class="form-group col-xs-3">
-                <button type="submit" class="btn btn-block btn-primary" style="width:200px ;height:50px;">Search</button>
+                <button type="submit" class="btn btn-block btn-primary" style="width:200px ;height:50px;" [disabled]="search.invalid">Search</button>
             </div>
            </div>
              

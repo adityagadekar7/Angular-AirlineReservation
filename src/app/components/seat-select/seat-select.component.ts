@@ -111,6 +111,7 @@ export class SeatSelectComponent implements OnInit {
     //clear handler
     clearSelected = function() {
         this.selected = [];
+        this.count=0;
     }
     //click handler
     seatClicked = function(seatPos: string) {
@@ -136,9 +137,9 @@ export class SeatSelectComponent implements OnInit {
                 
         }
     }
-    //Buy button handler
+    //Select button handler
     showSelected = function() {
-        if(this.selected.length > 0) {
+        if(this.selected.length == this.aci) {
           //alert(this.reserved);
             alert("Selected Seats: " + this.selected + "\nTotal: "+(this.ticketPrice * this.selected.length + this.convFee));
             this.reserved.push(this.selected);
@@ -158,7 +159,7 @@ export class SeatSelectComponent implements OnInit {
         } 
         else 
         {
-            alert("No seats selected!");
+            alert("Select "+this.aci+" seats to proceed!!");
         }
     }
 
