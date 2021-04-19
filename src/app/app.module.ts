@@ -50,13 +50,11 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
     PassengerdetailsComponent,
     PaymentComponent,
     TicketsComponent,
-    ResetpasswordComponent,
-    
-
+    AboutpageComponent,
+    FaqComponent,
     SeatSelectComponent,
     BookingComponent,
     ResetpasswordComponent
-
     
     
   ],
