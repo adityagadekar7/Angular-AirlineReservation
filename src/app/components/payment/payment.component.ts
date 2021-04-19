@@ -87,7 +87,7 @@ export class PaymentComponent implements OnInit {
    //console.log(this.Seats);
 
 
-   this.svc.CheckPayment(this.payment.CardNo,this.payment.cardtype,this.payment.Expiry_Month,this.payment.Expiry_year).subscribe((data:any)=>
+   this.svc.CheckPayment(this.payment.UserId,this.payment.CardNo,this.payment.cardtype,this.payment.Expiry_Month,this.payment.Expiry_year).subscribe((data:any)=>
    {
     // console.log(data);
      if(data=="Payment Successful")
