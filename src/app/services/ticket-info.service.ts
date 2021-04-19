@@ -33,6 +33,10 @@ export class TicketInfoService {
     return this.http.get<TicketInfoModule[]>(this.url+'/GetBookedTickets/'+id);
   }
 
+  GetPsgDetailsByPnr(pnr:number):Observable<PassengerInfoModule[]>{
+    return this.http.get<PassengerInfoModule[]>(this.url+'/GetPsgDetailsByPnr/'+pnr)
+  }
+
   GetCancelledTickets(id:number):Observable<TicketInfoModule[]>{
     return this.http.get<TicketInfoModule[]>(this.url+'/GetCancelledTickets/'+id);
   }

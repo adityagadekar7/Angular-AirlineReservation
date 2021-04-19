@@ -31,7 +31,7 @@ body {
 
 /*INPUT*/
 
-input[type="text"],
+input[type="text"],input[type="email"],
 input[type="password"], input[type="date"], input[type="number"],.title {
   display: block;
   box-sizing: border-box;

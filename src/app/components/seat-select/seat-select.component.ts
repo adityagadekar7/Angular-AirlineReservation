@@ -1,4 +1,4 @@
-import { Component, OnInit,NgZone } from '@angular/core';
+import { Component, OnInit,NgZone, ɵɵtrustConstantResourceUrl } from '@angular/core';
 import {FormsModule,FormGroup,NgForm,NgModel} from '@angular/forms';
 import{Router} from '@angular/router';
 import { TicketInfoModule } from 'src/app/modules/ticket-info/ticket-info.module';
@@ -28,6 +28,7 @@ export class SeatSelectComponent implements OnInit {
     infantCost:number;
     aci:number;
     count:number=0;
+    uid:number;
     
 
     constructor( svc:BookingInfoService,svc1:TicketInfoService, ngzone:NgZone, router:Router) {
@@ -42,6 +43,7 @@ export class SeatSelectComponent implements OnInit {
         this.Cost = Number(localStorage.getItem('COST'));
         this.flag=Number(localStorage.getItem('FLAG'));
         this.aci=Number(localStorage.getItem('ACI'))
+        this.uid=Number(sessionStorage.getItem('UID'))
         //this.Flight_Number=1;
         this.ticketPrice = this.Cost;
         this.infantCost=this.Cost/2;
@@ -49,6 +51,7 @@ export class SeatSelectComponent implements OnInit {
         this.currency = "Rs";
         console.log(this.ticketPrice + " "+this.Cost)
         console.log("TESTTTTTT: "+this.Flight_Number+this.Cost);
+        console.log(this.uid);
 
         this.svc.GetSeats(this.Flight_Number).subscribe((data:string)=>{
         this.test=data;
@@ -173,7 +176,7 @@ export class SeatSelectComponent implements OnInit {
         var time=new Date().toLocaleTimeString('it-IT');
     
           this.ti.Flight_Number=this.Flight_Number;
-          this.ti.User_Id=1;
+          this.ti.User_Id=this.uid;
           this.ti.Reservation_Date=this.WithoutTime(Date()).toDateString();
           //this.ti.Reservation_Date="2021-05-04";
           this.ti.Reservation_Time=time;

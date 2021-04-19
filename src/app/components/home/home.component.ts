@@ -27,6 +27,8 @@ export class HomeComponent implements OnInit {
   infant:number;
   aci:number;
   flist= new FlightInfoModule();
+  FirstName:string;
+ LastName:string;
 
 
   constructor(svc:FlightInfoService, svc1:BookingInfoService, ngzone:NgZone, router:Router ) 

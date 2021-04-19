@@ -14,6 +14,7 @@ export class FlightInfoModule {
   Flight_Name:string;
   Flight_Date:string;
   Airport_Code:number;
+  Airport_Name:string;
   Flight_Departing_Time:string;
   Flight_Arrival_Time:string;
   Origin:string;

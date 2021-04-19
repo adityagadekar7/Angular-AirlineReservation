@@ -4,6 +4,7 @@ import { TabsetComponent, TabDirective } from 'ngx-bootstrap/tabs';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { CancellationInfoModule } from 'src/app/modules/cancellation-info/cancellation-info.module';
 import { FlightInfoModule } from 'src/app/modules/flight-info/flight-info.module';
+import { PassengerInfoModule } from 'src/app/modules/passenger-info/passenger-info.module';
 import { TicketInfoModule } from 'src/app/modules/ticket-info/ticket-info.module';
 import { BookingInfoService } from 'src/app/services/booking-info.service';
 import { TicketInfoService } from 'src/app/services/ticket-info.service';
@@ -18,8 +19,10 @@ export class TicketsComponent implements OnInit {
   svc:TicketInfoService;
   svc1:BookingInfoService;
   databooked:TicketInfoModule;
+  dataPsg:PassengerInfoModule;
   datacancelled:TicketInfoModule;
   booked:TicketInfoModule[];
+  bookedPsg:PassengerInfoModule[];
   cancelled:TicketInfoModule[];
   id:number;
   model:any=[];
@@ -99,6 +102,20 @@ export class TicketsComponent implements OnInit {
   }
   
 
+  PsgDetailsFunction(pnr):void{
+    
+    this.svc.GetPsgDetailsByPnr(pnr).subscribe((dataPsg:PassengerInfoModule[])=>{
+      this.bookedPsg=dataPsg;
+      console.log(this.bookedPsg);
+      
+      if(this.booked==null){
+        alert("No Booked Tickets");
+      }
+      else{
+        console.log(dataPsg);
+      }
+    });
+  }
 
 
   CancelFunction(cancelForm:NgForm):void{

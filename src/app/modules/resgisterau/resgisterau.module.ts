@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 export class ResgisterauModule {
   
   
-  UserId:number;   //------------//CHECK
+  User_Id:number;   //------------//CHECK
   Title: string;
   FirstName: string;
   LastName: string;
@@ -21,6 +21,7 @@ export class ResgisterauModule {
   DOB: string;
   PhoneNumber: number;
  OTP: string;
+ ActivationCode:string
 
 
 

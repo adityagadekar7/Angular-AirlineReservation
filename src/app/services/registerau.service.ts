@@ -37,11 +37,17 @@ export class RegisterauService {
 };
 
   constructor(http:HttpClient) {this.http=http ;}
-  Login(UserId: number, pwd: string): Observable<string>
+  Login(email: string, pwd: string): Observable<string>
   {
-    return this.http.get<string>(this.url + '/' + 'Login' + '/' + UserId + '/' + pwd); 
+    return this.http.get<string>(this.url + '/' + 'Login' + '/' + email + '/' + pwd); 
 
   }
+
+  GetIdByEmail(email:string):Observable<ResgisterauModule[]>{
+    return this.http.get<ResgisterauModule[]>(this.url+'/GetIdByEmail/'+email+'/');
+  }
+
+
 
   UserReg(regau: ResgisterauModule): Observable<boolean> 
   {

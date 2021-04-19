@@ -17,6 +17,10 @@ export class UserLoginComponent implements OnInit {
   model:any=[]; 
   ngzone: NgZone;
   router: Router;
+  dataEmail:ResgisterauModule;
+  dataEmailX:ResgisterauModule[];
+  UserDetails=new ResgisterauModule();
+  userx:number;
  
   
   constructor(svc:RegisterauService, ngzone:NgZone, router:Router ) 
@@ -33,31 +37,48 @@ export class UserLoginComponent implements OnInit {
 
   LoginData(loginForm:NgForm):void
   {
-    this.regau.UserId=loginForm.value.uid; 
+    //this.regau.UserId=loginForm.value.uid;
+    this.regau.EmailID=loginForm.value.email; 
     this.regau.Password= loginForm.value.txtpass;
   
-  this.svc.Login(this.regau.UserId,this.regau.Password).subscribe((data:any)=>
+  this.svc.Login(this.regau.EmailID,this.regau.Password).subscribe((data:any)=>
   {
     
     console.log(data);
     if(data=="Login Successful")
     {
       alert("Login Successful");
-      
-      localStorage.setItem('UID',this.regau.UserId.toString());
-      
-
-      sessionStorage.setItem('UID',this.regau.UserId.toString());
-      console.log(sessionStorage.length);
-      this.ngzone.run(()=>this.router.navigateByUrl('/homepage'));
-      this.svc.loginstatus.next(true);
-      
-
     }
     else{
       alert("Invalid Credentials");
     }
     //console.log(loginForm.value);
+  });
+
+  this.svc.GetIdByEmail(this.regau.EmailID).subscribe((dataEmail:ResgisterauModule[])=>{
+    //this.userx= dataEmail.User_Id;
+    console.log(dataEmail);
+    //console.log(dataEmail.Title);
+    this.dataEmailX=dataEmail
+    console.log(this.dataEmailX);
+    console.log(this.dataEmailX[0].User_Id);
+    //console.log(this.dataEmail.UserId);
+    //console.log(dataEmail.User_Id);
+    //this.UserDetails.User_Id=dataEmail.User_Id;
+    //console.log(this.UserDetails);
+    //alert(this.dataEmailX.Title);
+    
+
+    localStorage.setItem('UID',this.dataEmailX[0].User_Id.toString());
+      
+
+      sessionStorage.setItem('UID',this.dataEmailX[0].User_Id.toString());
+      sessionStorage.setItem('FIRSTNAME',this.dataEmailX[0].FirstName);
+      sessionStorage.setItem('LASTNAME',this.dataEmailX[0].LastName);
+      console.log(sessionStorage.length);
+      this.ngzone.run(()=>this.router.navigateByUrl('/homepage'));
+      this.svc.loginstatus.next(true);
+      
   });
 }
 }

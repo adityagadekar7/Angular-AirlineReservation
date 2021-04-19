@@ -134,34 +134,75 @@
             </tab>
           
             <tab heading="Delete Flight">
-            <div class="login-box1 col-md-4">
-                <h2>Delete Flight</h2>
-                <form #deleteform="ngForm" name="deleteForm" (ngSubmit)="DeleteFunction(deleteform)">
-                    <div>
-                        <label class="center">Flight Number: </label>
-                        <input type="number" name="fno" [(ngModel)]="model.fno"
-                        #fno="ngModel" class="center"required/>
-                        <span *ngIf="fno.errors?.required">Flight_Number has to be entered</span>
-                    </div>
+            <div class="login-box1">
+            <h2>Delete Flight</h2>
+            <div class="container">
+                <div class="row">
+                    <!-- <div class="col-sm">
+                        <form #deleteform="ngForm" name="deleteForm" (ngSubmit)="DeleteFunction(deleteform)">
+                            <div>
+                                <label class="center">Flight Number: </label>
+                                <input type="number" name="fno" [(ngModel)]="model.fno" #fno="ngModel" class="center"required/>
+                                <span *ngIf="fno.errors?.required">Flight_Number has to be entered</span>
+                            </div>
                 
-                    <div>
-                        <button  class="buttonx btn btn-success" type="submit" [disabled]="deleteform.invalid">Delete</button>
-                    </div>
-                </form>
+                            <div>
+                                <button  class=" btn btn-outline-danger" type="submit" [disabled]="deleteform.invalid">Delete</button>
+                            </div>
+                        </form>
+                    </div> -->
+                    <div class="col-sm" align="center">
+                        <table class="table table-hover">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th>Flight Number</th>
+                                <th>Flight Name</th>
+                                <th>Flight Date</th>
+                                <th>Airport Code</th>          
+                                <th>Departure Time</th>           
+                                <th>Arrival time</th>
+                                <th>Origin</th>
+                                <th>Destination</th>
+                                <th>Economy Class Cost</th>
+                                <th>Business Class Cost</th>
+                                <th>Delete</th>               
+                            </tr>
+                            </thead>
+                            <tr *ngFor="let item of flist"  class="table-light" data-toggle="modal" data-target="#exampleModalCenter">
+                                <td>{{item.Flight_Number}}</td>
+                                <td>{{item.Flight_Name}}</td>
+                                <td>{{item.Flight_Date}}</td>
+                                <td>{{item.Airport_Code}}</td>
+                                <td>{{item.Flight_Departing_Time}}</td>
+                                <td>{{item.Flight_Arrival_Time }}</td>
+                                <td>{{item.Origin}}</td>
+                                <td>{{item.Destination}}</td>
+                                <td>{{item.Cost_Eco}}</td>
+                                <td>{{item.Cost_Business}}</td>
+                                <button  class=" btn btn-outline-danger" type="submit" (click)="DeleteButton(item.Flight_Number)">Delete</button>
+                         
+                            </tr>
+                        </table>
+                    </div> 
+
+                    
+                
+                </div>
             </div>
+             </div> 
+
             </tab>
 
-            <tab heading="Update Flight">
-                <div class="login-box1 col-md-4">
-                    
-    
-    
-                </div>
-                </tab>
+
+            
+
+            <tab heading="Update Flight"><a href="homepage" style="color:white">Logout</a>
+                </tab> 
 
                 <div>
                     <button  class="button btn btn-danger" type="submit"><a href="homepage" style="color:white">Logout</a></button>
                 </div>
+            
         
         </tabset>
     </div>

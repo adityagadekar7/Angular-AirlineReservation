@@ -51,11 +51,16 @@
             </div>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" routerLink="homepage" *ngIf="loginstatus$ | async as loginstatus" (click)="logout()" style="color: #f7bb07; font-size:larger"><b>Logout</b></a>   <!--Visible only if the user islogged in-->
-        </li>
-        <li class="nav-item active">
             <a class="nav-link" routerLink="TicketDetails" *ngIf="loginstatus$ | async as loginstatus" style="color: #f7bb07; font-size:larger"><b>Dashboard</b></a>   <!--Visible only if the user islogged in-->
         </li>
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="homepage" *ngIf="loginstatus$ | async as loginstatus" (click)="logout()" style="color: #f7bb07; font-size:larger"><b>Logout</b></a>   <!--Visible only if the user islogged in-->
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link"  *ngIf="loginstatus$ | async as loginstatus" style="color: #fdfdfd; font-size:larger"><b>Welcome, {{FirstName}} {{LastName}} !!</b></a>   <!--Visible only if the user islogged in-->
+        </li>
+        <li><b></b></li>
     </ul>
 </nav>
 
