@@ -137,7 +137,7 @@ svc3:RegisterauService;
    this.payment.cardtype=paymentform.value.cardtype;
    this.payment.Expiry_Month=paymentform.value.month;
    this.payment.Expiry_year=paymentform.value.year;
-   this.payment.Balance=1000000-(this.TempPrice+this.TotalPrice);
+   this.payment.Balance=this.TempPrice+this.TotalPrice;
    console.log(this.payment);
 
    this.svc.CheckPayment(this.payment.UserId,this.payment.CardNo,this.payment.cardtype,this.payment.Expiry_Month,this.payment.Expiry_year).subscribe((data:any)=>
@@ -161,6 +161,7 @@ svc3:RegisterauService;
        alert("Enter Valid Card Details");
        
        console.log(this.payment.UserId);
+       this.payment.Balance=1000000-(this.TempPrice+this.TotalPrice);
        this.svc.InsertCard(this.userID,this.payment).subscribe((datax:boolean)=>{
         if(datax==true){
           alert("Card Added");
