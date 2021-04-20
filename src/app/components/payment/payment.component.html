@@ -1,36 +1,92 @@
-<div class="payment-details" align="center">
-    <h1 class="center">Payment</h1>
-    <h6>Total Price: {{TempPrice}} + {{TotalPrice}} = {{FinalAmount}}</h6>
+<div class="payment-details">
+    <div class="container">
+        <div class="row"> 
+    <div class="col-sm  " align="center">
+        <table class=table>
+            <thead class="thead-dark">
+            <tr>
+                <th>Total Price</th>
+                <th colspan="3">{{TempPrice}} + {{TotalPrice}} &nbsp;&nbsp;&nbsp;= &nbsp;&nbsp;&nbsp; {{FinalAmount}}</th>
+                
+            </tr>
+            </thead>
+            <thead class="thead-light">
+            <tr>
+                <th>Ticket Number</th>
+                <th>Flight Number</th>
+                <th>Seat No.</th>
+                <th>Amount</th>
+            </tr>
+            </thead>    
+            <tr class="table-info">
+                <td>{{Pnr_no1}}</td>
+                <td>{{Flight_Number1}}</td>
+                <td>{{Seats1}}</td>
+                <td>{{TempPrice}}</td>
+            </tr>
+            <tr class="table-info">
+                <td>{{Pnr_no}}</td>
+                <td>{{Flight_Number}}</td>
+                <td>{{Seats}}</td>
+                <td>{{TotalPrice}}</td>
+            </tr>
+            <thead class="thead-light">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead> 
     
-    <h6>Ticket Number: {{Pnr_no1}}  ||  Flight Number: {{Flight_Number1}}  ||  Seats:  {{Seats1}}  ||  Amount: {{TempPrice}} </h6>
-    <h6>Return Flight</h6>
-    <h6>Ticket Number: {{Pnr_no}}  ||  Flight Number: {{Flight_Number}}  ||  Seats:  {{Seats}}  ||  Amount: {{TotalPrice}} </h6>
-    <h6></h6>
-    <h4></h4>
-    <form #paymentform="ngForm" name="paymentform" (ngSubmit)="PaymentForm(paymentform)">
-        <div>
-            <label>Card Number</label>
-            <input type="text" name="Card_Number" pattern="[0-9]{12}" [(ngModel)]="model.Card_Number" #Card_Number="ngModel" required>
-            <!-- <span *ngIf="Card_Number.errors?.pattern">Cannot be Blank</span>-->
+        </table>
+    
+    </div>
+    
+    <div class="col-sm " align="center">
+        <h1 class="center">Payment</h1>
+        <!-- <h6>Total Price: {{TempPrice}} + {{TotalPrice}} = {{FinalAmount}}</h6>
+        
+        <h6>Ticket Number: {{Pnr_no1}}  ||  Flight Number: {{Flight_Number1}}  ||  Seats:  {{Seats1}}  ||  Amount: {{TempPrice}} </h6>
+        <h6>Return Flight</h6>
+        <h6>Ticket Number: {{Pnr_no}}  ||  Flight Number: {{Flight_Number}}  ||  Seats:  {{Seats}}  ||  Amount: {{TotalPrice}} </h6> -->
+        
+        <form #paymentform="ngForm" name="paymentform" (ngSubmit)="PaymentForm(paymentform)">
+            
+    
+            <div class="btn-group btn-group-toggle " data-toggle="buttons">
+                <label class="btn btn-info active">Card Type</label>
+                <label class="btn btn-outline-warning">
+                    <input type="radio" name="cardtype" [(ngModel)]="model.cardtype" #cardtype="ngModel" value="debit" required autocomplete="off">Debit Card
+                </label>
+                <label class="btn btn-outline-warning">
+                    <input type="radio" name="cardtype" [(ngModel)]="model.cardtype" #cardtype="ngModel" value="credit" required autocomplete="off">Credit Card
+                </label>
+                <!-- <span *ngIf="gen.errors?.required"></span> -->
+              </div>
+            <!-- <div><label>Card Type</label>&nbsp;
+                <input type="radio" name="cardtype" [(ngModel)]="model.cardtype" #cardtype="ngModel" value="debit" required>Debit Card &nbsp;
+                <input type="radio" name="cardtype" [(ngModel)]="model.cardtype" #cardtype="ngModel" value="credit" required>Credit Card
+                
+            </div> -->
+            <div>
+                <label>Card Number</label>
+                <input type="number" name="Card_Number" pattern="[0-9]{12}" [(ngModel)]="model.Card_Number" #Card_Number="ngModel" required>
+                <!-- <span *ngIf="Card_Number.errors?.pattern">Cannot be Blank</span>-->
+            </div>
+            <div >
+                <label>Expiry:</label>
+                <input  type="number" name="month" [(ngModel)]="model.month" #month="ngModel" placeholder="MM" required>&nbsp;&nbsp;
+                &nbsp;            
+                <input type="number" name="year" [(ngModel)]="model.year" #year="ngModel" placeholder="YY" required>
+                <!-- <span *ngIf="Adult.errors?.required">Cannot be Blank</span>-->
+            </div>
+            
+            <div class="row" align="center" style="padding-left: 170px;">
+                <button class="buttonx btn btn-success" type="submit" [disabled]="paymentform.invalid">Pay Now</button>
+            </div>
+        </form>
         </div>
-
-        <div><label>Card Type</label>&nbsp;
-            <input type="radio" name="cardtype" [(ngModel)]="model.cardtype" #cardtype="ngModel" value="debit" required>Debit Card &nbsp;
-            <input type="radio" name="cardtype" [(ngModel)]="model.cardtype" #cardtype="ngModel" value="credit" required>Credit Card
-            <!--  <span *ngIf="cardtype.errors?.required">Cannot be Blank</span>-->
-        </div>
-        <div>
-            <label>Expiry Month</label>
-            <input type="number" name="month" [(ngModel)]="model.month" #month="ngModel" required>
-            <!-- <span *ngIf="Adult.errors?.required">Cannot be Blank</span>-->
-        </div>
-        <div>
-            <label>Expiry Year</label>
-            <input type="number" name="year" [(ngModel)]="model.year" #year="ngModel" required>
-            <!--<span *ngIf="Adult.errors?.required">Cannot be Blank</span>-->
-        </div>
-        <div class="row" align="center" style="padding-left: 170px;">
-            <button class="buttonx btn btn-success" type="submit" [disabled]="paymentform.invalid">Proceed To Pay</button>
-        </div>
-    </form>
-    <!-- <button (click)="Button1()"  class="btn btn-success">Test</button> -->
+    </div>
+    </div>
+        <!-- <button (click)="Button1()"  class="btn btn-success">Test</button> -->

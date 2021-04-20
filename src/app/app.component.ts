@@ -10,7 +10,8 @@ import{RegisterauService}from 'src/app/services/registerau.service';
 })
 export class AppComponent implements OnInit{
   title = 'Angular-AirlineReservation';
- 
+ FirstName:string;
+ LastName:string;
   constructor(private service:RegisterauService){}
 
   public loginstatus$:Observable<boolean>;
@@ -21,6 +22,8 @@ export class AppComponent implements OnInit{
   }
   ngOnInit(): void {
     this.loginstatus$ = this.service.isLoggedin;
+    this.FirstName=sessionStorage.getItem('FIRSTNAME');
+    this.LastName=sessionStorage.getItem('LASTNAME');
   }
 
 }

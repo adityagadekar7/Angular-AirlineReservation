@@ -1,52 +1,62 @@
+<br>
+<div class="flight-select">
+    <div class="container">
+        <span><h2 *ngIf="FlagSearch" style="color:brown" >No Flights Available</h2></span>
+        <span *ngIf="!FlagSearch">
 <h2>OneWay</h2>
-<form #flightselect="ngForm" name="flightselect" class="center">
-    <table border="1">
-        <tr>
-            <th>Flight_Number</th>
-            <th>Flight_Name</th>
-            <th>Flight_Date</th>
-            <th>Flight_Departing_Time</th>
-            <th>Flight_Arrival_Time</th>
-            <th>Origin</th>
-            <th>Destination</th>
-            <th>Economy Class</th>
-            <th>Business Class</th>
-            <th *ngIf="!showButton">SELECT</th>
-        </tr>
+<form #flightselect="ngForm" name="flightselect" class="center" >
 
-        <tr *ngFor="let f of flist">
-            <td>{{f.Flight_Number}}</td>
-            <td>{{f.Flight_Name}}</td>
-            <td>{{f.Flight_Date}}</td>
-            <td>{{f.Flight_Departing_Time}}</td>
-            <td>{{f.Flight_Arrival_Time}}</td>
-            <td>{{f.Origin}}</td>
-            <td>{{f.Destination}}</td>
-            <td>&nbsp;<input type="radio" name="costeb" [value]="f.Cost_Eco" checked ngModel>&nbsp;&nbsp;{{f.Cost_Eco}}</td>
-            <td>&nbsp;<input type="radio" name="costeb" [value]="f.Cost_Business" ngModel>&nbsp;&nbsp;{{f.Cost_Business}}</td>
-            <td *ngIf="!showButton"><button class="buttonx btn btn-success" type="submit" (click)="FlightSelect(f.Flight_Number,flightselect.value.costeb)">Select</button></td>
-        </tr>
-    </table>
+    <table border="1" class=table>
+    <thead class="thead-dark">
+    <tr >
+        <th>Number</th>                
+        <th>Airline</th>         
+        <th>Date</th>       
+        <th>Departure</th>
+        <th>Arrival</th>     
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Economy</th>
+        <th>Business</th> 
+        <th *ngIf="!showButton">SELECT</th>
+    </tr>
+    </thead>
+
+    <tr *ngFor = "let f of flist" class="table-light">
+        <td>{{f.Flight_Number}}</td>
+        <td>{{f.Flight_Name}}</td>
+        <td>{{f.Flight_Date}}</td>
+        <td>{{f.Flight_Departing_Time}}</td>
+        <td>{{f.Flight_Arrival_Time}}</td>
+        <td>{{f.Origin}}</td>
+        <td>{{f.Destination}}</td>
+        <td>&nbsp;<input type="radio" name="costeb" [value]="f.Cost_Eco" checked ngModel required>&nbsp;&nbsp;{{f.Cost_Eco}}</td>
+        <td>&nbsp;<input type="radio" name="costeb" [value]="f.Cost_Business" ngModel required>&nbsp;&nbsp;{{f.Cost_Business}}</td>
+        <td *ngIf="!showButton"><button class="buttonx btn btn-success" type="submit" (click)="FlightSelect(f.Flight_Number,flightselect.value.costeb)" [disabled]="flightselect.invalid">Select</button></td>
+    </tr>
+</table>
 </form><br>
 
 
 <span *ngIf="show">
 <h2>Return Flights</h2>
 <form #flightselect1="ngForm" name="flightselect1"  class="center">
-<table border="1">
+<table border="1" class=table>
+    <thead class="thead-dark">
     <tr>
-        <th>Flight_Number</th>                
-        <th>Flight_Name</th>         
-        <th>Flight_Date</th>       
-        <th>Flight_Departing_Time</th>
-        <th>Flight_Arrival_Time</th>     
+        <th>Number</th>                
+        <th>Airline</th>         
+        <th>Date</th>       
+        <th>Departure</th>
+        <th>Arrival</th>     
         <th>Origin</th>
         <th>Destination</th>
-        <th>Economy Class</th>
-        <th>Business Class</th> 
+        <th>Economy</th>
+        <th>Business</th> 
         <th *ngIf="showButton" >SELECT</th>
     </tr>
-    <tr *ngFor = "let f1 of flist1" >
+    </thead>
+    <tr *ngFor = "let f1 of flist1"  class="table-light">
         <td>{{f1.Flight_Number}}</td>
         <td>{{f1.Flight_Name}}</td>
         <td>{{f1.Flight_Date}}</td>
@@ -54,10 +64,13 @@
         <td>{{f1.Flight_Arrival_Time}}</td>
         <td>{{f1.Origin}}</td>
         <td>{{f1.Destination}}</td>
-        <td>&nbsp;<input type="radio" name="costeb1" [value]="f1.Cost_Eco" checked ngModel>&nbsp;&nbsp;{{f1.Cost_Eco}}</td>
-        <td>&nbsp;<input type="radio" name="costeb1" [value]="f1.Cost_Business" ngModel>&nbsp;&nbsp;{{f1.Cost_Business}}</td>
-        <td *ngIf="showButton" ><button class="buttonx btn btn-success" type="submit" (click)="FlightSelect(f1.Flight_Number,flightselect1.value.costeb1)">Select </button></td>
+        <td>&nbsp;<input type="radio" name="costeb1" [value]="f1.Cost_Eco" checked ngModel required>&nbsp;&nbsp;{{f1.Cost_Eco}}</td>
+        <td>&nbsp;<input type="radio" name="costeb1" [value]="f1.Cost_Business" ngModel required>&nbsp;&nbsp;{{f1.Cost_Business}}</td>
+        <td *ngIf="showButton" ><button class="buttonx btn btn-success" type="submit" (click)="FlightSelect(f1.Flight_Number,flightselect1.value.costeb1)" [disabled]="flightselect1.invalid">Select </button></td>
     </tr> 
 </table>
 </form><br>
 </span>
+</span>
+</div>
+</div>

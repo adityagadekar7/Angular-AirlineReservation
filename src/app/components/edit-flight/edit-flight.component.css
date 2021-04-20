@@ -15,24 +15,23 @@
  }
  .login-box {
   position: relative;
-  margin: 5% auto;
+  margin: auto;
   
   width: auto;
   height: Auto;
   background: white;
   border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
 }
 
 .login-box1 {
   position: relative;
-  margin: 5% auto;
-  padding-left:50px;
+  margin: auto;
   width: auto;
   height: Auto;
-  background: white;
-  border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  background: rgb(255, 255, 255);
+  border-radius: 4px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
 }
  
  /*INPUT*/
@@ -66,6 +65,28 @@
      border-bottom-style:groove;
  
    }
+   input[type=date]{
+    width: 100%;
+    padding: 6px 10px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style:groove;
+
+  }
+  input[type=select]{
+    width: 100%;
+    padding: 6px 10px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style:groove;
+
+  }
  
  
  

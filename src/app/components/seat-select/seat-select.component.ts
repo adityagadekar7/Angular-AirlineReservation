@@ -1,4 +1,4 @@
-import { Component, OnInit,NgZone } from '@angular/core';
+import { Component, OnInit,NgZone, ɵɵtrustConstantResourceUrl } from '@angular/core';
 import {FormsModule,FormGroup,NgForm,NgModel} from '@angular/forms';
 import{Router} from '@angular/router';
 import { TicketInfoModule } from 'src/app/modules/ticket-info/ticket-info.module';
@@ -28,6 +28,7 @@ export class SeatSelectComponent implements OnInit {
     infantCost:number;
     aci:number;
     count:number=0;
+    uid:number;
     
 
     constructor( svc:BookingInfoService,svc1:TicketInfoService, ngzone:NgZone, router:Router) {
@@ -42,6 +43,7 @@ export class SeatSelectComponent implements OnInit {
         this.Cost = Number(localStorage.getItem('COST'));
         this.flag=Number(localStorage.getItem('FLAG'));
         this.aci=Number(localStorage.getItem('ACI'))
+        this.uid=Number(sessionStorage.getItem('UID'))
         //this.Flight_Number=1;
         this.ticketPrice = this.Cost;
         this.infantCost=this.Cost/2;
@@ -49,6 +51,7 @@ export class SeatSelectComponent implements OnInit {
         this.currency = "Rs";
         console.log(this.ticketPrice + " "+this.Cost)
         console.log("TESTTTTTT: "+this.Flight_Number+this.Cost);
+        console.log(this.uid);
 
         this.svc.GetSeats(this.Flight_Number).subscribe((data:string)=>{
         this.test=data;
@@ -111,6 +114,7 @@ export class SeatSelectComponent implements OnInit {
     //clear handler
     clearSelected = function() {
         this.selected = [];
+        this.count=0;
     }
     //click handler
     seatClicked = function(seatPos: string) {
@@ -136,9 +140,9 @@ export class SeatSelectComponent implements OnInit {
                 
         }
     }
-    //Buy button handler
+    //Select button handler
     showSelected = function() {
-        if(this.selected.length > 0) {
+        if(this.selected.length == this.aci) {
           //alert(this.reserved);
             alert("Selected Seats: " + this.selected + "\nTotal: "+(this.ticketPrice * this.selected.length + this.convFee));
             this.reserved.push(this.selected);
@@ -151,28 +155,9 @@ export class SeatSelectComponent implements OnInit {
             localStorage.setItem('FLAG',this.flag.toString());
             this.ngzone.run(()=>this.router.navigateByUrl('/PassDet'));
             //-------------------------
-            this.InsertInFlightReservation()
-
-
-
-        } 
-        else 
-        {
-            alert("No seats selected!");
-        }
-    }
-
-    WithoutTime(dateTime){
-        var date=new Date(dateTime);
-        date.setHours(0,0,0,0);
-        return date;
-      }
-
-    InsertInFlightReservation():void{
-        var time=new Date().toLocaleTimeString('it-IT');
-    
-          this.ti.Flight_Number=this.Flight_Number;
-          this.ti.User_Id=1;
+            var time=new Date().toLocaleTimeString('it-IT');
+            this.ti.Flight_Number=this.Flight_Number;
+          this.ti.User_Id=this.uid;
           this.ti.Reservation_Date=this.WithoutTime(Date()).toDateString();
           //this.ti.Reservation_Date="2021-05-04";
           this.ti.Reservation_Time=time;
@@ -183,6 +168,38 @@ export class SeatSelectComponent implements OnInit {
           this.ti.status="InProgress";
           this.ti.Seats=this.selected.toString();
           //console.log(this.ti.Seats);
+            this.InsertInFlightReservation()
+
+
+
+        } 
+        else 
+        {
+            alert("Select "+this.aci+" seats to proceed!!");
+        }
+    }
+
+    WithoutTime(dateTime){
+        var date=new Date(dateTime);
+        date.setHours(0,0,0,0);
+        return date;
+      }
+
+    InsertInFlightReservation():void{
+        // var time=new Date().toLocaleTimeString('it-IT');
+    
+        //   this.ti.Flight_Number=this.Flight_Number;
+        //   this.ti.User_Id=this.uid;
+        //   this.ti.Reservation_Date=this.WithoutTime(Date()).toDateString();
+        //   //this.ti.Reservation_Date="2021-05-04";
+        //   this.ti.Reservation_Time=time;
+        //   //this.ti.Reservation_Time="10.05.00"
+        //   this.ti.num_of_Seats=this.selected.length;
+        //   this.ti.Classtype="Eco";
+        //   this.ti.total_price=this.ticketPrice * this.selected.length + this.convFee;
+        //   this.ti.status="InProgress";
+        //   this.ti.Seats=this.selected.toString();
+        //   //console.log(this.ti.Seats);
       
           
           this.svc1.InsertFlightRes(this.ti).subscribe((data:boolean)=>{

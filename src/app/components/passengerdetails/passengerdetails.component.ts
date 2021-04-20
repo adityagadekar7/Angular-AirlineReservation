@@ -32,9 +32,8 @@ export class PassengerdetailsComponent implements OnInit {
   flag:number;
   flagX:number;
   Count:number;
+  PsgCount:number=0;
   
-
-
   constructor(svc : PassengerInfoService, svc1:TicketInfoService,ngzone:NgZone, router:Router) 
   {
     this.svc = svc;
@@ -56,9 +55,9 @@ export class PassengerdetailsComponent implements OnInit {
 
     this.Count++;
      // GetPnr():void{
-        this.svc1.GetPnr().subscribe((datapnr:number)=>{
-       this.test=datapnr;
-       console.log(this.test);
+    this.svc1.GetPnr().subscribe((datapnr:number)=>{
+      this.test=datapnr;
+      console.log(this.test);
      });
   }
 
@@ -104,13 +103,12 @@ export class PassengerdetailsComponent implements OnInit {
       console.log(data);
       if(data == true)
       {
+        this.PsgCount++;
         alert("New Passenger Added");
-        // if(this.flag==0){  //--------------------------------------------------CHECK---------------------------------------//
-        //   this.ngzone.run(() => this.router.navigateByUrl('/PaymentForm'));
-        // }
-        // else{
-        //   this.ngzone.run(() => this.router.navigateByUrl('/FlightSelect'));
-        // }
+        if(this.PsgCount==this.TotalSeats)
+        {
+          this.Continue();
+        }
       }
       else
       {

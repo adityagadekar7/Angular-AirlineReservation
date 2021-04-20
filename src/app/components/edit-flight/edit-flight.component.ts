@@ -21,6 +21,8 @@ export class EditFlightComponent implements OnInit {
   clist:CityInfoModule[];
   data:FlightInfoModule; // for delete
   model:any=[]; 
+  data1:FlightInfoModule;
+  flist:FlightInfoModule[]; 
 
   constructor(svc:FlightInfoService,svc1:CityInfoService) 
   {
@@ -33,6 +35,10 @@ export class EditFlightComponent implements OnInit {
     this.svc1.GetCity().subscribe((data:CityInfoModule[])=>{
       this.clist=data;
       });
+
+      this.svc.GetAllFlights().subscribe((data1:FlightInfoModule[])=>{
+        this.flist=data1;
+      })
   }
 
   FlightData(addFlightForm:NgForm):void{
@@ -60,13 +66,28 @@ export class EditFlightComponent implements OnInit {
   }
 
 
-  DeleteFunction(deleteForm:NgForm):void{
-    this.fi.Flight_Number=deleteForm.value.fno;
-    this.svc.DeleteFlightF(this.fi.Flight_Number).subscribe((data:boolean)=>{
-      alert(data);
+  // DeleteFunction(deleteForm:NgForm):void{
+  //   this.fi.Flight_Number=deleteForm.value.fno;
+  //   this.svc.DeleteFlightF(this.fi.Flight_Number).subscribe((data:boolean)=>{
+  //     alert(data);
     
-      console.log(data);
-    });
+  //     console.log(data);
+  //   });
+  // }
+
+  DeleteButton(FlightNo):void{
+    this.svc.DeleteFlightF(FlightNo).subscribe((data:boolean)=>{
+      //alert(data);
+      console.log(data)
+      if(data=true){
+        alert("Flight Deleted Successfully");
+      }
+      else{
+        alert("Cannot Delete");
+      }
+      
+    }),error =>{console.log(error);
+    alert('Cannot Delete this flight.');}
   }
 
 

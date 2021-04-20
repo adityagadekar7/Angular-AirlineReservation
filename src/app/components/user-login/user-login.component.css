@@ -21,17 +21,17 @@ body {
 
 .login-box {
     position: relative;
-    margin: 5% 30%;
+    margin: 5% 35%;
     width: auto;
     height: Auto;
     background: white;
     border-radius: 2px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
   }
 
 /*INPUT*/
 
-input[type="text"],
+input[type="text"],input[type="email"],
 input[type="password"], input[type="date"], input[type="number"],.title {
   display: block;
   box-sizing: border-box;

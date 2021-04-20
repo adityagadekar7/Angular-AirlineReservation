@@ -20,8 +20,6 @@ export class TicketInfoService {
   url1:string='http://localhost:59875/api/Booking';  
 
   //url:string='http://localhost:62227/api/Dashboard'
-  //url:string='http://localhost:62227/api/Dashboard'
-  //url:string='http://localhost:59875/api/Dashboard'
   //url:string='http://localhost:56797/api/Dashboard'
   httpOptions = {headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -31,6 +29,10 @@ export class TicketInfoService {
 
   GetBookedTickets(id:number):Observable<TicketInfoModule[]>{
     return this.http.get<TicketInfoModule[]>(this.url+'/GetBookedTickets/'+id);
+  }
+
+  GetPsgDetailsByPnr(pnr:number):Observable<PassengerInfoModule[]>{
+    return this.http.get<PassengerInfoModule[]>(this.url+'/GetPsgDetailsByPnr/'+pnr)
   }
 
   GetCancelledTickets(id:number):Observable<TicketInfoModule[]>{

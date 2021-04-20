@@ -31,6 +31,8 @@ export class FlightselectComponent implements OnInit {
   showButton:boolean;
   returnCount:number;
 
+  FlagSearch:boolean;
+
   ReturnOrigin: string;
   ReturnDestination: string;
   ReturnFlight_Name: string;
@@ -45,8 +47,6 @@ export class FlightselectComponent implements OnInit {
     this.router = router; }
 
 
- 
-
   ngOnInit(): void {
     this.Flight_Name = String(localStorage.getItem('FLIGHTNAME'));
     this.Flight_Date = String(localStorage.getItem('FLIGHTDATE'));
@@ -60,20 +60,29 @@ export class FlightselectComponent implements OnInit {
     
     //alert(this.flag+this.Flight_Name+this.Flight_Date + this.Origin + this.Destination);
 
-    this.svc.GetFlights(this.Flight_Name,this.Flight_Date,this.Origin,this.Destination).subscribe((data:FlightInfoModule)=>{
+    this.svc.GetFlights1(this.Flight_Name,this.Flight_Date,this.Origin,this.Destination).subscribe((data:FlightInfoModule)=>{
       this.flist=data;
       console.log(this.flist);
       console.log(data);
+
+      if(data[0]==null){
+        this.FlagSearch=true;
+        console.log("Reached if");
+      }
+      else{
+        this.FlagSearch=false;
+        console.log("Reached else");
+      }
     });
-    console.log(this.flag)
+    console.log(this.flag);
     console.log(this.show);
 
     if(this.flag==0){
       this.show=false;
     }
     else{
-      this.show=true;
-    }
+      this.show=true;   //ending
+    
 
     if(this.flagX!=1){
       this.showButton=false;
@@ -93,11 +102,21 @@ export class FlightselectComponent implements OnInit {
 
     //alert(this.ReturnFlight_Name+this.ReturnFlight_Date + this.ReturnOrigin + this.ReturnDestination );
 
-    this.svc.GetFlights(this.ReturnFlight_Name,this.ReturnFlight_Date,this.ReturnOrigin,this.ReturnDestination).subscribe((data1:FlightInfoModule)=>{
+    this.svc.GetFlights1(this.ReturnFlight_Name,this.ReturnFlight_Date,this.ReturnOrigin,this.ReturnDestination).subscribe((data1:FlightInfoModule)=>{
+      if(data1[0]==null){
+        console.log("Reached second if")
+        this.FlagSearch=true;
+      }
+      else{
+        console.log("Reached second else")
+        this.FlagSearch=false;
+      }
       this.flist1=data1;
       console.log(this.flist1);
       console.log(data1);
-    });    
+    });
+    
+  }
   }
 
 

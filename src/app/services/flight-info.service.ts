@@ -28,6 +28,10 @@ InsertNewFlight(fs:FlightInfoModule):Observable<boolean>
  return this.http.post<boolean>(this.url+"/"+'InsertFlight',fs,this.httpOptions); //passing 1 parameter   //httpOptions beacause FormBody used in WebApi(studio 2019) --passed through body not uri
 }
 
+GetAllFlights():Observable<FlightInfoModule[]>{
+  return this.http.get<FlightInfoModule[]>(this.url+'/GetAllFlights');
+}
+
 DeleteFlightF(id:number):Observable<boolean>
 {
   return this.http.delete<boolean>(this.url+'/'+'DeleteFlight'+'/'+id);

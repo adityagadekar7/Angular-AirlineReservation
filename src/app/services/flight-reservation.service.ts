@@ -17,7 +17,6 @@ export class FlightReservationService {
   //url: string = 'http://localhost:56797/api';
   //url: string = 'http://localhost:62227/api';
   url:string='http://localhost:59875/api';
-  //url:string='http://localhost:56797/api';
 
 
   httpOptions = {headers: new HttpHeaders({
