@@ -64,14 +64,14 @@ export class FlightselectComponent implements OnInit {
       this.flist=data;
       console.log(this.flist);
       console.log(data);
-      if(data==null){
+
+      if(data[0]==null){
         this.FlagSearch=true;
+        console.log("Reached if");
       }
       else{
         this.FlagSearch=false;
-      }
-      if (this.flist==null){
-        alert("No data");
+        console.log("Reached else");
       }
     });
     console.log(this.flag);
@@ -81,8 +81,8 @@ export class FlightselectComponent implements OnInit {
       this.show=false;
     }
     else{
-      this.show=true;
-    }
+      this.show=true;   //ending
+    
 
     if(this.flagX!=1){
       this.showButton=false;
@@ -103,16 +103,20 @@ export class FlightselectComponent implements OnInit {
     //alert(this.ReturnFlight_Name+this.ReturnFlight_Date + this.ReturnOrigin + this.ReturnDestination );
 
     this.svc.GetFlights1(this.ReturnFlight_Name,this.ReturnFlight_Date,this.ReturnOrigin,this.ReturnDestination).subscribe((data1:FlightInfoModule)=>{
-      if(data1==null){
+      if(data1[0]==null){
+        console.log("Reached second if")
         this.FlagSearch=true;
       }
       else{
+        console.log("Reached second else")
         this.FlagSearch=false;
       }
       this.flist1=data1;
       console.log(this.flist1);
       console.log(data1);
-    });    
+    });
+    
+  }
   }
 
 
