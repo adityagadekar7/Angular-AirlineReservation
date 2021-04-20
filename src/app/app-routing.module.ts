@@ -27,11 +27,8 @@ const routes: Routes = [
   {path:'registration', component: RegistrationComponent },
   {path:'FlightSelect', component: FlightselectComponent},
   {path:'TicketDetails', component: TicketsComponent},
-  {path:'About',component:AboutpageComponent},
-  {path:'FAQ',component:FaqComponent},
   {path:'PassDet', component: PassengerdetailsComponent},
   {path:'PaymentForm', component: PaymentComponent},
-  { path: 'TicketDetails', component: TicketsComponent },
  { path: 'resetpassword', component: ResetpasswordComponent },
  
   {path:'SeatSelect', component:SeatSelectComponent},
