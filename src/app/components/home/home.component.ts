@@ -3,6 +3,7 @@ import { FormsModule, NgForm, FormGroup, NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FlightInfoModule } from 'src/app/modules/flight-info/flight-info.module';
 import {FlightReservationModule} from 'src/app/modules/flight-reservation/flight-reservation.module';
+import { BookingInfoService } from 'src/app/services/booking-info.service';
 import { FlightInfoService } from 'src/app/services/flight-info.service';
 import {FlightReservationService} from 'src/app/services/flight-reservation.service';
 
@@ -15,6 +16,7 @@ export class HomeComponent implements OnInit {
   textBoxDisabled = true;
   model: any = [];
   svc:FlightInfoService;
+  svc1:BookingInfoService;
   fi= new FlightInfoModule();
   fiReturn= new FlightInfoModule();
   ngzone: NgZone;
@@ -24,11 +26,15 @@ export class HomeComponent implements OnInit {
   child:number;
   infant:number;
   aci:number;
+  flist= new FlightInfoModule();
+  FirstName:string;
+ LastName:string;
 
 
-  constructor(svc:FlightInfoService, ngzone:NgZone, router:Router ) 
+  constructor(svc:FlightInfoService, svc1:BookingInfoService, ngzone:NgZone, router:Router ) 
   { 
     this.svc = svc;
+    this.svc1=svc1;
     this.ngzone = ngzone;
     this.router = router;
   }
@@ -64,6 +70,17 @@ export class HomeComponent implements OnInit {
     }
     console.log("Hello"+this.flag);
     
+    // this.svc1.GetFlights(this.fi.Flight_Name,this.fi.Flight_Date,this.fi.Origin,this.fi.Destination).subscribe((data:FlightInfoModule)=>{
+    //   this.flist=data;
+    //   console.log(this.flist);
+    //   console.log(data);
+    //   if(this.flist==undefined){
+    //     alert("NO Data");
+    //   }
+    // });
+
+
+
      localStorage.setItem('FLAG',this.flag.toString());
       localStorage.setItem('FLIGHTNAME',this.fi.Flight_Name);
       localStorage.setItem('FLIGHTDATE', this.fi.Flight_Date);

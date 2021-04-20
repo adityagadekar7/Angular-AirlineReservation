@@ -30,9 +30,6 @@ export class RegisterauService {
   //url:string='http://localhost:62227/api/RegisterAU';
  //url:string='http://localhost:62227/api/Registration';
  //url:string='http://localhost:56797/api/Registration';
-  
-  //url:string='http://localhost:62227/api/RegisterAU';
- //url:string='http://localhost:62227/api/Registration';
   url:string='http://localhost:59875/api/RegisterAU';
 
   
@@ -42,14 +39,17 @@ export class RegisterauService {
 };
 
   constructor(http:HttpClient) {this.http=http ;}
-
-  
-
-  Login(UserId: number, pwd: string): Observable<string>
+  Login(email: string, pwd: string): Observable<string>
   {
-    return this.http.get<string>(this.url + '/' + 'Login' + '/' + UserId + '/' + pwd); 
+    return this.http.get<string>(this.url + '/' + 'Login' + '/' + email + '/' + pwd); 
 
   }
+
+  GetIdByEmail(email:string):Observable<ResgisterauModule[]>{
+    return this.http.get<ResgisterauModule[]>(this.url+'/GetIdByEmail/'+email+'/');
+  }
+
+
 
   UserReg(regau: ResgisterauModule): Observable<boolean> 
   {

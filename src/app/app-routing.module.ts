@@ -26,15 +26,13 @@ const routes: Routes = [
   {path:'About', component: AboutpageComponent},
   {path:'registration', component: RegistrationComponent },
   {path:'FlightSelect', component: FlightselectComponent},
-  // {path:'PassDet', component: PassengerdetailsComponent},
+  {path:'TicketDetails', component: TicketsComponent},
+  {path:'About',component:AboutpageComponent},
+  {path:'FAQ',component:FaqComponent},
+  {path:'PassDet', component: PassengerdetailsComponent},
   {path:'PaymentForm', component: PaymentComponent},
-  {path:'TicketDetails', component: TicketsComponent },
-  {path:'resetpassword', component: ResetpasswordComponent },
-
-
-  {path:'Passenger_Details', component: PassengerdetailsComponent},
-
-
+  { path: 'TicketDetails', component: TicketsComponent },
+ { path: 'resetpassword', component: ResetpasswordComponent },
  
   {path:'SeatSelect', component:SeatSelectComponent},
   {path:'Booking',component:BookingComponent}

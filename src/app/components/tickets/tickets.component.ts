@@ -4,6 +4,7 @@ import { TabsetComponent, TabDirective } from 'ngx-bootstrap/tabs';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { CancellationInfoModule } from 'src/app/modules/cancellation-info/cancellation-info.module';
 import { FlightInfoModule } from 'src/app/modules/flight-info/flight-info.module';
+import { PassengerInfoModule } from 'src/app/modules/passenger-info/passenger-info.module';
 import { TicketInfoModule } from 'src/app/modules/ticket-info/ticket-info.module';
 import { BookingInfoService } from 'src/app/services/booking-info.service';
 import { TicketInfoService } from 'src/app/services/ticket-info.service';
@@ -18,8 +19,10 @@ export class TicketsComponent implements OnInit {
   svc:TicketInfoService;
   svc1:BookingInfoService;
   databooked:TicketInfoModule;
+  dataPsg:PassengerInfoModule;
   datacancelled:TicketInfoModule;
   booked:TicketInfoModule[];
+  bookedPsg:PassengerInfoModule[];
   cancelled:TicketInfoModule[];
   id:number;
   model:any=[];
@@ -36,6 +39,7 @@ export class TicketsComponent implements OnInit {
   dataflight:FlightInfoModule;
   flightdata=new FlightInfoModule();
   CompareTime:number;
+  RefundAmount:number;
 
   constructor(svc:TicketInfoService, svc1:BookingInfoService) 
   {
@@ -44,7 +48,9 @@ export class TicketsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.id=Number(localStorage.getItem('UID'));
+    //this.id=Number(localStorage.getItem('UID'));
+    this.id=Number(sessionStorage.getItem('UID'));
+    console.log("TEST: "+this.id)
     this.svc.GetBookedTickets(this.id).subscribe((databooked:TicketInfoModule[])=>{
       this.booked=databooked;
       this.bookedlist=databooked //ddl
@@ -97,6 +103,20 @@ export class TicketsComponent implements OnInit {
   }
   
 
+  PsgDetailsFunction(pnr):void{
+    
+    this.svc.GetPsgDetailsByPnr(pnr).subscribe((dataPsg:PassengerInfoModule[])=>{
+      this.bookedPsg=dataPsg;
+      console.log(this.bookedPsg);
+      
+      if(this.booked==null){
+        alert("No Booked Tickets");
+      }
+      else{
+        console.log(dataPsg);
+      }
+    });
+  }
 
 
   CancelFunction(cancelForm:NgForm):void{
@@ -135,12 +155,13 @@ export class TicketsComponent implements OnInit {
 
           this.Flight_Number=datapnr.Flight_Number;
           alert("Test: "+this.Flight_Number);
+          this.RefundAmount=datapnr.total_price/2;
 
           this.cancelbooked.Pnr_no=datapnr.Pnr_no; 
           this.cancelbooked.User_id=datapnr.User_Id;
           this.cancelbooked.Dateofcancellation=this.WithoutTime(Date()).toDateString();
           this.cancelbooked.timeofcancellation=time;
-          this.cancelbooked.Refund_Amount=1000;
+          this.cancelbooked.Refund_Amount=this.RefundAmount;
           this.cancelbooked.Status="Successful";
           console.log(this.cancelbooked);
 

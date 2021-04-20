@@ -31,6 +31,8 @@ export class FlightselectComponent implements OnInit {
   showButton:boolean;
   returnCount:number;
 
+  FlagSearch:boolean;
+
   ReturnOrigin: string;
   ReturnDestination: string;
   ReturnFlight_Name: string;
@@ -45,8 +47,6 @@ export class FlightselectComponent implements OnInit {
     this.router = router; }
 
 
- 
-
   ngOnInit(): void {
     this.Flight_Name = String(localStorage.getItem('FLIGHTNAME'));
     this.Flight_Date = String(localStorage.getItem('FLIGHTDATE'));
@@ -60,12 +60,21 @@ export class FlightselectComponent implements OnInit {
     
     //alert(this.flag+this.Flight_Name+this.Flight_Date + this.Origin + this.Destination);
 
-    this.svc.GetFlights(this.Flight_Name,this.Flight_Date,this.Origin,this.Destination).subscribe((data:FlightInfoModule)=>{
+    this.svc.GetFlights1(this.Flight_Name,this.Flight_Date,this.Origin,this.Destination).subscribe((data:FlightInfoModule)=>{
       this.flist=data;
       console.log(this.flist);
       console.log(data);
+      if(data==null){
+        this.FlagSearch=true;
+      }
+      else{
+        this.FlagSearch=false;
+      }
+      if (this.flist==null){
+        alert("No data");
+      }
     });
-    console.log(this.flag)
+    console.log(this.flag);
     console.log(this.show);
 
     if(this.flag==0){
@@ -93,7 +102,13 @@ export class FlightselectComponent implements OnInit {
 
     //alert(this.ReturnFlight_Name+this.ReturnFlight_Date + this.ReturnOrigin + this.ReturnDestination );
 
-    this.svc.GetFlights(this.ReturnFlight_Name,this.ReturnFlight_Date,this.ReturnOrigin,this.ReturnDestination).subscribe((data1:FlightInfoModule)=>{
+    this.svc.GetFlights1(this.ReturnFlight_Name,this.ReturnFlight_Date,this.ReturnOrigin,this.ReturnDestination).subscribe((data1:FlightInfoModule)=>{
+      if(data1==null){
+        this.FlagSearch=true;
+      }
+      else{
+        this.FlagSearch=false;
+      }
       this.flist1=data1;
       console.log(this.flist1);
       console.log(data1);

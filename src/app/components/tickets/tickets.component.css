@@ -90,10 +90,10 @@ form {
   margin: auto;
   width: 60%;
   height: Auto;
-  background:#343a40;
-  color: white;
+  background:#ffffff;
+  color: rgb(0, 0, 0);
   border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 10px rgba(255, 1, 1, 0.493);
 }
 
 .login-box1 {

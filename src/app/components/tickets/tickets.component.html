@@ -21,31 +21,78 @@
                 </form>
             </div> -->
 
-            <table class="table table-striped table-dark">
+            <table class="table table-hover">
+                <thead class="thead-dark">
                 <tr>
                     <th>Ticket Number</th>
-                    <th>Date</th>             
+                    <th>Date</th>
+                    <th>Departure Time</th>             
                     <th>Flight Number</th>  
                     <th>Airport Name</th>           
-                    <th>Passenger Name</th>
+                    <!-- <th>Passenger Name</th> -->
                     <th>From</th>
                     <th>To</th>
-                    <th>Flight Time</th>
+                    <th>Seat Numbers</th>
+                    
                     <th>Total Price</th>                
                 </tr>
-                <tr *ngFor="let item of booked">
+                </thead>
+                <tr *ngFor="let item of booked"  class="table-light" (click)="PsgDetailsFunction(item.pnr_no)" data-toggle="modal" data-target="#PsgDetails ">
                      <td>{{item.pnr_no}}</td>
                      <td>{{item.Flight_date}}</td>
+                     <td>{{item.Flight_Departing_Time}}</td>
                      <td>{{item.Flight_Number}}</td>
                      <td>{{item.Airport_Name}}</td>
-                     <td>{{item.FirstName}}  {{item.LastName}}</td>
+                     <!-- <td>{{item.FirstName}}  {{item.LastName}}</td> -->
                      <td>{{item.origin}}</td>
                      <td>{{item.Destination}}</td>
-                     <td>{{item.Flight_Departing_Time}}</td>
+                     <td>{{item.Seats}}</td>
                      <td>{{item.total_price}}</td>
                      
                 </tr>
             </table>
+              
+              <!-- Modal -->
+              <div class="modal fade" id="PsgDetails" tabindex="-1" role="dialog" aria-labelledby="PsgDetailsTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Passenger Details</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <table class="table">
+                        <tr>
+                        <th>Pnr No.</th>
+                        <th>Passport Number</th>
+                        <th>Passenger Name</th>
+                        <th>DOB</th>
+                        <th>Gender</th>
+                        <th>Phone Number</th>
+                        <th>Covid Certificate</th>
+                      </tr>
+                      <tr *ngFor="let item of bookedPsg"  class="table-light">
+                          <td>{{item.Pnr_no}}</td>
+                          <td>{{item.PassportNumber}}</td>
+                          <td>{{item.FirstName}} {{item.LastName}}</td>
+                          <td>{{item.DOB}}</td>
+                          <td>{{item.Gender}}</td>
+                          <td>{{item.PhoneNumber}}</td>
+                          <td>{{item.CovidCertificate}}</td>
+                      </tr>
+                    </table>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
 
 
         </tab>
@@ -55,7 +102,8 @@
         <tab heading="Cancelled Tickets">
             <!-- <h2>Cancelled Tickets</h2> -->
             
-            <table class="table table-striped table-dark">
+            <table class="table table-striped">
+                <thead class="thead-dark">
                 <tr>
                     <th>Ticket Number</th>
                     <th>Date</th>             
@@ -69,7 +117,8 @@
                     <th>Date of Cancellation</th>
                     <th>Time of Cancellation</th>       
                 </tr>
-                <tr *ngFor="let item of cancelled">
+                </thead>
+                <tr *ngFor="let item of cancelled" class="table-light">
                     <td>{{item.Pnr_no}}</td>
                     <td>{{item.Flight_Date}}</td>
                     <td>{{item.Flight_Number}}</td>
@@ -96,8 +145,8 @@
                         <span *ngIf="tno.errors?.required">Cannot be blank</span>
                     </div> -->
 
-                    <div>Select Ticket
-                        <select class="form-control" name="tno"  [(ngModel)]="model.tno" #tno="ngModel" style="background: black; color:aliceblue">
+                    <div><h4><b>Select Ticket</b></h4>
+                        <select class="form-control" name="tno"  [(ngModel)]="model.tno" #tno="ngModel" style="background: rgb(165, 165, 165); color:aliceblue">
                             <option *ngFor="let item of bookedlist" [value]="item.pnr_no">Ticket No. - {{item.pnr_no}}, Flight Date - {{item.Flight_date}}, From - {{item.origin}}, To - {{item.Destination}}</option>
                         </select>
                     </div>
@@ -107,9 +156,8 @@
                     </div>
                 </form>
             </div>
+            <br><br>
             </tab>
-            <div>
-                <button  class="button btn btn-danger" type="submit"><a href="homepage" style="color:white">Logout</a></button>
-            </div>
+            
     </tabset>
 </div>
