@@ -1,7 +1,8 @@
 <br>
 <div class="flight-select">
     <div class="container">
-        <h2 *ngIf="FlagSearch">No Flights Available</h2>
+        <span><h2 *ngIf="FlagSearch" style="color:brown" >No Flights Available</h2></span>
+        <span *ngIf="!FlagSearch">
 <h2>OneWay</h2>
 <form #flightselect="ngForm" name="flightselect" class="center" >
 
@@ -69,6 +70,7 @@
     </tr> 
 </table>
 </form><br>
+</span>
 </span>
 </div>
 </div>

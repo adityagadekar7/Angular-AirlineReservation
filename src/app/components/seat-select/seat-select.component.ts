@@ -155,6 +155,19 @@ export class SeatSelectComponent implements OnInit {
             localStorage.setItem('FLAG',this.flag.toString());
             this.ngzone.run(()=>this.router.navigateByUrl('/PassDet'));
             //-------------------------
+            var time=new Date().toLocaleTimeString('it-IT');
+            this.ti.Flight_Number=this.Flight_Number;
+          this.ti.User_Id=this.uid;
+          this.ti.Reservation_Date=this.WithoutTime(Date()).toDateString();
+          //this.ti.Reservation_Date="2021-05-04";
+          this.ti.Reservation_Time=time;
+          //this.ti.Reservation_Time="10.05.00"
+          this.ti.num_of_Seats=this.selected.length;
+          this.ti.Classtype="Eco";
+          this.ti.total_price=this.ticketPrice * this.selected.length + this.convFee;
+          this.ti.status="InProgress";
+          this.ti.Seats=this.selected.toString();
+          //console.log(this.ti.Seats);
             this.InsertInFlightReservation()
 
 
@@ -173,20 +186,20 @@ export class SeatSelectComponent implements OnInit {
       }
 
     InsertInFlightReservation():void{
-        var time=new Date().toLocaleTimeString('it-IT');
+        // var time=new Date().toLocaleTimeString('it-IT');
     
-          this.ti.Flight_Number=this.Flight_Number;
-          this.ti.User_Id=this.uid;
-          this.ti.Reservation_Date=this.WithoutTime(Date()).toDateString();
-          //this.ti.Reservation_Date="2021-05-04";
-          this.ti.Reservation_Time=time;
-          //this.ti.Reservation_Time="10.05.00"
-          this.ti.num_of_Seats=this.selected.length;
-          this.ti.Classtype="Eco";
-          this.ti.total_price=this.ticketPrice * this.selected.length + this.convFee;
-          this.ti.status="InProgress";
-          this.ti.Seats=this.selected.toString();
-          //console.log(this.ti.Seats);
+        //   this.ti.Flight_Number=this.Flight_Number;
+        //   this.ti.User_Id=this.uid;
+        //   this.ti.Reservation_Date=this.WithoutTime(Date()).toDateString();
+        //   //this.ti.Reservation_Date="2021-05-04";
+        //   this.ti.Reservation_Time=time;
+        //   //this.ti.Reservation_Time="10.05.00"
+        //   this.ti.num_of_Seats=this.selected.length;
+        //   this.ti.Classtype="Eco";
+        //   this.ti.total_price=this.ticketPrice * this.selected.length + this.convFee;
+        //   this.ti.status="InProgress";
+        //   this.ti.Seats=this.selected.toString();
+        //   //console.log(this.ti.Seats);
       
           
           this.svc1.InsertFlightRes(this.ti).subscribe((data:boolean)=>{
