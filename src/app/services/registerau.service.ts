@@ -29,8 +29,8 @@ export class RegisterauService {
 
   //url:string='http://localhost:62227/api/RegisterAU';
  //url:string='http://localhost:62227/api/Registration';
- //url:string='http://localhost:56797/api/Registration';
   url:string='http://localhost:59875/api/RegisterAU';
+  //url:string='http://localhost:59875/api/Register';
 
   
   httpOptions = {headers: new HttpHeaders({

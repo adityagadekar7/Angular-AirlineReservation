@@ -24,7 +24,7 @@
         <div>
             <!-- <label>Contact Number</label> -->
             <input type="number" name="PhoneNumber" [(ngModel)]="model.PhoneNumber" #PhoneNumber="ngModel" placeholder="Contact Number"  pattern="^[0-9]{10}$" required>   
-                
+            <span *ngIf="PhoneNumber.errors?.required"></span>   
         </div>
         <div>
             <!--<label>Passenger Date of Birth</label>-->

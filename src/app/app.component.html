@@ -7,10 +7,10 @@
         </li> -->
         
         <li class="nav-item active" >
-            <a class="nav-link" routerLink="About" style="color: #f7bb07;font-size:larger"><b>About</b></a>
+            <a class="nav-link" routerLink="About" ><b>About</b></a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" routerLink="FAQ" style="color: #f7bb07; font-size:larger"><b>FAQ</b></a>
+            <a class="nav-link" routerLink="FAQ" ><b>FAQ</b></a>
         </li>
         <!-- <li class="nav-item active">
             <a class="nav-link" routerLink="FlightSelect">Flight Select</a>
@@ -35,14 +35,14 @@
 
     <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-            <a class="nav-link" href="homepage" style="color: #f7bb07; font-size:larger;"><b>Home</b> </a>
+            <a class="nav-link" href="homepage" ><b>Home</b> </a>
 
         </li>
         <li class="nav-item active">
-            <a class="nav-link" routerLink="registration" *ngIf="!(loginstatus$ | async) as loginstatus" style="color: #f7bb07;font-size:larger;"><b>SignUp</b></a>   <!--Visible only if the user is not logged in-->
+            <a class="nav-link" routerLink="registration" *ngIf="!(loginstatus$ | async) as loginstatus" ><b>SignUp</b></a>   <!--Visible only if the user is not logged in-->
         </li>
         <li class="nav-item dropdown active">
-            <a routerLink="#" class="nav-link dropdown-toggle" data-toggle="dropdown" *ngIf="!(loginstatus$ | async) as loginstatus" style="color: #f7bb07;font-size:larger;"><b>Login</b></a>  <!--Visible only if the user is not logged in-->
+            <a routerLink="#" class="nav-link dropdown-toggle" data-toggle="dropdown" *ngIf="!(loginstatus$ | async) as loginstatus" ><b>Login</b></a>  <!--Visible only if the user is not logged in-->
             <div class="dropdown-menu dropdown-menu-right">
                 <a href="UserLogin" class="dropdown-item"><b>User Login</b></a>
                 <a href="AdminLogin" class="dropdown-item"><b>Admin Login</b></a>
@@ -51,14 +51,14 @@
             </div>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" routerLink="TicketDetails" *ngIf="loginstatus$ | async as loginstatus" style="color: #f7bb07; font-size:larger"><b>Dashboard</b></a>   <!--Visible only if the user islogged in-->
+            <a class="nav-link" routerLink="TicketDetails" *ngIf="loginstatus$ | async as loginstatus" ><b>Dashboard</b></a>   <!--Visible only if the user islogged in-->
         </li>
         <li class="nav-item active">
-            <a class="nav-link" routerLink="homepage" *ngIf="loginstatus$ | async as loginstatus" (click)="logout()" style="color: #f7bb07; font-size:larger"><b>Logout</b></a>   <!--Visible only if the user islogged in-->
+            <a class="nav-link" routerLink="homepage" *ngIf="loginstatus$ | async as loginstatus" (click)="logout()" ><b>Logout</b></a>   <!--Visible only if the user islogged in-->
         </li>
         
         <li class="nav-item active">
-            <a class="nav-link"  *ngIf="loginstatus$ | async as loginstatus" style="color: #fdfdfd; font-size:larger"><b>Welcome, {{FirstName}} {{LastName}} !!</b></a>   <!--Visible only if the user islogged in-->
+            <a class="nav-link"  *ngIf="loginstatus$ | async as loginstatus" ><b>Welcome, {{FirstName}} {{LastName}} !!</b></a>   <!--Visible only if the user islogged in-->
         </li>
         <li><b></b></li>
     </ul>
@@ -67,55 +67,38 @@
 <body>
     
 
-
-    <!-- <ol> -->
-        <!-- <li><a routerLink="AdminLogin">Admin Login</a></li>-->
-        <!--<li><a routerLink="UserLogin">User Login</a></li>-->
-        <!-- <li><a routerLink="EditFlight">Edit Flight</a></li> -->
-        <!-- <li><a routerLink="homepage">Search</a></li>-->
-        <!--<li><a routerLink="registration">Registration</a></li>-->
-        <!-- <li><a routerLink="About">About</a></li>
-        <li><a routerLink="FAQ">FAQ</a></li>
-        <li><a routerLink="FlightSelect">Flight Select</a></li>
-        <li><a routerLink="Passenger_Details" *ngIf="loginstatus$ | async as loginstatus">Passenger Details</a></li>
-        <li><a routerLink="PaymentForm" *ngIf="loginstatus$ | async as loginstatus">Payment</a></li>
-        <li><a routerLink="SeatSelect" *ngIf="loginstatus$ | async as loginstatus">Seat select</a></li>
-        <li><a routerLink="Booking" *ngIf="loginstatus$ | async as loginstatus">Booking</a></li> -->
-        <!-- <li><a routerLink="TicketDetails">TicketDetails</a></li> -->
-    <!-- </ol> -->
-
 <router-outlet></router-outlet>
 
 
 
+<section class="footer-section">
+    <div class="container">
+        <div class="row ">
+            
     <section class="footer-section">
         <div class="container">
             <div class="row footer-section-row">
                 <div class="col-md-4">
                     <div class="address">
-    
-                        <div class="right-text">
+                        <div >
                             <h3>Address</h3>
                             <p>Happy Trip</p>
                             <p>Madanpur-Rampur,Jaya nagar, Bangalore -766102</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-md-4">
                     <div class="address">
-    
-    
-                        <div class="right-text">
-                            <h3>Mail Id</h3>
+                        <div >
+                            <h3>Mail Id</h3> 
                             <p>happytrip@yahoo.co.in</p>
                         </div>
                     </div>
                 </div>
+                
                 <div class="col-sm-4">
                     <div class="address">
-    
-    
-                        <div class="right-text">
+                        <div class="right-text" >
                             <h3>Phone</h3>
                             <p>+91 9437040140, </p>
                             <p>+91 7873708010</p>
@@ -143,8 +126,6 @@
                         <li><a href="https://www.thrillophilia.com/places-to-visit-in-mumbai">Top most views in Mumbai </a></li>
                         <li><a href="https://www.thrillophilia.com/places-to-visit-in-delhi">Capital city of India</a></li>
                         <li><a href="https://www.hyderabadtourism.travel/places-to-visit-in-hyderabad"> Hydrabad city</a></li>
-    
-    
                     </ul>
                 </div>
                 <div class="col-md-3">
@@ -153,17 +134,12 @@
                         <li><a href=""> Donation</a></li>
                         <li><a href=""> Future Plan</a></li>
                         <li><a href=""> Feedback</a></li>
-    
                         <li><a href=""> Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <h3 class="footer-title"><span class="footer-title-text">Get Updates</span><span class="footer-title-underline"></span></h3>
                     <p class="newsletter">Signup to Our Newsletter.</p>
-    
-    
-    
-    
                 </div>
             </div>
         </div>

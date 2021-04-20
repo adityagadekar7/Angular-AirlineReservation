@@ -9,13 +9,24 @@
         <option value="Mrs">Mrs</option>
       </select>
 
-            <input type="text" name="fname" placeholder="FirstName" [(ngModel)]="model.fname" #fname="ngModel" required />
+            <input type="text" name="fname" [(ngModel)]="model.fname" #fname="ngModel" placeholder="FirstName" required />
+            <span *ngIf="fname.errors?.required"></span>
 
-            <input type="text" name="lname" placeholder="LastName" [(ngModel)]="model.lname" #lname="ngModel" required />
-            <input type="text" name="email" placeholder="E-mail" [(ngModel)]="model.email" #email="ngModel" required />
-            <input type="password" name="pwd" placeholder="Password" [(ngModel)]="model.pwd" #pwd="ngModel" required />
-            <input type="date" name="dob" placeholder="date of birth" [(ngModel)]="model.dob" #dob="ngModel" required />
-            <input type="number" name="pno" placeholder="Enter Mobile number" [(ngModel)]="model.pno" #pno="ngModel" required />
+            <input type="text" name="lname" [(ngModel)]="model.lname" #lname="ngModel" placeholder="LastName"  required />
+            <span *ngIf="lname.errors?.required"></span>
+
+            <input type="text" name="email" [(ngModel)]="model.email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="E-mail"  required />
+            <span *ngIf="email.errors?.required"></span>
+
+            <input type="password" name="pwd" [(ngModel)]="model.pwd" #pwd="ngModel" minlength="4" maxlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%?&])[A-Za-z0-9@$!%?&]{4,8}$" placeholder="Password"  required />
+            <span *ngIf="pwd.errors?.required"></span>
+
+            <input type="date" name="dob" [(ngModel)]="model.dob" #dob="ngModel" placeholder="date of birth"  required />
+            <span *ngIf="dob.errors?.required"></span>
+
+            <input type="number" name="pno" [(ngModel)]="model.pno" #pno="ngModel" pattern="^[0-9]{10}$" placeholder="Enter Mobile number"  required />
+            <span *ngIf="pno.errors?.required"></span>
+
 
       <!--div tag for captcha-->
       <div align = "center">

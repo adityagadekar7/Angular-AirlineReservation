@@ -231,7 +231,7 @@ placeholder {
     }
 
     h1{
-
+      padding-top: 50px;
       text-shadow: 8px 8px 5px black ;
       text-align:center;
       font-weight: bolder;
