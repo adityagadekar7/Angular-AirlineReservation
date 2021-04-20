@@ -33,5 +33,9 @@ export class BookingInfoService {
     return this.http.get<FlightInfoModule>(this.url+'/GetFlights/'+Flight_Name+'/'+Flight_Date+'/'+Origin+'/'+Destination)
   }
 
+  GetFlights1( Flight_Name:string, Flight_Date:string, Origin:string, Destination:string):Observable<FlightInfoModule>{
+    return this.http.get<FlightInfoModule>(this.url+'/GetFlights1/'+Flight_Name+'/'+Flight_Date+'/'+Origin+'/'+Destination)
+  }
+
   
 }

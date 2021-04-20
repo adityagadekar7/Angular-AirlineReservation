@@ -66,20 +66,28 @@ export class EditFlightComponent implements OnInit {
   }
 
 
-  DeleteFunction(deleteForm:NgForm):void{
-    this.fi.Flight_Number=deleteForm.value.fno;
-    this.svc.DeleteFlightF(this.fi.Flight_Number).subscribe((data:boolean)=>{
-      alert(data);
+  // DeleteFunction(deleteForm:NgForm):void{
+  //   this.fi.Flight_Number=deleteForm.value.fno;
+  //   this.svc.DeleteFlightF(this.fi.Flight_Number).subscribe((data:boolean)=>{
+  //     alert(data);
     
-      console.log(data);
-    });
-  }
+  //     console.log(data);
+  //   });
+  // }
 
   DeleteButton(FlightNo):void{
     this.svc.DeleteFlightF(FlightNo).subscribe((data:boolean)=>{
-      alert(data);
-      console.log(data);
-    });
+      //alert(data);
+      console.log(data)
+      if(data=true){
+        alert("Flight Deleted Successfully");
+      }
+      else{
+        alert("Cannot Delete");
+      }
+      
+    }),error =>{console.log(error);
+    alert('Cannot Delete this flight.');}
   }
 
 

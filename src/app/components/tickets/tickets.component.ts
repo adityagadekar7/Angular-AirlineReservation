@@ -39,6 +39,7 @@ export class TicketsComponent implements OnInit {
   dataflight:FlightInfoModule;
   flightdata=new FlightInfoModule();
   CompareTime:number;
+  RefundAmount:number;
 
   constructor(svc:TicketInfoService, svc1:BookingInfoService) 
   {
@@ -154,12 +155,13 @@ export class TicketsComponent implements OnInit {
 
           this.Flight_Number=datapnr.Flight_Number;
           alert("Test: "+this.Flight_Number);
+          this.RefundAmount=datapnr.total_price/2;
 
           this.cancelbooked.Pnr_no=datapnr.Pnr_no; 
           this.cancelbooked.User_id=datapnr.User_Id;
           this.cancelbooked.Dateofcancellation=this.WithoutTime(Date()).toDateString();
           this.cancelbooked.timeofcancellation=time;
-          this.cancelbooked.Refund_Amount=1000;
+          this.cancelbooked.Refund_Amount=this.RefundAmount;
           this.cancelbooked.Status="Successful";
           console.log(this.cancelbooked);
 
