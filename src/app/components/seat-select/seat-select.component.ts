@@ -58,12 +58,12 @@ export class SeatSelectComponent implements OnInit {
         console.log(this.test);
         this.reserved = this.test.split(","); 
         console.log(this.reserved);
-        //this.removeValue("H3,H4,H5")
-        
+        //this.removeValue("H3,H4,H5")  
         });
-
         
-        
+        if(this.reserved.length>=66){
+            alert("No Seats are Available for selected flight")
+        }
     }
     
     
@@ -74,34 +74,6 @@ export class SeatSelectComponent implements OnInit {
 
     //reserved: string[] = ['A2', 'A3', 'F5', 'F1', 'F2','F6', 'H1', 'H2', 'H3', 'H4'];
     selected: string[] = [];
-
-    
-
-
-    // removeValue = function(cancelled) {
-    //     //separator = ",";
-    //     var values = cancelled.split(",");
-    //     //console.log(values);
-    //     for(var i = 0 ; i < this.reserved.length ; i++) {
-    //         //console.log(this.reserved[i]);
-    //         for(var j = 0 ; j < values.length ; j++){
-    //             //console.log(values[j]);
-    //             if(this.reserved[i]==values[j]) {
-    //               this.reserved.splice(i, 1);
-    //         }
-          
-    //         //return this.reserved.join(",");
-    //       }
-    //     }
-    //     //return this.reserved;
-    //   }
-
-    // refresh():void{
-    //     console.log("Reached");
-    //     console.log(this.test);
-    //     this.reserved = this.test.split(","); 
-    //     console.log(this.reserved);
-    // } 
 
     //return status of each seat
     getStatus = function(seatPos: string) {
@@ -127,7 +99,9 @@ export class SeatSelectComponent implements OnInit {
                 this.count--;
                 this.selected.splice(index, 1);
             }
-        } else {
+        } 
+        else
+        {
             //push to selected array only if it is not reserved
             if(this.reserved.indexOf(seatPos) === -1)
                 {  
@@ -150,7 +124,7 @@ export class SeatSelectComponent implements OnInit {
             //alert(this.temp);
             localStorage.setItem('TOTALSEATS',this.selected.length.toString());
             localStorage.setItem('SEATNO',this.selected.toString());
-            localStorage.setItem('PRICE',(this.ticketPrice * this.selected.length + this.convFee).toString());
+            localStorage.setItem('PRICE',(parseInt(this.ticketPrice * this.selected.length + this.convFee)).toString());
             localStorage.setItem('FLIGHTNO',this.Flight_Number.toString());
             localStorage.setItem('FLAG',this.flag.toString());
             this.ngzone.run(()=>this.router.navigateByUrl('/PassDet'));
@@ -164,7 +138,7 @@ export class SeatSelectComponent implements OnInit {
           //this.ti.Reservation_Time="10.05.00"
           this.ti.num_of_Seats=this.selected.length;
           this.ti.Classtype="Eco";
-          this.ti.total_price=this.ticketPrice * this.selected.length + this.convFee;
+          this.ti.total_price=parseInt(this.ticketPrice * this.selected.length + this.convFee);
           this.ti.status="InProgress";
           this.ti.Seats=this.selected.toString();
           //console.log(this.ti.Seats);
@@ -204,6 +178,7 @@ export class SeatSelectComponent implements OnInit {
           
           this.svc1.InsertFlightRes(this.ti).subscribe((data:boolean)=>{
             if(data == true){
+                console.log(this.ti);
               alert('Added to Flight Reservation: InProgress');
             }
           });

@@ -54,8 +54,8 @@ export class EditFlightComponent implements OnInit {
     this.fi.Flight_Status=addFlightForm.value.Flight_Status; 
     this.fi.Cost_Eco=addFlightForm.value.Cost_Eco; 
     this.fi.Cost_Business=addFlightForm.value.Cost_Business; 
-    this.fi.Seats_Available_Eco=addFlightForm.value.Seats_Available_Eco; 
-    this.fi.Seats_Available_Business=addFlightForm.value.Seats_Available_Business;
+    //this.fi.Seats_Available_Eco=addFlightForm.value.Seats_Available_Eco; 
+    //this.fi.Seats_Available_Business=addFlightForm.value.Seats_Available_Business;
     
     this.svc.InsertNewFlight(this.fi).subscribe((data:boolean)=>{
       alert(data);
