@@ -5,6 +5,7 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 import{PassengerInfoService}from 'src/app/services/passenger-info.service';
 import{PassengerInfoModule} from 'src/app/modules/passenger-info/passenger-info.module';
 import { TicketInfoService } from 'src/app/services/ticket-info.service';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,6 +17,7 @@ export class PassengerdetailsComponent implements OnInit {
 
   svc : PassengerInfoService;
   svc1:TicketInfoService;
+
   pi = new PassengerInfoModule();
   data : PassengerInfoModule; // for delete
   model:any=[];

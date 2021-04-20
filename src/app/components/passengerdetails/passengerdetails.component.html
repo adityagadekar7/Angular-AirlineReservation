@@ -1,6 +1,6 @@
 <div class="passenger-details" align="center">
     <h1 class="center">Passenger Details</h1>
-    <h6 style="color:red" class="center">Fill the form {{TotalSeats}} times for {{TotalSeats}} Passengers  </h6>
+    <h6 style="color:red" class="center">Fill the form {{TotalSeats}} times for {{TotalSeats}} Passengers </h6>
     <form id="Passenger_Details" #passdet="ngForm" name="passdet" (ngSubmit)="PassDet(passdet)" class="center">
        <div align="center">
         <div >
@@ -38,47 +38,47 @@
 
         </div> -->
 
-        <div class="btn-group btn-group-toggle " data-toggle="buttons">
-            <label class="btn btn-info active">Gender</label>
-            <label class="btn btn-outline-success">
+            <div class="btn-group btn-group-toggle " data-toggle="buttons">
+                <label class="btn btn-info active">Gender</label>
+                <label class="btn btn-outline-success">
               <input type="radio" name="gen" [(ngModel)]="model.gen" #gen="ngModel" value="Male" required autocomplete="off"> Male
             </label>
-            <label class="btn btn-outline-success">
+                <label class="btn btn-outline-success">
               <input  type="radio" name="gen" [(ngModel)]="model.gen" #gen="ngModel" value="Female" required autocomplete="off"> Female
             </label>
-            <!-- <span *ngIf="gen.errors?.required">Select Gender</span> -->
-          </div>
+                <!-- <span *ngIf="gen.errors?.required">Select Gender</span> -->
+            </div>
 
-        
-        <!-- <div>
+
+            <!-- <div>
             <label>Passenger Covid Certificate</label><br>
             <input type="radio" name="cc" [(ngModel)]="model.cc" #cc="ngModel" value="Yes" required>Yes
             <input type="radio" name="cc" [(ngModel)]="model.cc" #cc="ngModel" value="No" required>No
             <span *ngIf="cc.errors?.required"></span>
         </div> -->
-        <div class="btn-group btn-group-toggle " data-toggle="buttons">
-            <label class="btn btn-info active">Covid Certificate</label>
-            <label class="btn btn-outline-success">
+            <div class="btn-group btn-group-toggle " data-toggle="buttons">
+                <label class="btn btn-info active">Covid Certificate</label>
+                <label class="btn btn-outline-success">
                 <input type="radio" name="cc" [(ngModel)]="model.cc" #cc="ngModel" value="Yes" required autocomplete="off"> Yes
             </label>
-            <label class="btn btn-outline-danger">
+                <label class="btn btn-outline-danger">
                 <input type="radio" name="cc" [(ngModel)]="model.cc" #cc="ngModel" value="No" required autocomplete="off"> No
             </label>
-            <!-- <span *ngIf="gen.errors?.required"></span> -->
-          </div>
-    </div>
+                <!-- <span *ngIf="gen.errors?.required"></span> -->
+            </div>
+        </div>
         <div class="row" align="center" style="padding-left: 170px;">
             <button class="buttonx btn btn-success" type="submit" [disabled]="passdet.invalid">Insert</button>
         </div>
-    
+
         <div class="row" align="center" style="padding-left: 170px;">
             <button class="buttonx btn btn-danger " type="reset">Clear</button>
         </div>
-    
-        
+
+
     </form>
     <!-- <div class="row" align="center" style="padding-left: 170px;">
         <button class="buttonx btn btn-success" (click)="Continue()">Continue</button>
     </div> -->
-    
-    </div>
+
+</div>

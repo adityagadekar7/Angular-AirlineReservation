@@ -13,8 +13,8 @@ import { FlightInfoModule } from '../modules/flight-info/flight-info.module';
 })
 export class BookingInfoService {
   http:HttpClient;
-  url:string='http://localhost:59875/api/Booking' 
-
+   url:string='http://localhost:59875/api/Booking' 
+ // url:string='http://localhost:56797/api/Booking';
 
   httpOptions = {headers: new HttpHeaders({
     'Content-Type': 'application/json'

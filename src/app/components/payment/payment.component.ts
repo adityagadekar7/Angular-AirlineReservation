@@ -9,6 +9,8 @@ import { PassengerInfoService } from 'src/app/services/passenger-info.service';
 import { TicketInfoService } from 'src/app/services/ticket-info.service';
 import { PassengerInfoModule } from 'src/app/modules/passenger-info/passenger-info.module';
 import { BookingInfoService } from 'src/app/services/booking-info.service';
+import{ResgisterauModule} from 'src/app/modules/resgisterau/resgisterau.module';
+import{RegisterauService} from 'src/app/services/registerau.service'
 
 @Component({
   selector: 'app-payment',
@@ -17,6 +19,7 @@ import { BookingInfoService } from 'src/app/services/booking-info.service';
 })
 export class PaymentComponent implements OnInit {
   svc: PaymentService;
+ // reg=new ResgisterauModule();
   payment= new PaymentModule();
   model:any=[]; 
   ngzone: NgZone;
@@ -26,7 +29,8 @@ export class PaymentComponent implements OnInit {
   TotalPrice:number;
   TempPrice:number;
   FinalAmount:number;
-
+//---
+svc3:RegisterauService;
   //---------------
   svc1:BookingInfoService;
   svc2:PassengerInfoService;
@@ -46,11 +50,12 @@ export class PaymentComponent implements OnInit {
 
   
   //-----------
-  constructor(svc:PaymentService,svc1:BookingInfoService, svc2:PassengerInfoService,ngzone:NgZone, router:Router ) 
+  constructor(svc:PaymentService,svc1:BookingInfoService, svc2:PassengerInfoService,svc3:RegisterauService,ngzone:NgZone, router:Router ) 
   { 
     this.svc= svc;
     this.svc1=svc1
     this.svc2=svc2;
+   // this.svc3=svc3;
     this.ngzone=ngzone;
     this.router=router;
     
@@ -80,6 +85,7 @@ export class PaymentComponent implements OnInit {
 
   PaymentForm(paymentform:NgForm):void{
    // console.log(paymentform.value);
+   this.payment.UserId=Number(sessionStorage.getItem('UID'));
    this.payment.CardNo=paymentform.value.Card_Number;
    this.payment.cardtype=paymentform.value.cardtype;
    this.payment.Expiry_Month=paymentform.value.month;
@@ -87,7 +93,7 @@ export class PaymentComponent implements OnInit {
    //console.log(this.Seats);
 
 
-   this.svc.CheckPayment(this.payment.CardNo,this.payment.cardtype,this.payment.Expiry_Month,this.payment.Expiry_year).subscribe((data:any)=>
+   this.svc.CheckPayment(this.payment.UserId,this.payment.CardNo,this.payment.cardtype,this.payment.Expiry_Month,this.payment.Expiry_year).subscribe((data:any)=>
    {
     // console.log(data);
      if(data=="Payment Successful")
