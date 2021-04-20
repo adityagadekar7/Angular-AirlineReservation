@@ -39,6 +39,7 @@ export class FlightselectComponent implements OnInit {
   ReturnFlight_Date: string;
   ngzone: NgZone;
   router: Router;  
+  uid:number;
 
   constructor(svc: BookingInfoService, svc1: FlightInfoService,  ngzone:NgZone, router:Router) {
     this.svc = svc;
@@ -54,6 +55,7 @@ export class FlightselectComponent implements OnInit {
     this.Destination = String(localStorage.getItem('DESTINATION'));
     this.flag=Number(localStorage.getItem('FLAG'));
     this.flagX=Number(localStorage.getItem('FLAGX'));
+    this.uid=Number(sessionStorage.getItem('UID'))
 
     // this.returnCount=Number(localStorage.getItem('RETURNCOUNT'));
     // alert(this.returnCount);
@@ -124,6 +126,13 @@ export class FlightselectComponent implements OnInit {
   {  
     //console.log(FlightNo);
     //console.log(Cost);
+    console.log(this.uid);
+    if(this.uid==0){
+      alert("Please login to continue");
+      this.ngzone.run(()=>this.router.navigateByUrl('/UserLogin'));
+
+    }
+    else{
     alert(FlightNo+" || "+Cost);
     localStorage.setItem('FLIGHTNUMBER',FlightNo);
     localStorage.setItem('COST',Cost);
@@ -131,5 +140,6 @@ export class FlightselectComponent implements OnInit {
     localStorage.setItem('FLAG',this.flag.toString());
     //localStorage.setItem('FLAGRETURNFLIGHT',this.flagReturnFlight.toString());
     this.ngzone.run(()=>this.router.navigateByUrl('/SeatSelect'));
+    }
   }
 }

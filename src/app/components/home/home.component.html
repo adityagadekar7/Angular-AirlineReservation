@@ -47,9 +47,9 @@
              <div id="input2">
                  <!--input2-->
                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 <input type="number" id="input-group" name="adult" [(ngModel)]="model.adult" #adult="ngModel" placeholder="Adult(12+years)" required>
-                 <input type="number" id="input-group" name="child" [(ngModel)]="model.child" #child="ngModel" placeholder="Children(2-12years)" required>
-                 <input type="number" id="input-group" name="infant" [(ngModel)]="model.infant" #infant="ngModel" placeholder="Infant(0-2years)" required>
+                 <input type="number" min="1" max="9" id="input-group" name="adult" [(ngModel)]="model.adult" #adult="ngModel" placeholder="Adult(12+years)" required>
+                 <input type="number" min="1" max="9" id="input-group" name="child" [(ngModel)]="model.child" #child="ngModel" placeholder="Children(2-12years)" required>
+                 <input type="number" min="1" max="8" id="input-group" name="infant" [(ngModel)]="model.infant" #infant="ngModel" placeholder="Infant(0-2years)" required>
              </div><br />
              <!--input2-->
  

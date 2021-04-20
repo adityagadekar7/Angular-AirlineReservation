@@ -54,7 +54,7 @@ export class RegistrationComponent implements OnInit {
         this.svc.UserReg(this.regm).subscribe((data: boolean) => {        
 
           if (data == true) {
-            alert('successfully Registered your Account you will be redirected to Main page');
+            alert('Successfully Registered your Account you will be redirected to Home page');
             this.ngzone.run(() => this.router.navigateByUrl('/homepage'));
           }
         });

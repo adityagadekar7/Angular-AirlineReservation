@@ -11,6 +11,7 @@ import { PassengerInfoModule } from 'src/app/modules/passenger-info/passenger-in
 import { BookingInfoService } from 'src/app/services/booking-info.service';
 import{ResgisterauModule} from 'src/app/modules/resgisterau/resgisterau.module';
 import{RegisterauService} from 'src/app/services/registerau.service'
+import { toJSDate } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar';
 
 @Component({
   selector: 'app-payment',
@@ -40,6 +41,7 @@ svc3:RegisterauService;
   trial:string;
   Pnr_no:number;
   flag:number;
+  userID:number
 
   
 
@@ -69,7 +71,7 @@ svc3:RegisterauService;
     this.Pnr_no=Number(localStorage.getItem('PNR'));
     this.Flight_Number=Number(localStorage.getItem('FLIGHTNO'));
     this.flag=Number(localStorage.getItem('FLAG'));
-
+    this.userID=Number(sessionStorage.getItem('UID'))
     this.Seats1=String(localStorage.getItem('SEATNO1'));
     this.Pnr_no1=Number(localStorage.getItem('PNR1'));
     this.Flight_Number1=Number(localStorage.getItem('FLIGHTNO1'));
@@ -82,56 +84,11 @@ svc3:RegisterauService;
     
   }
   
-
-  PaymentForm(paymentform:NgForm):void{
-   // console.log(paymentform.value);
-   this.payment.UserId=Number(sessionStorage.getItem('UID'));
-   this.payment.CardNo=paymentform.value.Card_Number;
-   this.payment.cardtype=paymentform.value.cardtype;
-   this.payment.Expiry_Month=paymentform.value.month;
-   this.payment.Expiry_year=paymentform.value.year;
-   //console.log(this.Seats);
-
-
-   this.svc.CheckPayment(this.payment.UserId,this.payment.CardNo,this.payment.cardtype,this.payment.Expiry_Month,this.payment.Expiry_year).subscribe((data:any)=>
-   {
-    // console.log(data);
-     if(data=="Payment Successful")
-     {
-      //this.InsertInFlightReservation();
-      alert("Payment Successful");
-      alert(this.Flight_Number+" "+this.Seats);
-      if(this.flag==3){  //for 2 way
-        this.svc1.UpdateSeats(this.Flight_Number,this.Seats,this.Pnr_no).subscribe((data:boolean)=>
-        {
-          console.log(data);
-          if(data == true)
-          {
-            alert("Seats Added");
-          }
-          else
-          {
-            alert("Seats not selected");
-          }
-        });
-
-        this.svc1.UpdateSeats(this.Flight_Number1,this.Seats1,this.Pnr_no1).subscribe((data:boolean)=>
-        {
-          console.log(data);
-          if(data == true)
-          {
-            alert("Seats Added");
-          }
-          else
-          {
-            alert("Seats not selected");
-          }
-        });
-      }
-      else  //for 1 way
+  BookingFunction():void{
+    //alert(this.Flight_Number+" "+this.Seats);
+    if(this.flag==3){  //for 2 way
+      this.svc1.UpdateSeats(this.Flight_Number,this.Seats,this.Pnr_no).subscribe((data:boolean)=>
       {
-        this.svc1.UpdateSeats(this.Flight_Number,this.Seats,this.Pnr_no).subscribe((data:boolean)=>
-        {
         console.log(data);
         if(data == true)
         {
@@ -141,14 +98,77 @@ svc3:RegisterauService;
         {
           alert("Seats not selected");
         }
-        });
-      } 
+      });
+
+      this.svc1.UpdateSeats(this.Flight_Number1,this.Seats1,this.Pnr_no1).subscribe((data:boolean)=>
+      {
+        console.log(data);
+        if(data == true)
+        {
+          alert("Seats Added");
+        }
+        else
+        {
+          alert("Seats not selected");
+        }
+      });
+    }
+    else  //for 1 way
+    {
+      this.svc1.UpdateSeats(this.Flight_Number,this.Seats,this.Pnr_no).subscribe((data:boolean)=>
+      {
+      console.log(data);
+      if(data == true)
+      {
+        alert("Seats Added");
+      }
+      else
+      {
+        alert("Seats not selected");
+      }
+      });
+    } 
+  }
+
+  PaymentForm(paymentform:NgForm):void{
+   // console.log(paymentform.value);
+   this.payment.UserId=this.userID;
+   this.payment.CardNo=paymentform.value.Card_Number;
+   this.payment.cardtype=paymentform.value.cardtype;
+   this.payment.Expiry_Month=paymentform.value.month;
+   this.payment.Expiry_year=paymentform.value.year;
+   this.payment.Balance=1000000-(this.TempPrice+this.TotalPrice);
+   console.log(this.payment);
+
+   this.svc.CheckPayment(this.payment.UserId,this.payment.CardNo,this.payment.cardtype,this.payment.Expiry_Month,this.payment.Expiry_year).subscribe((data:any)=>
+   {
+    // console.log(data);
+     if(data=="Payment Successful")
+     {
+      //this.InsertInFlightReservation();
+        this.svc.AlterBalance(this.payment.CardNo,this.payment.Balance).subscribe((dataAlter:boolean)=>{
+          console.log(this.payment.CardNo);
+          alert("Balance Deducted");
+        })
+      alert("Payment Successful");
+      this.BookingFunction();
+      
       this.ngzone.run(()=>this.router.navigateByUrl('/homepage')); 
     }
      
        
      else{
        alert("Enter Valid Card Details");
+       
+       console.log(this.payment.UserId);
+       this.svc.InsertCard(this.userID,this.payment).subscribe((datax:boolean)=>{
+        if(datax==true){
+          alert("Card Added");
+          alert("Payment Successful");
+
+          this.BookingFunction();
+        }
+       });
      }
      //console.log(loginForm.value);
    });

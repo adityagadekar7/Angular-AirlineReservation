@@ -121,11 +121,14 @@ export class TicketsComponent implements OnInit {
 
   CancelFunction(cancelForm:NgForm):void{
     this.pnr=cancelForm.value.tno;
+    console.log(this.pnr);
     
     //Get Booked Ticket by pnr
     this.svc.GetBookedTicketByPnr(this.pnr).subscribe((datapnr:TicketInfoModule)=>{
       //console.log(datapnr.Pnr_no);
       this.ticketbypnr=datapnr;
+      console.log(datapnr);
+      console.log(this.ticketbypnr);
       if(this.ticketbypnr==null)
       {
         alert("Invalid PNR");
@@ -174,8 +177,11 @@ export class TicketsComponent implements OnInit {
           });
 
           this.ticketbypnr.status='Cancelled';
+          console.log(this.ticketbypnr.status);
       
           this.svc.UpdateBookedTickets(this.pnr,this.ticketbypnr).subscribe((data:boolean)=>{
+            console.log("HellLLO");
+            console.log(this.pnr);
             alert(data);
             if(data==true){
               alert("Update Successful"); 

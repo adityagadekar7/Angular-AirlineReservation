@@ -33,8 +33,13 @@ export class PaymentService {
 //   {
 //     return this.http.get<string>(this.url+'/' + 'CheckPayment'+'/'+UserId+'/'+CardNo + '/' + cardtype+'/' + Expiry_Month + '/' + Expiry_year);
 //   }
-InsertCard(payment:PaymentModule):Observable<boolean>
+InsertCard(uid:number,payment:PaymentModule):Observable<boolean>
 {
-  return this.http.post<boolean>(this.url + '/' + 'EnterPayment',payment, this.httpOptions);
+  return this.http.post<boolean>(this.url + '/' + 'EnterPayment/'+uid,payment, this.httpOptions);
+}
+
+AlterBalance(Cardno:bigint,Balance:number):Observable<boolean>
+{
+  return this.http.put<boolean>(this.url+'/AlterBalance/'+Cardno+'/'+Balance,this.httpOptions);
 }
 }
