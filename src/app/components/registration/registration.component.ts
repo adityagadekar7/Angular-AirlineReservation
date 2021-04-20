@@ -49,7 +49,8 @@ export class RegistrationComponent implements OnInit {
       }
 
       else {
-        this.svc.UserReg(this.regm).subscribe((data: boolean) => {
+        
+        this.svc.UserReg(this.regm).subscribe((data: boolean) => {        
 
           if (data == true) {
             alert('successfully Registered your Account you will be redirected to Main page');

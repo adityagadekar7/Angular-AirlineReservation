@@ -330,19 +330,19 @@
         <span class="material-icons selectedSeat">living</span>Selected
         <span class="material-icons reservedSeat">block</span> Reserved
 
-      </div>
+            </div>
 
-      <!-- <p class="font14 marginTop5">Front</p>
+            <!-- <p class="font14 marginTop5">Front</p>
       <div class="screen"></div> -->
-      <!-- Generate the seating grid -->
-      <div *ngFor="let row of rows">
-        <hr>
-        <span class="seat" *ngFor="let col of cols" (click)="seatClicked(row + col)" [ngSwitch]="getStatus(row + col)">
+            <!-- Generate the seating grid -->
+            <div *ngFor="let row of rows">
+                <hr>
+                <span class="seat" *ngFor="let col of cols" (click)="seatClicked(row + col)" [ngSwitch]="getStatus(row + col)">
           <span *ngSwitchCase="'selected'" class="material-icons selectedSeat">living</span>
-          <span *ngSwitchCase="'reserved'" class="material-icons reservedSeat">block</span>
-          <span *ngSwitchDefault class="material-icons freeSeat">chair</span>
-        </span>
-      </div>
+                <span *ngSwitchCase="'reserved'" class="material-icons reservedSeat">block</span>
+                <span *ngSwitchDefault class="material-icons freeSeat">chair</span>
+                </span>
+            </div>
 
       <!-- Structural directive - only visible on selection -->
       <div *ngIf="selected.length > 0" class="font14 marginTB10">

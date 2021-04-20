@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
 
   Searchflight(search: NgForm): void 
   {
-     
+    
     this.fi.Flight_Name = search.value.airlines;
     this.fi.Flight_Date = search.value.dd;
     this.fi.Origin = search.value.from;

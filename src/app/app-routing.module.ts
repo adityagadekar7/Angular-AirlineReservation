@@ -22,8 +22,9 @@ const routes: Routes = [
   {path:'UserLogin', component: UserLoginComponent},
   {path:'EditFlight', component: EditFlightComponent },
   {path:'homepage', component: HomeComponent },
+  {path:'FAQ', component: FaqComponent},
+  {path:'About', component: AboutpageComponent},
   {path:'registration', component: RegistrationComponent },
-  
   {path:'FlightSelect', component: FlightselectComponent},
   {path:'TicketDetails', component: TicketsComponent},
   {path:'About',component:AboutpageComponent},
