@@ -88,11 +88,11 @@ export class FlightselectComponent implements OnInit {
 
     if(this.flagX!=1){
       this.showButton=false;
-      alert(this.showButton);
+      //alert(this.showButton);
     }
     else{
       this.showButton=true;
-      alert(this.showButton);
+      //alert(this.showButton);
     }
     
     console.log(this.show);

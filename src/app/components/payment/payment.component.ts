@@ -80,7 +80,7 @@ svc3:RegisterauService;
     console.log(this.Seats);
     console.log(this.TotalPrice);
     this.FinalAmount=this.TotalPrice+this.TempPrice;
-    alert(this.TotalSeats+" + "+this.Seats);
+    //alert(this.TotalSeats+" + "+this.Seats);
     
   }
   
@@ -153,23 +153,28 @@ svc3:RegisterauService;
       alert("Payment Successful");
       this.BookingFunction();
       
-      this.ngzone.run(()=>this.router.navigateByUrl('/homepage')); 
+      this.ngzone.run(()=>this.router.navigateByUrl('/TicketDetails')); 
     }
      
        
      else{
-       alert("Enter Valid Card Details");
-       
-       console.log(this.payment.UserId);
-       this.payment.Balance=1000000-(this.TempPrice+this.TotalPrice);
-       this.svc.InsertCard(this.userID,this.payment).subscribe((datax:boolean)=>{
-        if(datax==true){
-          alert("Card Added");
-          alert("Payment Successful");
+       //alert("Enter Valid Card Details");
+       if (confirm('Do you want to add this card?')){
+          console.log(this.payment.UserId);
+          this.payment.Balance=1000000-(this.TempPrice+this.TotalPrice);
+          this.svc.InsertCard(this.userID,this.payment).subscribe((datax:boolean)=>{
+          if(datax==true){
+           alert("Card Added");
+           alert("Payment Successful");
+ 
+           this.BookingFunction();
+           this.ngzone.run(()=>this.router.navigateByUrl('/TicketDetails')); 
+         }
+        });
 
-          this.BookingFunction();
-        }
-       });
+       }
+       
+       
      }
      //console.log(loginForm.value);
    });
