@@ -20,7 +20,6 @@ import { toJSDate } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar';
 })
 export class PaymentComponent implements OnInit {
   svc: PaymentService;
- // reg=new ResgisterauModule();
   payment= new PaymentModule();
   model:any=[]; 
   ngzone: NgZone;
@@ -30,9 +29,7 @@ export class PaymentComponent implements OnInit {
   TotalPrice:number;
   TempPrice:number;
   FinalAmount:number;
-//---
-svc3:RegisterauService;
-  //---------------
+  svc3:RegisterauService;
   svc1:BookingInfoService;
   svc2:PassengerInfoService;
   pi= new PassengerInfoModule();
@@ -42,22 +39,15 @@ svc3:RegisterauService;
   Pnr_no:number;
   flag:number;
   userID:number
-
-  
-
   Seats1:string;
   Flight_Number1:number;
   Pnr_no1:number;
 
-
-  
-  //-----------
   constructor(svc:PaymentService,svc1:BookingInfoService, svc2:PassengerInfoService,svc3:RegisterauService,ngzone:NgZone, router:Router ) 
   { 
     this.svc= svc;
     this.svc1=svc1
     this.svc2=svc2;
-   // this.svc3=svc3;
     this.ngzone=ngzone;
     this.router=router;
     
@@ -81,12 +71,12 @@ svc3:RegisterauService;
     console.log(this.TotalPrice);
     this.FinalAmount=this.TotalPrice+this.TempPrice;
     //alert(this.TotalSeats+" + "+this.Seats);
-    
   }
   
+
   BookingFunction():void{
     //alert(this.Flight_Number+" "+this.Seats);
-    if(this.flag==3){  //for 2 way
+    if(this.flag==3){  //For 2 way Flight booking
       this.svc1.UpdateSeats(this.Flight_Number,this.Seats,this.Pnr_no).subscribe((data:boolean)=>
       {
         console.log(data);
@@ -143,6 +133,7 @@ svc3:RegisterauService;
    this.svc.CheckPayment(this.payment.UserId,this.payment.CardNo,this.payment.cardtype,this.payment.Expiry_Month,this.payment.Expiry_year).subscribe((data:any)=>
    {
     // console.log(data);
+    //------------------If Card is present in the system------------------------//
      if(data=="Payment Successful")
      {
       //this.InsertInFlightReservation();
@@ -151,14 +142,12 @@ svc3:RegisterauService;
           alert("Balance Deducted");
         })
       alert("Payment Successful");
-      this.BookingFunction();
-      
+      this.BookingFunction();  //-----------Calling Booking Function-------------//
       this.ngzone.run(()=>this.router.navigateByUrl('/TicketDetails')); 
     }
-     
-       
      else{
        //alert("Enter Valid Card Details");
+       //-----------------To add new card--------------------------------//
        if (confirm('Do you want to add this card?')){
           console.log(this.payment.UserId);
           this.payment.Balance=1000000-(this.TempPrice+this.TotalPrice);
@@ -167,21 +156,12 @@ svc3:RegisterauService;
            alert("Card Added");
            alert("Payment Successful");
  
-           this.BookingFunction();
+           this.BookingFunction();   //-----then call same booking Function
            this.ngzone.run(()=>this.router.navigateByUrl('/TicketDetails')); 
          }
         });
-
-       }
-       
-       
+       }     
      }
-     //console.log(loginForm.value);
    });
- }
-
-//  Button1():void{
-//     this.GetPnr();
-//  }
-  
+ }  
 }

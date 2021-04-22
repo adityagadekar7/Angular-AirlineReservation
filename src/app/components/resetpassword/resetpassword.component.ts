@@ -22,6 +22,7 @@ export class ResetpasswordComponent implements OnInit {
   Acknowledgement: boolean = false;
   ResetPwd: boolean = false;
 
+  //--------------To check if email is present in db------------------------//
   emailChk(EmailVerify: NgForm): void {
     console.log(EmailVerify.value);
     this.stud.EmailID = EmailVerify.value.Email;
@@ -49,7 +50,7 @@ export class ResetpasswordComponent implements OnInit {
     });
   }
 
-
+//-----------------------Set new Password-----------------------------//
   ResetPassword(passwordreset: NgForm): void {
     this.stud.OTP = passwordreset.value.otp;
     this.stud.Password = passwordreset.value.pass;
@@ -63,9 +64,7 @@ export class ResetpasswordComponent implements OnInit {
         else {
           alert('Password Updation failed!!');
         }
-
       });
     }
   }
-  
 }

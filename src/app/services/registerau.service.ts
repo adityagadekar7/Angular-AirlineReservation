@@ -39,34 +39,42 @@ export class RegisterauService {
 };
 
   constructor(http:HttpClient) {this.http=http ;}
+
+  //------------To check Login email and password--------------//
   Login(email: string, pwd: string): Observable<string>
   {
     return this.http.get<string>(this.url + '/' + 'Login' + '/' + email + '/' + pwd); 
-
   }
 
+  //------------To get id of logged in user by email-------------//
   GetIdByEmail(email:string):Observable<ResgisterauModule[]>{
     return this.http.get<ResgisterauModule[]>(this.url+'/GetIdByEmail/'+email+'/');
   }
 
-
-
+//---------To insert new user-------------------------------//
   UserReg(regau: ResgisterauModule): Observable<boolean> 
   {
     return this.http.post<boolean>(this.url + '/' + 'register', regau, this.httpOptions);//use based on your link
   }
+
+  //-------------To check if email already exists while registering new user-----------------//
   ChkEmail(email: string): Observable<string> {
     return this.http.get<string>(this.url + '/CheckEmail/' + email+ '/' );
   }
 
+  //--------------Verification link for reset password-------------------//
   VerifyLinkEmail(stud: ResgisterauModule): Observable<string> {
     console.log(stud);
     return this.http.post<string>(this.url + '/' + 'VerifyLinkEmail', stud, this.httpOptions);
   }
+
+  //------------------TO set new Password and encrypt it--------------------//
   SetNewPassword(stud: ResgisterauModule): Observable<boolean> {
     console.log("Inside SetNewPassword " + stud)
     return this.http.post<boolean>(this.url + '/' + 'SetNewPassword', stud, this.httpOptions);
   }
+
+  //-------To check phone number-------------------//
   checkphone(phonenumber: number): Observable<string> {
     return this.http.get<string>(this.url + '/checkphone/' + phonenumber + '/');
   }

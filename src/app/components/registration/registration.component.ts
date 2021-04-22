@@ -27,38 +27,32 @@ export class RegistrationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  
   }
 
 
   Register(registerForm: NgForm): void {
     console.log(registerForm.value);
-    //this.regm.Title = "Mr";
     this.regm.Title = registerForm.value.title;
-    // this.regm.Title = registerForm.value.mrs;
     this.regm.FirstName = registerForm.value.fname;
     this.regm.LastName = registerForm.value.lname;
     this.regm.EmailID = registerForm.value.email;
     this.regm.Password = registerForm.value.pwd;
     this.regm.DOB = registerForm.value.dob;
     this.regm.PhoneNumber = registerForm.value.pno;
-
     console.log(this.regm);
+    //----------To check if email is present in system or not-----------------------//
     this.svc.ChkEmail(this.regm.EmailID).subscribe((data: string) => {
       if (data == "success") {
         alert("Email ID already in use. Please use another ID");
       }
-
       else {
-        
-        this.svc.UserReg(this.regm).subscribe((data: boolean) => {        
-
+        //----Else add new id-----------------//
+        this.svc.UserReg(this.regm).subscribe((data: boolean) => { 
           if (data == true) {
             alert('Successfully Registered your Account you will be redirected to Home page');
             this.ngzone.run(() => this.router.navigateByUrl('/homepage'));
           }
         });
-
       }
     });
   }

@@ -14,10 +14,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./passengerdetails.component.css']
 })
 export class PassengerdetailsComponent implements OnInit {
-
   svc : PassengerInfoService;
   svc1:TicketInfoService;
-
   pi = new PassengerInfoModule();
   data : PassengerInfoModule; // for delete
   model:any=[];
@@ -25,10 +23,8 @@ export class PassengerdetailsComponent implements OnInit {
   SeatNos:string;
   TotalPrice:Number;
   ngzone: NgZone;
-    router: Router;
-    
-    returnCount:number;
-  
+  router: Router;
+  returnCount:number;
   test:number;
   Flight_Number:number;
   flag:number;
@@ -56,39 +52,37 @@ export class PassengerdetailsComponent implements OnInit {
     alert(this.TotalSeats+" + "+this.SeatNos+" "+this.flag);
 
     this.Count++;
-     // GetPnr():void{
+     //---------------------To get Latest Generated Pnr-------------------------------------//
     this.svc1.GetPnr().subscribe((datapnr:number)=>{
       this.test=datapnr;
       console.log(this.test);
      });
   }
 
+  //--------------------To take Values and navigate to other page based on condition----------------------------//
   Continue():void{
     localStorage.setItem('PNR',(this.test).toString());
     localStorage.setItem('FLIGHTNO',(this.Flight_Number).toString());
     localStorage.setItem('FLAG',this.flag.toString());
+    //--------------If true, then will be redirected to same flight select page to select return flight----//
     if(this.flag==2){
       localStorage.setItem('TEMPPRICE',(this.TotalPrice).toString());
       localStorage.setItem('PNR1',(this.test).toString());
-    localStorage.setItem('FLIGHTNO1',(this.Flight_Number).toString());
-    localStorage.setItem('FLAG1',this.flag.toString());
-    localStorage.setItem('SEATNO1',this.SeatNos);
-    this.flagX=1;
-    localStorage.setItem('FLAGX',this.flagX.toString());
-
+      localStorage.setItem('FLIGHTNO1',(this.Flight_Number).toString());
+      localStorage.setItem('FLAG1',this.flag.toString());
+      localStorage.setItem('SEATNO1',this.SeatNos);
+      this.flagX=1;
+      localStorage.setItem('FLAGX',this.flagX.toString());
       this.ngzone.run(() => this.router.navigateByUrl('/FlightSelect'));
     }
     else{
-      
       this.ngzone.run(() => this.router.navigateByUrl('/PaymentForm'));
     }
   }
 
 
   PassDet(passdet:NgForm):void{
-   // console.log(passdet.value);
-    //this.pi.Passenger_id = passdet.value.Passenger_id;
-    this.pi.Pnr_no =this.test;
+    this.pi.Pnr_no = this.test;
     this.pi.PassportNumber = passdet.value.PassportNumber;
     this.pi.FirstName =  passdet.value.FirstName;
     this.pi.LastName =  passdet.value.LastName;
@@ -96,10 +90,8 @@ export class PassengerdetailsComponent implements OnInit {
     this.pi.Gender =  passdet.value.gen;
     this.pi.PhoneNumber =  passdet.value.PhoneNumber;
     this.pi.CovidCertificate =  passdet.value.cc;
-    
     //this.ngzone.run(()=>this.router.navigateByUrl('/PaymentForm'));
-    
-    
+
     this.svc.InsertNewPassenger(this.pi).subscribe((data:boolean)=>
     {
       console.log(data);
@@ -109,7 +101,7 @@ export class PassengerdetailsComponent implements OnInit {
         alert("New Passenger Added");
         if(this.PsgCount==this.TotalSeats)
         {
-          this.Continue();
+          this.Continue(); //--------------When psgcount = TotalSeats--------------------------------//
         }
       }
       else
@@ -117,25 +109,5 @@ export class PassengerdetailsComponent implements OnInit {
         alert("Enter details");
       }
     });
-
   }
-
-  /*DeleteFunction(deleteForm:NgForm):void{
-    this.pi.Passenger_id=deleteForm.value.Passenger_id;
-    this.svc.DeletePassenger(this.pi.Passenger_id).subscribe((data:boolean)=>
-    {
-      //alert(data);
-      console.log(data);
-      if(data==true)
-      {
-        alert('Delete successful');
-        location.reload();
-      }
-      else
-      {
-        alert('Delete unsuccessful');
-      }
-    });
-  }*/
-
 }

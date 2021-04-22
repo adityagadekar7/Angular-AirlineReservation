@@ -1,27 +1,20 @@
-
-    <div class="login-box " align="center">
-
-
+<div class="login-box " align="center">
     <form id="Admin" #loginform1="ngForm" name="loginForm1" (ngSubmit)="LoginData1(loginform1)"  >
-        
         <div>
             <h3>Admin Login</h3>
-            <br>
-            
+            <br> 
             <input type="text" name="admin1" [(ngModel)]="model.admin1"
             #admin1="ngModel" placeholder="AdminName" required/>
             <!-- <label class="form-label" for="form-a" >Username</label><br> -->
             <!-- <br><span *ngIf="username.errors?.required">Username has to be entered</span> -->
-        
             <!-- <label>Password</label><br> -->
             <input type="password" name="admin1pass" [(ngModel)]="model.admin1pass"
             #admin1pass="ngModel" placeholder="Password" required>
             <!-- <br><span *ngIf="usertxtpass.errors?.required">Password cannot be blank</span> -->
             <br>
-        
             <button class="buttonx btn btn-success" type="submit" [disabled]="loginform1.invalid">Login</button>
         </div>
-        </form>
-    </div>
+    </form>
+</div>
 
 

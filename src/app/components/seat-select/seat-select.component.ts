@@ -54,47 +54,46 @@ export class SeatSelectComponent implements OnInit {
         console.log(this.uid);
 
         this.svc.GetSeats(this.Flight_Number).subscribe((data:string)=>{
-        this.test=data;
-        console.log(this.test);
-        this.reserved = this.test.split(","); 
-        console.log(this.reserved);
+            this.test=data;
+            console.log(this.test);
+            this.reserved = this.test.split(","); 
+            console.log(this.reserved);
+            if(this.reserved.length>=66){
+                alert("No Seats are Available for selected flight")
+            }
         //this.removeValue("H3,H4,H5")  
         });
         
-        if(this.reserved.length>=66){
-            alert("No Seats are Available for selected flight")
-        }
+        
     }
     
-    
     rows: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I','J','K'];
-    cols: number[]  = [1, 2, 3, 4, 5, 6];
-    
+    cols: number[]  = [1, 2, 3, 4, 5, 6]; 
     reserved:string[] = []     //this.test.split(","); 
-
     //reserved: string[] = ['A2', 'A3', 'F5', 'F1', 'F2','F6', 'H1', 'H2', 'H3', 'H4'];
     selected: string[] = [];
 
-    //return status of each seat
-    getStatus = function(seatPos: string) {
+    //Fetch Status of Seats Booked or not or selected
+    getStatus(seatPos: string) {
         if(this.reserved.indexOf(seatPos) !== -1) {
             return 'reserved';
         } else if(this.selected.indexOf(seatPos) !== -1) {
             return 'selected';
         }
     }
-    //clear handler
-    clearSelected = function() {
+
+    //---------------Clear All Selected seats----------------//
+    clearSelected() {
         this.selected = [];
         this.count=0;
     }
-    //click handler
-    seatClicked = function(seatPos: string) {
-        //console.log(this.test);//--------------------------------------------------------------
+
+    //----------------When seat is selected---------------//
+    seatClicked(seatPos: string) {
+        //console.log(this.test);
         var index = this.selected.indexOf(seatPos);
-        
         if(index !== -1){
-            // seat already selected, remove
+            // seat already selected, To remove
             if(this.count>0){
                 this.count--;
                 this.selected.splice(index, 1);
@@ -114,11 +113,12 @@ export class SeatSelectComponent implements OnInit {
                 
         }
     }
-    //Select button handler
+
+    //--------------------Select Button Click---------//
     showSelected = function() {
         if(this.selected.length == this.aci) {
-          //alert(this.reserved);
-            alert("Selected Seats: " + this.selected + "\nTotal: "+(this.ticketPrice * this.selected.length + this.convFee));
+            //alert(this.reserved);
+            //alert("Selected Seats: " + this.selected + "\nTotal: "+(this.ticketPrice * this.selected.length + this.convFee));
             this.reserved.push(this.selected);
             //this.temp.push(this.selected);
             //alert(this.temp);
@@ -131,21 +131,18 @@ export class SeatSelectComponent implements OnInit {
             //-------------------------
             var time=new Date().toLocaleTimeString('it-IT');
             this.ti.Flight_Number=this.Flight_Number;
-          this.ti.User_Id=this.uid;
-          this.ti.Reservation_Date=this.WithoutTime(Date()).toDateString();
-          //this.ti.Reservation_Date="2021-05-04";
-          this.ti.Reservation_Time=time;
-          //this.ti.Reservation_Time="10.05.00"
-          this.ti.num_of_Seats=this.selected.length;
-          this.ti.Classtype="Eco";
-          this.ti.total_price=parseInt(this.ticketPrice * this.selected.length + this.convFee);
-          this.ti.status="InProgress";
-          this.ti.Seats=this.selected.toString();
-          //console.log(this.ti.Seats);
+            this.ti.User_Id=this.uid;
+            this.ti.Reservation_Date=this.WithoutTime(Date()).toDateString();
+            //this.ti.Reservation_Date="2021-05-04";
+            this.ti.Reservation_Time=time;
+            //this.ti.Reservation_Time="10.05.00"
+            this.ti.num_of_Seats=this.selected.length;
+            this.ti.Classtype="Eco";
+            this.ti.total_price=parseInt(this.ticketPrice * this.selected.length + this.convFee);
+            this.ti.status="InProgress";
+            this.ti.Seats=this.selected.toString();
+            //console.log(this.ti.Seats);
             this.InsertInFlightReservation()
-
-
-
         } 
         else 
         {
@@ -153,29 +150,15 @@ export class SeatSelectComponent implements OnInit {
         }
     }
 
+    //----------------To get date without time----------------//
     WithoutTime(dateTime){
         var date=new Date(dateTime);
         date.setHours(0,0,0,0);
         return date;
       }
 
-    InsertInFlightReservation():void{
-        // var time=new Date().toLocaleTimeString('it-IT');
-    
-        //   this.ti.Flight_Number=this.Flight_Number;
-        //   this.ti.User_Id=this.uid;
-        //   this.ti.Reservation_Date=this.WithoutTime(Date()).toDateString();
-        //   //this.ti.Reservation_Date="2021-05-04";
-        //   this.ti.Reservation_Time=time;
-        //   //this.ti.Reservation_Time="10.05.00"
-        //   this.ti.num_of_Seats=this.selected.length;
-        //   this.ti.Classtype="Eco";
-        //   this.ti.total_price=this.ticketPrice * this.selected.length + this.convFee;
-        //   this.ti.status="InProgress";
-        //   this.ti.Seats=this.selected.toString();
-        //   //console.log(this.ti.Seats);
-      
-          
+    //-----------------To insert in Flight Reservations--------------------------//
+    InsertInFlightReservation():void{        
           this.svc1.InsertFlightRes(this.ti).subscribe((data:boolean)=>{
             if(data == true){
                 console.log(this.ti);

@@ -8,42 +8,25 @@
         <option value="Mr">Mr</option>
         <option value="Mrs">Mrs</option>
       </select>
-
             <input type="text" name="fname" placeholder="FirstName" [(ngModel)]="model.fname" #fname="ngModel" required />
-
             <input type="text" name="lname" placeholder="LastName" [(ngModel)]="model.lname" #lname="ngModel" required />
             <input type="text" name="email" placeholder="E-mail" [(ngModel)]="model.email" #email="ngModel" required />
-            <input type="password" name="pwd" placeholder="Password" [(ngModel)]="model.pwd" #pwd="ngModel" required />
+            <input type="password" name="pwd" placeholder="Password" [(ngModel)]="model.pwd" #pwd="ngModel" minlength="8" maxlength="30" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%?&])[A-Za-z0-9@$!%?&]{4,8}$" required>
+            <span *ngIf="pwd.errors?.required && pwd?.touched">Minimum 8 Characters, One Capital Letter/Small Letter/Symbol Compulsary</span>
             <input type="date" name="dob" placeholder="date of birth" [(ngModel)]="model.dob" #dob="ngModel" required />
             <input type="number" name="pno" placeholder="Enter Mobile number" [(ngModel)]="model.pno" #pno="ngModel" required />
-
       <!--div tag for captcha-->
       <div align = "center">
         <ngx-recaptcha2 #captchaElement [siteKey]="siteKey" name="cap" [(ngModel)]="model.cap" #cap="ngModel" required>
           <span *ngIf= "cap.errors?.required"></span>
         </ngx-recaptcha2>
       </div>
-      
       <br>
-      <button type="submit" class="buttonx  btn btn-success" [disabled]="registerForm.invalid">Sign Up </button><br />
-      
+      <button type="submit" class="buttonx  btn btn-success" [disabled]="registerForm.invalid">Sign Up </button><br/>
       <br>
      <p> Already have an account?<a href="UserLogin">   Login   </a></p>
     </div>
     <br>
     <br>
-
-        <!--
-    <div class="right">
-      <span class="loginwith">Sign in with<br />social network</span>
-
-      <button class="social-signin facebook">Log in with facebook</button>
-      <button class="social-signin twitter">Log in with Twitter</button>
-      <button class="social-signin google">Log in with Google+</button>
-    </div>
-    <div class="or">OR</div>
-    -->
     </div>
 </form>
-
-<!--javascript for validation*/-->

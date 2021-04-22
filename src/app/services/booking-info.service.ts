@@ -22,18 +22,22 @@ export class BookingInfoService {
   };
   constructor(http:HttpClient) {this.http=http; }
   
+  //----------------------Get Booked Seats Based on flight number selected-------------------//
   GetSeats(Flight_Number:number):Observable<string>{
     return this.http.get<string>(this.url+'/GetSeats/'+Flight_Number);
   }
 
+  //-----------------Change Stattus to success if payment successful---------------------//
   UpdateSeats(Flight_Number:number,Seats:string,Pnr_no:number):Observable<boolean>{
     return this.http.post<boolean>(this.url+'/UpdateSeats/'+Flight_Number+'/'+Seats+'/'+Pnr_no,this.httpOptions);
   }
 
-  GetFlights( Flight_Name:string, Flight_Date:string, Origin:string, Destination:string):Observable<FlightInfoModule>{
-    return this.http.get<FlightInfoModule>(this.url+'/GetFlights/'+Flight_Name+'/'+Flight_Date+'/'+Origin+'/'+Destination)
-  }
+  //SLOW
+  // GetFlights( Flight_Name:string, Flight_Date:string, Origin:string, Destination:string):Observable<FlightInfoModule>{
+  //   return this.http.get<FlightInfoModule>(this.url+'/GetFlights/'+Flight_Name+'/'+Flight_Date+'/'+Origin+'/'+Destination)
+  // }
 
+  //---------------------TO get flight details Based on selected details-----------------------//
   GetFlights1( Flight_Name:string, Flight_Date:string, Origin:string, Destination:string):Observable<FlightInfoModule>{
     return this.http.get<FlightInfoModule>(this.url+'/GetFlights1/'+Flight_Name+'/'+Flight_Date+'/'+Origin+'/'+Destination)
   }

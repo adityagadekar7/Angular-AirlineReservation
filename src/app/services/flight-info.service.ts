@@ -23,20 +23,24 @@ export class FlightInfoService {
   };
   constructor(http: HttpClient) {this.http=http; }
 
+
+
+//ADMIN DASHBOARD
+
+//--------To insert New Flight -----Flight_SchedulesController----------------//
 InsertNewFlight(fs:FlightInfoModule):Observable<boolean>  
 {
  return this.http.post<boolean>(this.url+"/"+'InsertFlight',fs,this.httpOptions); //passing 1 parameter   //httpOptions beacause FormBody used in WebApi(studio 2019) --passed through body not uri
 }
 
+//------------To Get All Flight Details-------------//
 GetAllFlights():Observable<FlightInfoModule[]>{
   return this.http.get<FlightInfoModule[]>(this.url+'/GetAllFlights');
 }
 
+//----------To delete a flight---------------//
 DeleteFlightF(id:number):Observable<boolean>
 {
   return this.http.delete<boolean>(this.url+'/'+'DeleteFlight'+'/'+id);
-  }
-
- 
-
+} 
 }

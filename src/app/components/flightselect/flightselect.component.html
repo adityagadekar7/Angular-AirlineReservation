@@ -1,8 +1,13 @@
 <br>
 <div class="flight-select">
     <div class="container">
-        <span><h2 *ngIf="FlagSearch" style="color:brown" >No Flights Available</h2></span>
-        <span *ngIf="!FlagSearch">
+        
+<!---------------------If No Flights are available------------------------->
+<span><h2 *ngIf="FlagSearch" style="color:brown" >No Flights Available</h2></span>
+<span *ngIf="!FlagSearch">
+
+
+<!---------------------To Show One Way Flights------------------------------------->
 <h2>OneWay</h2>
 <form #flightselect="ngForm" name="flightselect" class="center" >
 
@@ -37,7 +42,7 @@
 </table>
 </form><br>
 
-
+    <!-----------------To show Return flights based on "show"----------------------->
 <span *ngIf="show">
 <h2>Return Flights</h2>
 <form #flightselect1="ngForm" name="flightselect1"  class="center">

@@ -30,9 +30,7 @@ export class FlightselectComponent implements OnInit {
   show: boolean;
   showButton:boolean;
   returnCount:number;
-
   FlagSearch:boolean;
-
   ReturnOrigin: string;
   ReturnDestination: string;
   ReturnFlight_Name: string;
@@ -59,8 +57,9 @@ export class FlightselectComponent implements OnInit {
 
     // this.returnCount=Number(localStorage.getItem('RETURNCOUNT'));
     // alert(this.returnCount);
-    
     //alert(this.flag+this.Flight_Name+this.Flight_Date + this.Origin + this.Destination);
+
+    //-----------------------Show One Way Flight------------------------------------------//
 
     this.svc.GetFlights1(this.Flight_Name,this.Flight_Date,this.Origin,this.Destination).subscribe((data:FlightInfoModule)=>{
       this.flist=data;
@@ -94,16 +93,14 @@ export class FlightselectComponent implements OnInit {
       this.showButton=true;
       //alert(this.showButton);
     }
-    
     console.log(this.show);
-  //Return
+
+  //-------------------------------Show Return Flights----------------------------------------------------//
   this.ReturnFlight_Name = String(localStorage.getItem('RETURNFLIGHTNAME'));
     this.ReturnFlight_Date = String(localStorage.getItem('RETURNFLIGHTDATE'));
     this.ReturnOrigin = String(localStorage.getItem('RETURNORIGIN'));
     this.ReturnDestination = String(localStorage.getItem('RETURNDESTINATION'));
-
     //alert(this.ReturnFlight_Name+this.ReturnFlight_Date + this.ReturnOrigin + this.ReturnDestination );
-
     this.svc.GetFlights1(this.ReturnFlight_Name,this.ReturnFlight_Date,this.ReturnOrigin,this.ReturnDestination).subscribe((data1:FlightInfoModule)=>{
       if(data1[0]==null){
         console.log("Reached second if")
@@ -117,23 +114,23 @@ export class FlightselectComponent implements OnInit {
       console.log(this.flist1);
       console.log(data1);
     });
-    
   }
   }
 
 
-  FlightSelect(FlightNo,Cost):void
+  FlightSelect(FlightNo,Cost):void  
   {  
     //console.log(FlightNo);
     //console.log(Cost);
     console.log(this.uid);
+    //--------------------------Check if User is logged in or not--------------------------------------------//
     if(this.uid==0){
       alert("Please login to continue");
       this.ngzone.run(()=>this.router.navigateByUrl('/UserLogin'));
 
     }
     else{
-    alert(FlightNo+" || "+Cost);
+    //alert(FlightNo+" || "+Cost);
     localStorage.setItem('FLIGHTNUMBER',FlightNo);
     localStorage.setItem('COST',Cost);
     this.flag++;

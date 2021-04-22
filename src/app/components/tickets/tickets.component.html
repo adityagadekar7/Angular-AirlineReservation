@@ -5,22 +5,6 @@
     <tabset #tabset class=" nav-pills-success nav-justified">
         
         <tab heading="Booked Tickets">
-            <!-- <h2>Booked Tickets</h2> -->
-            <!-- <div class="ticket-details" align="center">
-                <form #bookedform="ngForm" name="bookedForm" (ngSubmit)="booked(bookedform)">
-                    <div>
-                        <label>User ID : </label>
-                        <input type="number" name="uid" [(ngModel)]="model.uid"
-                        #uid="ngModel" required/>
-                        <span *ngIf="uid.errors?.required">ID has to be entered</span>
-                    </div>
-                
-                    <div>
-                        <button type="submit" [disabled]="bookedform.invalid">Display</button>
-                    </div>
-                </form>
-            </div> -->
-
             <table class="table table-hover">
                 <thead class="thead-dark">
                 <tr>
@@ -29,11 +13,9 @@
                     <th>Departure Time</th>             
                     <th>Flight Number</th>  
                     <th>Airport Name</th>           
-                    <!-- <th>Passenger Name</th> -->
                     <th>From</th>
                     <th>To</th>
                     <th>Seat Numbers</th>
-                    
                     <th>Total Price</th>                
                 </tr>
                 </thead>
@@ -43,16 +25,14 @@
                      <td>{{item.Flight_Departing_Time}}</td>
                      <td>{{item.Flight_Number}}</td>
                      <td>{{item.Airport_Name}}</td>
-                     <!-- <td>{{item.FirstName}}  {{item.LastName}}</td> -->
                      <td>{{item.origin}}</td>
                      <td>{{item.Destination}}</td>
                      <td>{{item.Seats}}</td>
                      <td>{{item.total_price}}</td>
-                     
                 </tr>
             </table>
               
-              <!-- Modal -->
+              <!-- Modal to display passenger details when ticket is clicked-->
               <div class="modal fade" id="PsgDetails" tabindex="-1" role="dialog" aria-labelledby="PsgDetailsTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                   <div class="modal-content">
@@ -68,7 +48,6 @@
                         <th>Pnr No.</th>
                         <th>Passport Number</th>
                         <th>Passenger Name</th>
-                        <th>DOB</th>
                         <th>Gender</th>
                         <th>Phone Number</th>
                         <th>Covid Certificate</th>
@@ -77,7 +56,6 @@
                           <td>{{item.Pnr_no}}</td>
                           <td>{{item.PassportNumber}}</td>
                           <td>{{item.FirstName}} {{item.LastName}}</td>
-                          <td>{{item.DOB}}</td>
                           <td>{{item.Gender}}</td>
                           <td>{{item.PhoneNumber}}</td>
                           <td>{{item.CovidCertificate}}</td>
@@ -86,22 +64,14 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
-                      <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                     </div>
                   </div>
                 </div>
               </div>
-
-
-
-
         </tab>
-
-
 
         <tab heading="Cancelled Tickets">
             <!-- <h2>Cancelled Tickets</h2> -->
-            
             <table class="table table-striped">
                 <thead class="thead-dark">
                 <tr>
@@ -109,7 +79,6 @@
                     <th>Date</th>             
                     <th>Flight Number</th>  
                     <th>Airport Name</th>           
-                    <!-- <th>Passenger Name</th> -->
                     <th>From</th>
                     <th>To</th>
                     <th>Total Price</th>  
@@ -123,14 +92,13 @@
                     <td>{{item.Flight_Date}}</td>
                     <td>{{item.Flight_Number}}</td>
                     <td>{{item.Airport_Name}}</td>
-                    <!-- <td>{{item.FirstName}}  {{item.LastName}}</td> -->
                     <td>{{item.Origin}}</td>
                     <td>{{item.Destination}}</td>
                     <td>{{item.total_price}}</td>
                     <td>{{item.Refund_Amount}}</td>
                     <td>{{item.Dateofcancellation}}</td>
                     <td>{{item.timeofcancellation}}</td>
-               </tr>
+                </tr>
             </table>
         </tab>
 
@@ -138,13 +106,6 @@
             <div class="login-box  center">
                 <!-- <h2>Cancel Tickets</h2> -->
                 <form #cancelform="ngForm" name="cancelForm" (ngSubmit)="CancelFunction(cancelform)">
-                    <!-- <div>
-                        <label class="center">Ticket Number</label><br>
-                        <input type="number" name="tno" [(ngModel)]="model.tno"
-                        #tno="ngModel" class="center"required/><br>
-                        <span *ngIf="tno.errors?.required">Cannot be blank</span>
-                    </div> -->
-
                     <div><h4><b>Select Ticket</b></h4>
                         <select class="form-control" name="tno"  [(ngModel)]="model.tno" #tno="ngModel" style="background: rgb(165, 165, 165); color:aliceblue">
                             <option *ngFor="let item of bookedlist" [value]="item.pnr_no">Ticket No. - {{item.pnr_no}}, Flight Date - {{item.Flight_date}}, From - {{item.origin}}, To - {{item.Destination}}</option>

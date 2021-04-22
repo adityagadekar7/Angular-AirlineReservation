@@ -10,9 +10,7 @@
 
 div {
     padding-top: 10px;
-    padding-bottom: 10px;
-    
-    
+    padding-bottom: 10px;  
 }
 
 body {
@@ -65,8 +63,6 @@ input[type="password"], input[type="date"], input[type="number"],input [type="te
     font-size: 12px;
     width: 40%;
 }
-
-
 
 form {
     width: 450px;

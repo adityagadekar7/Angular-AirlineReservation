@@ -1,29 +1,17 @@
 <div class="login-box " align="center">
-  
     <form id="User" #loginform="ngForm" name="loginForm" (ngSubmit)="LoginData(loginform)"  class="center">
         <h3 class="center">User Login</h3>
         <div align="center">
-            <!-- <input type="number" name="uid" [(ngModel)]="model.uid"
-            #uid="ngModel" placeholder="User ID" required/> -->
             <input type="email" name="email" [(ngModel)]="model.email"
             #uid="ngModel" placeholder="Email" required/>
-    
             <input type="password" name="txtpass" [(ngModel)]="model.txtpass"
-            #txtpass="ngModel" placeholder="Password" required>
-     
+            #txtpass="ngModel" placeholder="Password" required> 
         </div>
     
         <div class="row" align="center" style="padding-left: 110px;">  
             <button class="buttonx btn btn-success" type="submit" [disabled]="loginform.invalid">  Login  </button>
             <a href="InsertUser"  class="buttonx  btn btn-success">   SignUp    </a>
         </div>
-    
-        <!--<div class="row" align="center" style="padding-left: 110px;">
-          <button class="buttonx btn btn-success" type="submit" [disabled]="loginform.invalid">  Login  </button>
-          <a href="registration" class="buttonx  btn btn-success">   SignUp    </a>
-         
-        </div>-->
-        
         <div >
            <h6 style="float: center;">Forgot <a href="resetpassword">  password?</a></h6>
         </div> 

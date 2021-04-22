@@ -40,6 +40,7 @@ export class TicketsComponent implements OnInit {
   flightdata=new FlightInfoModule();
   CompareTime:number;
   RefundAmount:number;
+  SelectedDate:Date;
 
   constructor(svc:TicketInfoService, svc1:BookingInfoService) 
   {
@@ -51,6 +52,8 @@ export class TicketsComponent implements OnInit {
     //this.id=Number(localStorage.getItem('UID'));
     this.id=Number(sessionStorage.getItem('UID'));
     console.log("TEST: "+this.id)
+
+    //----------------Booked tickets for that id when page reloads------------------//
     this.svc.GetBookedTickets(this.id).subscribe((databooked:TicketInfoModule[])=>{
       this.booked=databooked;
       this.bookedlist=databooked //ddl
@@ -62,6 +65,7 @@ export class TicketsComponent implements OnInit {
       }
     });
 
+    //----------------Cancelled tickets for that id when page reloads------------------//
     this.svc.GetCancelledTickets(this.id).subscribe((datacancelled:TicketInfoModule[])=>{
       this.cancelled=datacancelled;
       if(this.cancelled==null){
@@ -73,14 +77,15 @@ export class TicketsComponent implements OnInit {
     });  
   }
 
+  //-----------------Remove time from date-------------------//
   WithoutTime(dateTime){
     var date=new Date(dateTime);
     date.setHours(0,0,0,0);
     return date;
   }
 
+  //--------To Remove Cancelled Seats from Flights Schedules----------------//
   removeValue = function(SeatsToRemove) {
-    //separator = ",";
     var values = SeatsToRemove.split(",");
     console.log(values);
     for(var i = 0 ; i < this.reserved.length ; i++) {
@@ -93,6 +98,7 @@ export class TicketsComponent implements OnInit {
         //return this.reserved.join(",");
         }
     }
+
     this.UpdateCancelledSeats1=this.reserved.join(",")
     console.log(this.reserved);
     console.log(this.UpdateCancelledSeats1)
@@ -102,13 +108,11 @@ export class TicketsComponent implements OnInit {
     //return this.reserved;
   }
   
-
+  //-----------------------To get passenger details-----------------------//
   PsgDetailsFunction(pnr):void{
-    
     this.svc.GetPsgDetailsByPnr(pnr).subscribe((dataPsg:PassengerInfoModule[])=>{
       this.bookedPsg=dataPsg;
       console.log(this.bookedPsg);
-      
       if(this.booked==null){
         alert("No Booked Tickets");
       }
@@ -118,12 +122,13 @@ export class TicketsComponent implements OnInit {
     });
   }
 
-
+  convertToInt(val):number{return parseInt(val);}   //Used to convert Refund amount to int
+//------------------------------Cancel Booking------------------------------------------------//
   CancelFunction(cancelForm:NgForm):void{
     this.pnr=cancelForm.value.tno;
     console.log(this.pnr);
     
-    //Get Booked Ticket by pnr
+    //----------------Get Booked Ticket by pnr-------------------------//
     this.svc.GetBookedTicketByPnr(this.pnr).subscribe((datapnr:TicketInfoModule)=>{
       //console.log(datapnr.Pnr_no);
       this.ticketbypnr=datapnr;
@@ -136,38 +141,37 @@ export class TicketsComponent implements OnInit {
       else{
         console.log(datapnr);
       }
-
       console.log("Hello Flight Number: "+datapnr.Flight_Number);
 
-      // this.svc.GetFlightByFlightNumber(datapnr.Flight_Number).subscribe((dataflight:FlightInfoModule)=>{
-      //   this.flightdata=dataflight;
-      //   console.log("Test time"+this.flightdata.Flight_Departing_Time);
-      //   console.log("Test Date"+this.flightdata.Flight_Date);
-      // });
-
+      //----------------------Compare Ticket Time(Check for less than 3 hours)------------------------------------//
       this.svc.CompareTicketTime(datapnr.Flight_Number).subscribe((dataflight:number)=>{
         this.CompareTime=dataflight;
         console.log(this.CompareTime);
         if(this.CompareTime==0){
-          alert("Cannot be cancelled");
+          alert("Cannot be cancelled now");
         }
         else  //if ticket can be cancelled
         {
-          
+          this.SelectedDate=new Date(datapnr.Flight_Date)
+          if(this.SelectedDate<new Date())
+          {
+            alert("Cannot be cancelled now")
+          }
+          else
+          {
           var time=new Date().toLocaleTimeString('it-IT');
-
           this.Flight_Number=datapnr.Flight_Number;
-          alert("Test: "+this.Flight_Number);
+          ///alert("Test: "+this.Flight_Number);
           this.RefundAmount=datapnr.total_price/2;
-
           this.cancelbooked.Pnr_no=datapnr.Pnr_no; 
           this.cancelbooked.User_id=datapnr.User_Id;
           this.cancelbooked.Dateofcancellation=this.WithoutTime(Date()).toDateString();
           this.cancelbooked.timeofcancellation=time;
-          this.cancelbooked.Refund_Amount=this.RefundAmount;
+          this.cancelbooked.Refund_Amount=this.convertToInt(this.RefundAmount) ;
           this.cancelbooked.Status="Successful";
           console.log(this.cancelbooked);
 
+          //--------------------To insert in Cancelled Table-------------------//
           this.svc.CancelInsertTicket(this.cancelbooked).subscribe((datac:boolean)=>{
             alert(datac);
             if(datac==true)
@@ -179,10 +183,11 @@ export class TicketsComponent implements OnInit {
           this.ticketbypnr.status='Cancelled';
           console.log(this.ticketbypnr.status);
       
+          //--------------Change Status to cancelled-----------------------//
           this.svc.UpdateBookedTickets(this.pnr,this.ticketbypnr).subscribe((data:boolean)=>{
-            console.log("HellLLO");
+            //console.log("HellLLO");
             console.log(this.pnr);
-            alert(data);
+            //alert(data);
             if(data==true){
               alert("Update Successful"); 
               //---------To remove cancelled seats----------//
@@ -193,7 +198,7 @@ export class TicketsComponent implements OnInit {
                 console.log(this.reserved);
                 //this.removeValue("H3,H4,H5")
                 this.SeatsToRemove=this.ticketbypnr.Seats;
-                this.removeValue(this.SeatsToRemove);
+                this.removeValue(this.SeatsToRemove);  //to remove seats
               });
               //-------------------//
             }
@@ -201,21 +206,11 @@ export class TicketsComponent implements OnInit {
               alert("Update Failed");
             }
           });//UpdateBookedTicket Ends here
+        }
 
         }
-      });
-      
-      
-
-      
-
-        //console.log(this.Flight_Number);
-
-        
-    });  //GetBookedTicketBypnr Ends here
-
-
-  
+      });     
+    });  //GetBookedTicketBypnr Ends here  
   }//Function End
 
   //Tabs

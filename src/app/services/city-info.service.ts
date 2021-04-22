@@ -26,6 +26,7 @@ export class CityInfoService {
   };
   constructor(http:HttpClient) {this.http=http; }
 
+  //-------------Get City Information--------------//
   GetCity():Observable<CityInfoModule[]>
   {
     return this.http.get<CityInfoModule[]>(this.url+'/'+'GetCity');
